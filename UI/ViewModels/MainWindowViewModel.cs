@@ -8,22 +8,21 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using MuseDashModToolsUI.Contracts;
 using MuseDashModToolsUI.Contracts.ViewModels;
 using MuseDashModToolsUI.Models;
-using Splat;
+using Serilog;
 using static MuseDashModToolsUI.Localization.Resources;
-using ILogger = Serilog.ILogger;
 
 namespace MuseDashModToolsUI.ViewModels;
 
 public partial class MainWindowViewModel : ViewModelBase, IMainWindowViewModel
 {
     private readonly ILogger _logger;
-    private readonly IReadonlyDependencyResolver _resolver = Locator.Current;
     private readonly ISettingService _settingService;
     [ObservableProperty] private ViewModelBase? _content;
     [ObservableProperty] private List<TabView> _tabs = new();
     public static string Version => Assembly.GetExecutingAssembly().GetName().Version?.ToString(3)!;
 
-    public MainWindowViewModel(ILogger logger, ISettingService settingService)
+    public MainWindowViewModel(ILogger logger, ISettingService settingService, ISettingsViewModel settingsViewModel,
+        IModManageViewModel modManageViewModel)
     {
         _logger = logger;
         _settingService = settingService;
@@ -31,8 +30,8 @@ public partial class MainWindowViewModel : ViewModelBase, IMainWindowViewModel
             CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo(_settingService.Settings.LanguageCode);
         Tabs = new List<TabView>
         {
-            new((ViewModelBase)_resolver.GetRequiredService<IModManageViewModel>(), XAML_Tab_ModManage, "ModManage"),
-            new((ViewModelBase)_resolver.GetRequiredService<ISettingsViewModel>(), XAML_Tab_Setting, "Setting")
+            new((ViewModelBase)modManageViewModel, XAML_Tab_ModManage, "ModManage"),
+            new((ViewModelBase)settingsViewModel, XAML_Tab_Setting, "Setting")
         };
         _logger.Information("Main Window initialized");
         AppDomain.CurrentDomain.ProcessExit += OnExit!;

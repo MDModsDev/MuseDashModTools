@@ -4,12 +4,10 @@ using System.Globalization;
 using System.Linq;
 using System.Resources;
 using MuseDashModToolsUI.Contracts;
-using MuseDashModToolsUI.Contracts.ViewModels;
 using MuseDashModToolsUI.Localization;
 using MuseDashModToolsUI.Models;
-using Splat;
+using Serilog;
 using static MuseDashModToolsUI.Localization.Resources;
-using ILogger = Serilog.ILogger;
 
 namespace MuseDashModToolsUI.Services;
 
@@ -36,8 +34,8 @@ public class LocalizationService : ILocalizationService, INotifyPropertyChanged
         _settingService.Settings.LanguageCode = language;
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Item"));
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Item[]"));
-        Locator.Current.GetRequiredService<IMainWindowViewModel>().ChangeTabName();
-        Locator.Current.GetRequiredService<ISettingsViewModel>().ChangeOptionName();
+        /*Locator.Current.GetRequiredService<IMainWindowViewModel>().ChangeTabName();
+        Locator.Current.GetRequiredService<ISettingsViewModel>().ChangeOptionName();*/
         _logger.Information("Language changed to {Language}", language);
     }
 

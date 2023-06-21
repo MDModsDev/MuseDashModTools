@@ -9,12 +9,10 @@ using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Platform.Storage;
 using MuseDashModToolsUI.Contracts;
-using MuseDashModToolsUI.Contracts.ViewModels;
 using MuseDashModToolsUI.Extensions;
 using MuseDashModToolsUI.Models;
-using Splat;
+using Serilog;
 using static MuseDashModToolsUI.Localization.Resources;
-using ILogger = Serilog.ILogger;
 
 namespace MuseDashModToolsUI.Services;
 
@@ -92,7 +90,7 @@ public class SettingService : ISettingService
             _logger.Information("Showing choose folder dialogue");
             var dialogue = await new Window().StorageProvider.OpenFolderPickerAsync(new FolderPickerOpenOptions
                 { AllowMultiple = false, Title = FolderDialog_Title });
-            if (dialogue.Count <= 0)
+            if (dialogue.Count == 0)
             {
                 if (!string.IsNullOrEmpty(Settings.MuseDashFolder))
                     break;
@@ -108,7 +106,7 @@ public class SettingService : ISettingService
             await File.WriteAllTextAsync("Settings.json", json);
             _logger.Information("Settings saved to Settings.json");
 
-            Locator.Current.GetRequiredService<ISettingsViewModel>().Initialize();
+            /*Locator.Current.GetRequiredService<ISettingsViewModel>().Initialize();*/
             break;
         }
     }
