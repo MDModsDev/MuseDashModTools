@@ -9,6 +9,7 @@ using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Platform.Storage;
 using MuseDashModToolsUI.Contracts;
+using MuseDashModToolsUI.Contracts.ViewModels;
 using MuseDashModToolsUI.Extensions;
 using MuseDashModToolsUI.Models;
 using Serilog;
@@ -20,11 +21,13 @@ public class SettingService : ISettingService
 {
     private readonly IDialogueService _dialogueService;
     private readonly ILogger _logger;
+    private readonly Lazy<ISettingsViewModel> _settingsViewModel;
 
-    public SettingService(IDialogueService dialogueService, ILogger logger)
+    public SettingService(IDialogueService dialogueService, ILogger logger, Lazy<ISettingsViewModel> settingsViewModel)
     {
         _dialogueService = dialogueService;
         _logger = logger;
+        _settingsViewModel = settingsViewModel;
         Task.Run(InitializeLanguageAndPath);
     }
 
@@ -93,7 +96,12 @@ public class SettingService : ISettingService
             if (dialogue.Count == 0)
             {
                 if (!string.IsNullOrEmpty(Settings.MuseDashFolder))
+                {
+                    _logger.Information("Path not changed");
                     break;
+                }
+
+                _logger.Error("Invalid path, showing error message box");
                 await _dialogueService.CreateErrorMessageBox(MsgBox_Content_InvalidPath);
                 continue;
             }
@@ -106,7 +114,7 @@ public class SettingService : ISettingService
             await File.WriteAllTextAsync("Settings.json", json);
             _logger.Information("Settings saved to Settings.json");
 
-            /*Locator.Current.GetRequiredService<ISettingsViewModel>().Initialize();*/
+            _settingsViewModel.Value.Initialize();
             break;
         }
     }
