@@ -7,5 +7,5 @@ public interface ISettingService
 {
     public Setting Settings { get; }
     Task InitializeSettings();
-    Task OnChoosePath();
+    Task<bool> OnChoosePath();
 }

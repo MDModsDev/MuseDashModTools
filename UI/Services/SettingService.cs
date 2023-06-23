@@ -85,7 +85,7 @@ public class SettingService : ISettingService
         }
     }
 
-    public async Task OnChoosePath()
+    public async Task<bool> OnChoosePath()
     {
         while (true)
         {
@@ -98,7 +98,7 @@ public class SettingService : ISettingService
                 if (!string.IsNullOrEmpty(Settings.MuseDashFolder))
                 {
                     _logger.Information("Path not changed");
-                    break;
+                    return false;
                 }
 
                 _logger.Error("Invalid path, showing error message box");
@@ -107,6 +107,12 @@ public class SettingService : ISettingService
             }
 
             var path = dialogue[0].TryGetLocalPath();
+            if (path == Settings.MuseDashFolder)
+            {
+                _logger.Information("Path not changed");
+                return false;
+            }
+
             _logger.Information("User chose path {Path}", path);
             Settings.MuseDashFolder = path;
             Settings.LanguageCode = CultureInfo.CurrentUICulture.ToString();
@@ -115,7 +121,7 @@ public class SettingService : ISettingService
             _logger.Information("Settings saved to Settings.json");
 
             _settingsViewModel.Value.Initialize();
-            break;
+            return true;
         }
     }
 
