@@ -23,12 +23,12 @@ public class LocalizationService : ILocalizationService, INotifyPropertyChanged
     public string this[string resourceKey] =>
         Resources.ResourceManager.GetString(resourceKey, Culture)?.Replace("\\n", "\n") ?? $"#{resourceKey}#";
 
-    public LocalizationService(ILogger logger, ISettingService settingService, Lazy<IMainWindowViewModel> mainWindowViewModel,
+    public LocalizationService(ILogger logger, Lazy<IMainWindowViewModel> mainWindowViewModel, ISettingService settingService,
         Lazy<ISettingsViewModel> settingsViewModel)
     {
         _logger = logger;
-        _settingService = settingService;
         _mainWindowViewModel = mainWindowViewModel;
+        _settingService = settingService;
         _settingsViewModel = settingsViewModel;
         GetAvailableCultures();
     }

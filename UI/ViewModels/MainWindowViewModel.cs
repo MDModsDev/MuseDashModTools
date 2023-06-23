@@ -5,6 +5,7 @@ using System.IO;
 using System.Reflection;
 using System.Text.Json;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using MuseDashModToolsUI.Contracts;
 using MuseDashModToolsUI.Contracts.ViewModels;
 using MuseDashModToolsUI.Models;
@@ -18,6 +19,7 @@ public partial class MainWindowViewModel : ViewModelBase, IMainWindowViewModel
     private readonly ILogger _logger;
     private readonly ISettingService _settingService;
     [ObservableProperty] private ViewModelBase? _content;
+    [ObservableProperty] private int _selectedTabIndex;
     [ObservableProperty] private List<TabView> _tabs = new();
     public static string Version => Assembly.GetExecutingAssembly().GetName().Version?.ToString(3)!;
 
@@ -33,15 +35,9 @@ public partial class MainWindowViewModel : ViewModelBase, IMainWindowViewModel
             new((ViewModelBase)modManageViewModel, XAML_Tab_ModManage, "ModManage"),
             new((ViewModelBase)settingsViewModel, XAML_Tab_Setting, "Setting")
         };
+        SwitchTab();
         _logger.Information("Main Window initialized");
         AppDomain.CurrentDomain.ProcessExit += OnExit!;
-    }
-
-    public void SwitchTab(int index)
-    {
-        Content = Tabs[index].ViewModel;
-        var name = Tabs[index].Name;
-        _logger.Information("Switching tab to {Name}", name);
     }
 
     public void ChangeTabName()
@@ -50,9 +46,18 @@ public partial class MainWindowViewModel : ViewModelBase, IMainWindowViewModel
         Tabs[1].DisplayName = XAML_Tab_Setting;
     }
 
+    [RelayCommand]
+    private void SwitchTab()
+    {
+        Content = Tabs[SelectedTabIndex].ViewModel;
+        var name = Tabs[SelectedTabIndex].Name;
+        _logger.Information("Switching tab to {Name}", name);
+    }
+
     private void OnExit(object sender, EventArgs e)
     {
-        var json = JsonSerializer.Serialize(_settingService.Settings, new JsonSerializerOptions { WriteIndented = true });
+        var json = JsonSerializer.Serialize(_settingService.Settings,
+            new JsonSerializerOptions { WriteIndented = true });
         File.WriteAllText("Settings.json", json);
         _logger.Information("Settings saved");
     }
