@@ -5,7 +5,6 @@ using System.Globalization;
 using System.Linq;
 using System.Resources;
 using MuseDashModToolsUI.Contracts;
-using MuseDashModToolsUI.Contracts.ViewModels;
 using MuseDashModToolsUI.Localization;
 using MuseDashModToolsUI.Models;
 using Serilog;
@@ -16,33 +15,31 @@ namespace MuseDashModToolsUI.Services;
 public class LocalizationService : ILocalizationService, INotifyPropertyChanged
 {
     private readonly ILogger _logger;
-    private readonly Lazy<IMainWindowViewModel> _mainWindowViewModel;
     private readonly ISettingService _settingService;
-    private readonly Lazy<ISettingsViewModel> _settingsViewModel;
+    private readonly Lazy<IUpdateTextService> _updateUiService;
+
+    public LocalizationService(ILogger logger, ISettingService settingService, Lazy<IUpdateTextService> updateUiService)
+    {
+        _logger = logger;
+        _settingService = settingService;
+        _updateUiService = updateUiService;
+        GetAvailableCultures();
+    }
 
     public string this[string resourceKey] =>
         Resources.ResourceManager.GetString(resourceKey, Culture)?.Replace("\\n", "\n") ?? $"#{resourceKey}#";
-
-    public LocalizationService(ILogger logger, Lazy<IMainWindowViewModel> mainWindowViewModel, ISettingService settingService,
-        Lazy<ISettingsViewModel> settingsViewModel)
-    {
-        _logger = logger;
-        _mainWindowViewModel = mainWindowViewModel;
-        _settingService = settingService;
-        _settingsViewModel = settingsViewModel;
-        GetAvailableCultures();
-    }
 
     public List<Language> AvailableLanguages { get; } = new();
 
     public void SetLanguage(string language)
     {
+        if (CultureInfo.CurrentUICulture.Name == language) return;
         CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo(language);
         _settingService.Settings.LanguageCode = language;
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Item"));
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Item[]"));
-        _mainWindowViewModel.Value.ChangeTabName();
-        _settingsViewModel.Value.ChangeOptionName();
+        _updateUiService.Value.ChangeTabName();
+        _updateUiService.Value.ChangeOptionName();
         _logger.Information("Language changed to {Language}", language);
     }
 

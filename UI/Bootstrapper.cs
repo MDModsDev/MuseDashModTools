@@ -26,9 +26,11 @@ public static class Bootstrapper
         builder.RegisterType<ModService>().As<IModService>().SingleInstance();
         builder.RegisterType<ModManageViewModel>().As<IModManageViewModel>().SingleInstance();
         builder.RegisterType<SettingsViewModel>().As<ISettingsViewModel>().SingleInstance();
+        builder.RegisterType<UpdateTextService>().As<IUpdateTextService>().SingleInstance();
         builder.RegisterType<MainWindowViewModel>().As<IMainWindowViewModel>().SingleInstance();
-        //builder.Register(context => new LocalizeExtensions { LocalizationService = context.Resolve<ILocalizationService>() });
+
         var container = builder.Build();
         DependencyInjectionExtension.Resolver = type => container.Resolve(type!);
+        LocalizeExtensions.LocalizationService = container.Resolve<ILocalizationService>();
     }
 }
