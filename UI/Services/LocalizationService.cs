@@ -10,19 +10,19 @@ using MuseDashModToolsUI.Models;
 using Serilog;
 using static MuseDashModToolsUI.Localization.Resources;
 
+#pragma warning disable CS8618
+
 namespace MuseDashModToolsUI.Services;
 
 public class LocalizationService : ILocalizationService, INotifyPropertyChanged
 {
     private readonly ILogger _logger;
-    private readonly ISettingService _settingService;
-    private readonly Lazy<IUpdateTextService> _updateTextService;
+    public ISettingService SettingService { get; init; }
+    public Lazy<IUpdateTextService> UpdateTextService { get; init; }
 
-    public LocalizationService(ILogger logger, ISettingService settingService, Lazy<IUpdateTextService> updateTextService)
+    public LocalizationService(ILogger logger)
     {
         _logger = logger;
-        _settingService = settingService;
-        _updateTextService = updateTextService;
         GetAvailableCultures();
     }
 
@@ -35,11 +35,11 @@ public class LocalizationService : ILocalizationService, INotifyPropertyChanged
     {
         if (CultureInfo.CurrentUICulture.Name == language) return;
         CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo(language);
-        _settingService.Settings.LanguageCode = language;
+        SettingService.Settings.LanguageCode = language;
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Item"));
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Item[]"));
-        _updateTextService.Value.ChangeTabName();
-        _updateTextService.Value.ChangeOptionName();
+        UpdateTextService.Value.ChangeTabName();
+        UpdateTextService.Value.ChangeOptionName();
         _logger.Information("Language changed to {Language}", language);
     }
 
@@ -50,7 +50,6 @@ public class LocalizationService : ILocalizationService, INotifyPropertyChanged
         var rm = new ResourceManager(typeof(Resources));
         var cultures = CultureInfo.GetCultures(CultureTypes.AllCultures);
         var defaultCulture = CultureInfo.GetCultureInfo("en");
-
 
         foreach (var culture in cultures)
         {
