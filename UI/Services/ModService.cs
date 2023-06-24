@@ -31,7 +31,6 @@ public class ModService : IModService
     public ILogger Logger { get; init; }
     public ISettingService Settings { get; init; }
 
-
     public async Task InitializeModList(SourceCache<Mod, string> sourceCache, ReadOnlyObservableCollection<Mod> mods)
     {
         Logger.Information("Initializing mod list...");
@@ -57,50 +56,6 @@ public class ModService : IModService
             Logger.Fatal(ex, "Load local mods failed");
             Environment.Exit(0);
             return;
-        }
-
-        var isTracked = new bool[localMods.Count];
-        foreach (var webMod in webMods)
-        {
-            var localMod = localMods.FirstOrDefault(x => x.Name == webMod.Name);
-            var localModIdx = localMods.IndexOf(localMod!);
-
-            if (localMod is null)
-            {
-                webMod.IsTracked = true;
-                webMod.IsIncompatible = !CheckCompatible(webMod);
-                sourceCache.AddOrUpdate(webMod);
-                await CheckModToolsInstall(webMod);
-                continue;
-            }
-
-            if (localMods.Count(x => x.Name == localMod.Name) > 1)
-            {
-                localMod.IsDuplicated = true;
-                localMod.DuplicatedModNames =
-                    string.Join("\r\n", localMods.Where(x => x.Name == localMod.Name).Select(x => x.FileNameExtended()));
-            }
-
-            isTracked[localModIdx] = true;
-            localMod.IsTracked = true;
-            localMod.Version = webMod.Version;
-            localMod.GameVersion = webMod.GameVersion;
-            localMod.DependentLibs = webMod.DependentLibs;
-            localMod.DependentMods = webMod.DependentMods;
-            localMod.IncompatibleMods = webMod.IncompatibleMods;
-            localMod.DownloadLink = webMod.DownloadLink;
-            localMod.HomePage = webMod.HomePage;
-            localMod.Description = webMod.Description;
-
-            var versionState = new Version(webMod.Version!) > new Version(localMod.LocalVersion!) ? -1 :
-                new Version(webMod.Version!) < new Version(localMod.LocalVersion!) ? 1 : 0;
-            localMod.State = (UpdateState)versionState;
-            localMod.IsShaMismatched = versionState == 0 && webMod.SHA256 != localMod.SHA256;
-            if (localMod.IsShaMismatched)
-                localMod.State = UpdateState.Modified;
-            localMod.IsIncompatible = !CheckCompatible(localMod);
-            sourceCache.AddOrUpdate(localMod);
-            Logger.Information("Mod {Name} loaded to UI", localMod.Name);
         }
 
         await LoadModsToUI(localMods, webMods);
@@ -344,7 +299,7 @@ public class ModService : IModService
     private async Task LoadModsToUI(List<Mod> localMods, List<Mod> webMods)
     {
         var isTracked = new bool[localMods.Count];
-        foreach (var webMod in webMods!)
+        foreach (var webMod in webMods)
         {
             var localMod = localMods.FirstOrDefault(x => x.Name == webMod.Name);
             var localModIdx = localMods.IndexOf(localMod!);
