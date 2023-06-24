@@ -15,19 +15,19 @@ using MuseDashModToolsUI.Models;
 using Serilog;
 using static MuseDashModToolsUI.Localization.Resources;
 
+#pragma warning disable CS8618
+
 namespace MuseDashModToolsUI.Services;
 
 public class SettingService : ISettingService
 {
-    private readonly IDialogueService _dialogueService;
     private readonly ILogger _logger;
-    private readonly Lazy<ISettingsViewModel> _settingsViewModel;
+    public IDialogueService DialogueService { get; init; }
+    public Lazy<ISettingsViewModel> SettingsViewModel { get; init; }
 
-    public SettingService(IDialogueService dialogueService, ILogger logger, Lazy<ISettingsViewModel> settingsViewModel)
+    public SettingService(ILogger logger)
     {
-        _dialogueService = dialogueService;
         _logger = logger;
-        _settingsViewModel = settingsViewModel;
         Task.Run(InitializeLanguageAndPath);
     }
 
@@ -41,7 +41,7 @@ public class SettingService : ISettingService
             if (!File.Exists("Settings.json"))
             {
                 _logger.Error("Settings.json not found, creating new one");
-                await _dialogueService.CreateErrorMessageBox("Warning", MsgBox_Content_ChoosePath.Localize());
+                await DialogueService.CreateErrorMessageBox("Warning", MsgBox_Content_ChoosePath.Localize());
                 await OnChoosePath();
                 return;
             }
@@ -51,7 +51,7 @@ public class SettingService : ISettingService
             if (string.IsNullOrEmpty(settings.MuseDashFolder))
             {
                 _logger.Error("Settings.json stored path is empty, asking user to choose path");
-                await _dialogueService.CreateErrorMessageBox(MsgBox_Title_Warning, MsgBox_Content_NullPath.Localize());
+                await DialogueService.CreateErrorMessageBox(MsgBox_Title_Warning, MsgBox_Content_NullPath.Localize());
                 await OnChoosePath();
                 await InitializeSettings();
             }
@@ -81,7 +81,7 @@ public class SettingService : ISettingService
         catch (Exception ex)
         {
             _logger.Error(ex, "Error occurred while initializing settings");
-            await _dialogueService.CreateErrorMessageBox(ex.ToString());
+            await DialogueService.CreateErrorMessageBox(ex.ToString());
         }
     }
 
@@ -102,7 +102,7 @@ public class SettingService : ISettingService
                 }
 
                 _logger.Error("Invalid path, showing error message box");
-                await _dialogueService.CreateErrorMessageBox(MsgBox_Content_InvalidPath);
+                await DialogueService.CreateErrorMessageBox(MsgBox_Content_InvalidPath);
                 continue;
             }
 
@@ -120,7 +120,7 @@ public class SettingService : ISettingService
             await File.WriteAllTextAsync("Settings.json", json);
             _logger.Information("Settings saved to Settings.json");
 
-            _settingsViewModel.Value.Initialize();
+            SettingsViewModel.Value.Initialize();
             return true;
         }
     }

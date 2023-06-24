@@ -19,7 +19,7 @@ public static class Bootstrapper
         builder.RegisterInstance(new HttpClient());
         builder.RegisterType<DialogueService>().As<IDialogueService>();
         builder.RegisterType<GitHubService>().As<IGitHubService>().PropertiesAutowired();
-        builder.RegisterType<SettingService>().As<ISettingService>().SingleInstance();
+        builder.RegisterType<SettingService>().As<ISettingService>().PropertiesAutowired().SingleInstance();
         builder.RegisterType<LocalizationService>().As<ILocalizationService>().PropertiesAutowired().SingleInstance();
         builder.RegisterType<DownloadWindowViewModel>().As<IDownloadWindowViewModel>().PropertiesAutowired().SingleInstance();
         builder.RegisterType<LocalService>().As<ILocalService>().PropertiesAutowired().SingleInstance();
