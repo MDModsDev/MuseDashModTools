@@ -152,7 +152,6 @@ public class ModService : IModService
             await OnInstallMod(item);
             return;
         }
-
         var result = await DialogueService.CreateConfirmMessageBox(
             string.Format(MsgBox_Content_ReinstallMod.Localize(), item.Name));
         if (!result) return;
@@ -160,11 +159,11 @@ public class ModService : IModService
         await OnInstallMod(item);
     }
 
-    public async Task OnToggleMod(Mod item)
+    public async Task OnToggleMod(Mod? item)
     {
         try
         {
-            switch (item.IsDisabled)
+            switch (item!.IsDisabled)
             {
                 case true:
                     var enabledReverseDependencies = SearchReverseDependencies(item.Name!)
@@ -226,7 +225,7 @@ public class ModService : IModService
                     break;
             }
 
-            item.IsDisabled = !item.IsDisabled;
+            item!.IsDisabled = !item.IsDisabled;
         }
     }
 
@@ -389,7 +388,7 @@ public class ModService : IModService
         return _sourceCache?.Items.Where(x => reverseDependencyNames!.Contains(x.Name))!;
     }
 
-    private async Task<AskType> ChangeDependenciesState(string content, IEnumerable<Mod> dependencies, AskType askType, bool turnOff)
+    private async Task<AskType> ChangeDependenciesState(string content, IEnumerable<Mod?> dependencies, AskType askType, bool turnOff)
     {
         switch (askType)
         {
@@ -421,7 +420,7 @@ public class ModService : IModService
         {
             foreach (var dependency in dependencies)
             {
-                dependency.IsDisabled = turnOff;
+                dependency!.IsDisabled = turnOff;
                 await OnToggleMod(dependency);
             }
         }
