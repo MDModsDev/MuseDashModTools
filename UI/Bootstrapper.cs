@@ -26,7 +26,7 @@ public static class Bootstrapper
         builder.RegisterType<ModService>().As<IModService>().SingleInstance();
         builder.RegisterType<ModManageViewModel>().As<IModManageViewModel>().SingleInstance();
         builder.RegisterType<SettingsViewModel>().As<ISettingsViewModel>().SingleInstance();
-        builder.RegisterType<UpdateTextService>().As<IUpdateTextService>().SingleInstance();
+        builder.RegisterType<UpdateTextService>().As<IUpdateTextService>().PropertiesAutowired().SingleInstance();
         builder.RegisterType<MainWindowViewModel>().As<IMainWindowViewModel>().SingleInstance();
 
         var container = builder.Build();

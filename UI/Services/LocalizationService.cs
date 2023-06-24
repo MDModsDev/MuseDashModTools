@@ -16,13 +16,13 @@ public class LocalizationService : ILocalizationService, INotifyPropertyChanged
 {
     private readonly ILogger _logger;
     private readonly ISettingService _settingService;
-    private readonly Lazy<IUpdateTextService> _updateUiService;
+    private readonly Lazy<IUpdateTextService> _updateTextService;
 
-    public LocalizationService(ILogger logger, ISettingService settingService, Lazy<IUpdateTextService> updateUiService)
+    public LocalizationService(ILogger logger, ISettingService settingService, Lazy<IUpdateTextService> updateTextService)
     {
         _logger = logger;
         _settingService = settingService;
-        _updateUiService = updateUiService;
+        _updateTextService = updateTextService;
         GetAvailableCultures();
     }
 
@@ -38,8 +38,8 @@ public class LocalizationService : ILocalizationService, INotifyPropertyChanged
         _settingService.Settings.LanguageCode = language;
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Item"));
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Item[]"));
-        _updateUiService.Value.ChangeTabName();
-        _updateUiService.Value.ChangeOptionName();
+        _updateTextService.Value.ChangeTabName();
+        _updateTextService.Value.ChangeOptionName();
         _logger.Information("Language changed to {Language}", language);
     }
 
