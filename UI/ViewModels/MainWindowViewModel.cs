@@ -23,19 +23,20 @@ public partial class MainWindowViewModel : ViewModelBase, IMainWindowViewModel
     [ObservableProperty] private List<TabView> _tabs = new();
     public static string Version => Assembly.GetExecutingAssembly().GetName().Version?.ToString(3)!;
 
-    public MainWindowViewModel(ILogger logger, ISettingService settingService, ISettingsViewModel settingsViewModel,
-        IModManageViewModel modManageViewModel)
+    public MainWindowViewModel(IGitHubService gitHubService, ILogger logger, ISettingService settingService,
+        ISettingsViewModel settingsViewModel, IModManageViewModel modManageViewModel)
     {
         _logger = logger;
         _settingService = settingService;
-        if (_settingService.Settings.LanguageCode is not null)
-            CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo(_settingService.Settings.LanguageCode);
+        if (settingService.Settings.LanguageCode is not null)
+            CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo(settingService.Settings.LanguageCode);
         Tabs = new List<TabView>
         {
             new((ViewModelBase)modManageViewModel, XAML_Tab_ModManage, "ModManage"),
             new((ViewModelBase)settingsViewModel, XAML_Tab_Setting, "Setting")
         };
         SwitchTab();
+        gitHubService.CheckUpdates();
         _logger.Information("Main Window initialized");
         AppDomain.CurrentDomain.ProcessExit += OnExit!;
     }

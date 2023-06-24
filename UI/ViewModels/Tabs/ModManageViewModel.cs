@@ -18,8 +18,6 @@ namespace MuseDashModToolsUI.ViewModels.Tabs;
 
 public partial class ModManageViewModel : ViewModelBase, IModManageViewModel
 {
-    private readonly IGitHubService _gitHubService;
-    private readonly ILocalService _localService;
     private readonly ILogger _logger;
     private readonly ReadOnlyObservableCollection<Mod> _mods;
     private readonly IModService _modService;
@@ -29,18 +27,13 @@ public partial class ModManageViewModel : ViewModelBase, IModManageViewModel
     private readonly FileSystemWatcher _watcher = new();
     [ObservableProperty] private FilterType _categoryFilterType;
     [ObservableProperty] private string _filter;
+    public IGitHubService GitHubService { get; init; }
+    public ILocalService LocalService { get; init; }
     public ReadOnlyObservableCollection<Mod> Mods => _mods;
 
-    public ModManageViewModel()
-    {
-    }
-
-    public ModManageViewModel(IGitHubService gitHubService, ILocalService localService, ILogger logger, IModService modService,
-        ISettingService settingService
+    public ModManageViewModel(ILogger logger, IModService modService, ISettingService settingService
     )
     {
-        _gitHubService = gitHubService;
-        _localService = localService;
         _modService = modService;
         _logger = logger;
         _settingService = settingService;
@@ -64,7 +57,6 @@ public partial class ModManageViewModel : ViewModelBase, IModManageViewModel
     {
         await _settingService.InitializeSettings();
         await _modService.InitializeModList(_sourceCache, Mods);
-        await _gitHubService.CheckUpdates();
         FileMonitorStart();
         _logger.Information("Mod Manage Window Initialized");
     }
@@ -102,10 +94,10 @@ public partial class ModManageViewModel : ViewModelBase, IModManageViewModel
     }
 
     [RelayCommand]
-    private async Task OnInstallMelonLoader() => await _localService.OnInstallMelonLoader();
+    private async Task OnInstallMelonLoader() => await LocalService.OnInstallMelonLoader();
 
     [RelayCommand]
-    private async Task OnUninstallMelonLoader() => await _localService.OnUninstallMelonLoader();
+    private async Task OnUninstallMelonLoader() => await LocalService.OnUninstallMelonLoader();
 
     [RelayCommand]
     private void OpenUrl(string path)
@@ -119,13 +111,13 @@ public partial class ModManageViewModel : ViewModelBase, IModManageViewModel
     }
 
     [RelayCommand]
-    private async Task OpenUserDataFolder() => await _localService.OpenUserDataFolder();
+    private async Task OpenUserDataFolder() => await LocalService.OpenUserDataFolder();
 
     [RelayCommand]
-    private async Task OpenModsFolder() => await _localService.OpenModsFolder();
+    private async Task OpenModsFolder() => await LocalService.OpenModsFolder();
 
     [RelayCommand]
-    private async Task OnCheckUpdate() => await _gitHubService.CheckUpdates(true);
+    private async Task OnCheckUpdate() => await GitHubService.CheckUpdates(true);
 
     [RelayCommand]
     private void OnFilterAll() => CategoryFilterType = FilterType.All;

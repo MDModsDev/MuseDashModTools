@@ -24,7 +24,7 @@ public static class Bootstrapper
         builder.RegisterType<DownloadWindowViewModel>().As<IDownloadWindowViewModel>().PropertiesAutowired().SingleInstance();
         builder.RegisterType<LocalService>().As<ILocalService>().PropertiesAutowired().SingleInstance();
         builder.RegisterType<ModService>().As<IModService>().PropertiesAutowired().SingleInstance();
-        builder.RegisterType<ModManageViewModel>().As<IModManageViewModel>().SingleInstance();
+        builder.RegisterType<ModManageViewModel>().As<IModManageViewModel>().PropertiesAutowired().SingleInstance();
         builder.RegisterType<SettingsViewModel>().As<ISettingsViewModel>().SingleInstance();
         builder.RegisterType<UpdateTextService>().As<IUpdateTextService>().PropertiesAutowired().SingleInstance();
         builder.RegisterType<MainWindowViewModel>().As<IMainWindowViewModel>().SingleInstance();
