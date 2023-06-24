@@ -41,12 +41,6 @@ public partial class MainWindowViewModel : ViewModelBase, IMainWindowViewModel
         AppDomain.CurrentDomain.ProcessExit += OnExit!;
     }
 
-    public void ChangeTabName()
-    {
-        Tabs[0].DisplayName = XAML_Tab_ModManage;
-        Tabs[1].DisplayName = XAML_Tab_Setting;
-    }
-
     [RelayCommand]
     private void SwitchTab()
     {
