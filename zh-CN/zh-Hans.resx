@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="XAML_About_Project">
+    <value>关于项目</value>
+  </data>
+  <data name="XAML_Check_Update">
+    <value>检查更新</value>
+  </data>
+  <data name="XAML_All">
+    <value>全部</value>
+  </data>
+  <data name="XAML_Enabled">
+    <value>已启用</value>
+  </data>
+  <data name="XAML_Installed">
+    <value>已安装</value>
+  </data>
+  <data name="XAML_Outdated">
+    <value>有更新</value>
+  </data>
+  <data name="XAML_Incompatible">
+    <value>不兼容</value>
+  </data>
+  <data name="XAML_Install_MelonLoader">
+    <value>安装\nMelonLoader</value>
+  </data>
+  <data name="XAML_Uninstall_MelonLoader">
+    <value>卸载\nMelonLoader</value>
+  </data>
+  <data name="XAML_Path">
+    <value>Muse Dash 文件夹路径</value>
+  </data>
+  <data name="XAML_ModsFolder">
+    <value>模组文件夹</value>
+  </data>
+  <data name="XAML_SearchBar">
+    <value>搜索模组    （名字，作者，描述）</value>
+  </data>
+  <data name="XAML_Uninstall_Mod">
+    <value>卸载</value>
+  </data>
+  <data name="XAML_Install_Mod">
+    <value>安装</value>
+  </data>
+  <data name="XAML_Reinstall_Mod">
+    <value>重装</value>
+  </data>
+  <data name="XAML_Update_Mod">
+    <value>更新</value>
+  </data>
+  <data name="MsgBox_Title_Failure">
+    <value>失败</value>
+  </data>
+  <data name="MsgBox_Title_Warning">
+    <value>警告</value>
+  </data>
+  <data name="MsgBox_Title_Success">
+    <value>成功</value>
+  </data>
+  <data name="MsgBox_Button_Yes">
+    <value>是</value>
+  </data>
+  <data name="MsgBox_Button_No">
+    <value>否</value>
+  </data>
+  <data name="MsgBox_Button_YesNoAsk">
+    <value>是并且不再询问</value>
+  </data>
+  <data name="MsgBox_Button_NoNoAsk">
+    <value>否并且不再询问</value>
+  </data>
+  <data name="MsgBox_Content_LatestVersion">
+    <value>检查更新成功\nMuse Dash Mod Tools已是最新版\n</value>
+  </data>
+  <data name="MsgBox_Title_Notice">
+    <value>注意</value>
+  </data>
+  <data name="MsgBox_Content_NewerVersion">
+    <value>有新版本的 Muse Dash Mod Tools （{0}）已经发布\n你想要现在就安装吗\n\n发布标题：\n{1}\n\n发布内容：\n{2}</value>
+  </data>
+  <data name="FolderDialog_Title">
+    <value>选择 Muse Dash 文件夹</value>
+  </data>
+  <data name="MsgBox_Content_InvalidPath">
+    <value>你选择的路径无效，请再次选择</value>
+  </data>
+  <data name="MsgBox_Content_NullPath">
+    <value>你所存储的 Muse Dash 文件夹是空\n请选择正确的文件夹</value>
+  </data>
+  <data name="MsgBox_Content_ChoosePath">
+    <value>你还没有选择 Muse Dash 的文件夹\n请选择文件夹</value>
+  </data>
+  <data name="MsgBox_Content_BrokenMods">
+    <value>你下载的 Mod 有问题\n如果有0KB的 Mod，请删除之后重新启动应用</value>
+  </data>
+  <data name="MsgBox_Content_CheckUpdateFailed">
+    <value>检查更新失败\n是否联网？</value>
+  </data>
+  <data name="MsgBox_Content_UpdaterNotFound">
+    <value>无法找到 Updater.exe\n请确认你下载了整个软件</value>
+  </data>
+  <data name="MsgBox_Content_CopyUpdaterFailed">
+    <value>无法将 Updater.exe 复制到目标文件夹\n{0}</value>
+  </data>
+  <data name="MsgBox_Content_NoExeFound">
+    <value>无法找到 MuseDash.exe 或者GameAssembly.dll\n请选择正确的文件夹</value>
+  </data>
+  <data name="MsgBox_Content_IncorrectVersion">
+    <value>MuseDash.exe 并不是正确的版本\n你是否在使用破解版？</value>
+  </data>
+  <data name="MsgBox_Content_ExeVerifyFailed">
+    <value>验证 MuseDash.exe 失败\n请确认你选择了正确的文件夹</value>
+  </data>
+  <data name="MsgBox_Content_ReadGameVersionFailed">
+    <value>无法读取当前游戏版本\n你是否完整下载了 Muse Dash？\n请检查你的globalgamemanagers文件在路径\n{0}</value>
+  </data>
+  <data name="MsgBox_Content_InstallMelonLoader">
+    <value>你没有安装 MelonLoader\n需要安装之后才能运行所有的mod\n是否现在安装？</value>
+  </data>
+  <data name="MsgBox_Content_UninstallMelonLoaderSuccess">
+    <value>MelonLoader 已经成功被卸载\n</value>
+  </data>
+  <data name="MsgBox_Content_UninstallMelonLoaderFailed">
+    <value>无法卸载 MelonLoader\n请确认你的游戏没有在运行！</value>
+  </data>
+  <data name="MsgBox_Content_NoMelonLoaderFolder">
+    <value>无法找到 MelonLoader 文件夹\n你是否安装了 MelonLoader？</value>
+  </data>
+  <data name="MsgBox_Content_ChooseCorrectPath">
+    <value>先选择正确的 Muse Dash文件夹！</value>
+  </data>
+  <data name="MsgBox_Content_InstallModTools">
+    <value>你没有安装 MuseDashModTools 的mod\n每次开启 Muse Dash 的时候会自动检查mod更新\n是否现在安装？</value>
+  </data>
+  <data name="MsgBox_Content_NoDownloadLink">
+    <value>这个mod没有可用链接进行下载\n</value>
+  </data>
+  <data name="MsgBox_Content_InstallModFailed_Internet">
+    <value>Mod安装失败。是否联网？\n{0}</value>
+  </data>
+  <data name="MsgBox_Content_InstallModFailed_Game">
+    <value>Mod安装失败。游戏是否正在运行？\n{0}</value>
+  </data>
+  <data name="MsgBox_Content_InstallModFailed">
+    <value>Mod安装失败\n{0}</value>
+  </data>
+  <data name="MsgBox_Content_InstallDependencyFailed">
+    <value>依赖安装失败\n{0}</value>
+  </data>
+  <data name="MsgBox_Content_EnableDependency">
+    <value>你想要启用 {0} 的依赖mod {1} 吗？</value>
+  </data>
+  <data name="MsgBox_Content_InstallModSuccess">
+    <value>{0} 已成功安装\n</value>
+  </data>
+  <data name="MsgBox_Content_ReinstallMod">
+    <value>你正在要求重装{0}\n请确认你的操作</value>
+  </data>
+  <data name="MsgBox_Content_UninstallModFailed_Game">
+    <value>Mod卸载失败\n{0}</value>
+  </data>
+  <data name="MsgBox_Content_UninstallModFailed">
+    <value>Mod卸载失败。游戏是否正在运行？\n{0}</value>
+  </data>
+  <data name="XAML_Mod_Incompatible">
+    <value>{0} 的 {1} 版本和你的游戏版本不兼容</value>
+  </data>
+  <data name="XAML_Mod_Outdated">
+    <value>本地版本：{0}（有新版本：{1}）</value>
+  </data>
+  <data name="XAML_Mod_Newer">
+    <value>本地版本：{0}（WOW MOD开发者）</value>
+  </data>
+  <data name="XAML_Mod_Modified">
+    <value>本地版本：{0}（修改）</value>
+  </data>
+  <data name="XAML_Mod_Normal">
+    <value>本地版本：{0}</value>
+  </data>
+  <data name="XAML_Mod_Description">
+    <value>{0} \n\n作者： {1} \n线上版本：{2}\n支持游戏版本：{3}</value>
+  </data>
+  <data name="XAML_Mod_CompatibleGameVersion">
+    <value>全部</value>
+  </data>
+  <data name="XAML_Mod_Dependencies">
+    <value>依赖：</value>
+  </data>
+  <data name="XAML_Mod_Duplicate">
+    <value>重复：</value>
+  </data>
+  <data name="MsgBox_Content_DisableModConfirm">
+    <value>{0} 被 {1} 用作依赖\n你确定你想要禁用这个mod？</value>
+  </data>
+  <data name="MsgBox_Content_DisableReverseDependency">
+    <value>你想要禁用依赖于 {0} 的mod吗？</value>
+  </data>
+  <data name="MsgBox_Content_DuplicateMods">
+    <value>请手动选择并且删除重复的mod\n{0}</value>
+  </data>
+  <data name="MsgBox_Content_UninstallModFailed_Null">
+    <value>无法删除不存在的文件</value>
+  </data>
+  <data name="MsgBox_Content_UninstallModSuccess">
+    <value>{0}已经被成功删除\n</value>
+  </data>
+  <data name="MsgBox_Content_DeleteModConfirm">
+    <value>{0} 使用依赖 {1} \n你确定你想要删除这个mod吗？</value>
+  </data>
+  <data name="MsgBox_Content_ChangeModStateFailed_Unauthorized">
+    <value>Mod启用/禁用失败。没有权限\n{0}</value>
+  </data>
+  <data name="MsgBox_Content_ChangeModStateFailed_Game">
+    <value>Mod启用/禁用失败。游戏是否正在运行？\n{0}</value>
+  </data>
+  <data name="MsgBox_Content_ChangeModStateFailed">
+    <value>Mod启用/禁用失败\n{0}</value>
+  </data>
+  <data name="XAML_HomePage">
+    <value>主页</value>
+  </data>
+  <data name="MsgBox_Content_InstallMelonLoaderFailed_Internet">
+    <value>MelonLoader下载失败\n是否联网？\n{0}</value>
+  </data>
+  <data name="MsgBox_Content_InstallMelonLoaderFailed">
+    <value>MelonLoader下载失败\n{0}</value>
+  </data>
+  <data name="MsgBox_Content_UnzipMelonLoaderFailed">
+    <value>无法解压路径 {0} 的 MelonLoader.zip\n错误信息：\n{1}\n尝试手动解压？</value>
+  </data>
+  <data name="MsgBox_Content_DeleteMelonLoaderZipFailed">
+    <value>无法删除 {0} 下的 MelonLoader.zip\n错误信息：\n{1}\n请尝试手动删除</value>
+  </data>
+  <data name="MsgBox_Content_InstallMelonLoaderSuccess">
+    <value>MelonLoader 已经成功安装\n</value>
+  </data>
+  <data name="MsgBox_Content_UninstallMelonLoader">
+    <value>你正在要求卸载 MelonLoader\n请确认你的操作</value>
+  </data>
+  <data name="XAML_Tab_ModManage">
+    <value>模组</value>
+  </data>
+  <data name="XAML_Tab_Setting">
+    <value>设置</value>
+  </data>
+  <data name="XAML_UserDataFolder">
+    <value>配置文件夹</value>
+  </data>
+  <data name="XAML_Setting_EnableDependency_Install">
+    <value>安装 mod 时启用依赖</value>
+  </data>
+  <data name="XAML_Setting_EnableDependency_Enable">
+    <value>启用 mod 时启用依赖</value>
+  </data>
+  <data name="XAML_Setting_DisableDependency_Delete">
+    <value>删除 mod 时禁用依赖</value>
+  </data>
+  <data name="XAML_Setting_DisableDependency_Disable">
+    <value>禁用 mod 时禁用依赖</value>
+  </data>
+  <data name="XAML_ChangePath">
+    <value>更改路径</value>
+  </data>
+  <data name="XAML_HelpTranslate">
+    <value>帮助翻译</value>
+  </data>
+  <data name="XAML_Language">
+    <value>语言</value>
+  </data>
+  <data name="XAML_Apply">
+    <value>应用</value>
+  </data>
+  <data name="XAML_AskType_Always">
+    <value>总是询问</value>
+  </data>
+  <data name="XAML_AskType_Yes">
+    <value>是</value>
+  </data>
+  <data name="XAML_AskType_No">
+    <value>否</value>
+  </data>
+</root>
