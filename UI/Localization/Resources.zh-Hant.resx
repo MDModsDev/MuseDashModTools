@@ -52,7 +52,7 @@
         <value>Path</value>
     </data>
   <data name="XAML_Mods" xml:space="preserve">
-        <value>Mods</value>
+        <value>模組文件夾</value>
     </data>
   <data name="XAML_SearchBar" xml:space="preserve">
         <value>搜尋模組    (名字,   作者,  描述)</value>
@@ -211,10 +211,10 @@
         <value>重複:</value>
     </data>
   <data name="MsgBox_Content_EnableReverseDependency" xml:space="preserve">
-        <value>{0} is used by {1} as dependency\nAre you sure you want to disable this mod?</value>
+        <value>{0} 被 {1} 用作依賴\n你确定你想要禁用這個 mod?</value>
     </data>
   <data name="MsgBox_Content_DisableDependency" xml:space="preserve">
-        <value>Do you want to disable the mods depend on {0}?</value>
+        <value>你要禁用依賴於 {0} 的 mod 嗎?</value>
     </data>
   <data name="MsgBox_Content_DuplicateMods" xml:space="preserve">
         <value>請手動選擇並且刪除重複的 mod \n{0}</value>
@@ -226,7 +226,7 @@
         <value>{0} 已經被成功刪除\n</value>
     </data>
   <data name="MsgBox_Content_UninstallDependency" xml:space="preserve">
-        <value>{0} is used by {1} as dependency\nAre you sure you want to delete this mod?</value>
+        <value>{0} 使用依賴 {1} \n你確定你想要刪除這個 mod 嗎？</value>
     </data>
   <data name="MsgBox_Content_ChangeModStateFailed_Unauthorized" xml:space="preserve">
         <value>Mod 啟用/禁用失敗。沒有權限\n{0}</value>
