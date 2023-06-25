@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="XAML_About_Project">
+    <value>Leírás</value>
+  </data>
+  <data name="XAML_Check_Update">
+    <value>Frissítés</value>
+  </data>
+  <data name="XAML_All">
+    <value>Mind</value>
+  </data>
+  <data name="XAML_Enabled">
+    <value>Bekapcsolt</value>
+  </data>
+  <data name="XAML_Installed">
+    <value>Telepített</value>
+  </data>
+  <data name="XAML_Outdated">
+    <value>Elavult</value>
+  </data>
+  <data name="XAML_Incompatible">
+    <value>Nem működik</value>
+  </data>
+  <data name="XAML_Install_MelonLoader">
+    <value>MelonLoader\nTelepítése</value>
+  </data>
+  <data name="XAML_Uninstall_MelonLoader">
+    <value>MelonLoader\nEltávolítása</value>
+  </data>
+  <data name="XAML_Path">
+    <value>Muse Dash mappa</value>
+  </data>
+  <data name="XAML_ModsFolder">
+    <value>Mappa</value>
+  </data>
+  <data name="XAML_SearchBar">
+    <value>Keresés</value>
+  </data>
+  <data name="XAML_Uninstall_Mod">
+    <value>Törlés</value>
+  </data>
+  <data name="XAML_Install_Mod">
+    <value>Telepítés</value>
+  </data>
+  <data name="XAML_Reinstall_Mod">
+    <value>Újra-telepítés</value>
+  </data>
+  <data name="XAML_Update_Mod">
+    <value>Frissítés</value>
+  </data>
+  <data name="MsgBox_Title_Failure">
+    <value>Hiba</value>
+  </data>
+  <data name="MsgBox_Title_Warning">
+    <value>Figyelmeztetés</value>
+  </data>
+  <data name="MsgBox_Title_Success">
+    <value>Sikeres</value>
+  </data>
+  <data name="MsgBox_Button_Yes">
+    <value>Igen</value>
+  </data>
+  <data name="MsgBox_Button_No">
+    <value>Nem</value>
+  </data>
+  <data name="MsgBox_Button_YesNoAsk">
+    <value>Igen és ne kérdezd újra</value>
+  </data>
+  <data name="MsgBox_Button_NoNoAsk">
+    <value>Nem és ne kérdezd újra</value>
+  </data>
+  <data name="MsgBox_Content_LatestVersion">
+    <value>Ellenőrzés sikeres\nMuse Dash Mod Tools legfrissebb verzióját használod</value>
+  </data>
+  <data name="MsgBox_Title_Notice">
+    <value>Figyelmeztetés</value>
+  </data>
+  <data name="MsgBox_Content_NewerVersion">
+    <value>Egy újabb verzió ({0}) elérhető\nSzeretnéd telepíteni?\n\nCím:\n{1}\n\nInfó:\n{2}</value>
+  </data>
+  <data name="FolderDialog_Title">
+    <value>Válaszd ki a Muse Dash mappát</value>
+  </data>
+  <data name="MsgBox_Content_InvalidPath">
+    <value>Ez a mappa érvénytelen. Próbáld újra</value>
+  </data>
+  <data name="MsgBox_Content_NullPath">
+    <value>Az eltárolt Muse Dash elérési út érvénytelen\nVálaszd ki a helyes mappát</value>
+  </data>
+  <data name="MsgBox_Content_ChoosePath">
+    <value>Még nem választottal Muse Dash mappát\nVálaszd ki a mappát</value>
+  </data>
+  <data name="MsgBox_Content_BrokenMods">
+    <value>A letöltött modjaid érvénytelenek\nHa van 0KB-os mod, akkor azt töröld ki</value>
+  </data>
+  <data name="MsgBox_Content_CheckUpdateFailed">
+    <value>Ellenőrzés sikertelen\nBiztos hogy online vagy?</value>
+  </data>
+  <data name="MsgBox_Content_UpdaterNotFound">
+    <value>Az Updater.exe nem található\nEllenőrizd a telepítésed</value>
+  </data>
+  <data name="MsgBox_Content_CopyUpdaterFailed">
+    <value>Updater.exe másolása sikertelen\n{0}</value>
+  </data>
+  <data name="MsgBox_Content_NoExeFound">
+    <value>MuseDash.exe vagy GameAssembly.dll nem található\nVálaszd ki a helyes mappát</value>
+  </data>
+  <data name="MsgBox_Content_IncorrectVersion">
+    <value>MuseDash.exe az nem a megfelelő verzión van\nNem szeretjük ám a kalózokat :)</value>
+  </data>
+  <data name="MsgBox_Content_ExeVerifyFailed">
+    <value>MuseDash.exe érvényesítése sikertelen\nEllenőrizd, hogy a megfelelő mappát választottad</value>
+  </data>
+  <data name="MsgBox_Content_ReadGameVersionFailed">
+    <value>Nem sikerült leolvasni a játékverziót\nTeljes a telepítésed?\nEllenőrizd a globalgamemanagers fájlod itt:\n{0}</value>
+  </data>
+  <data name="MsgBox_Content_InstallMelonLoader">
+    <value>Nincsen a MelonLoader telepítve,\namely szükséges modok telepítéséhez\nTelepíted most?</value>
+  </data>
+  <data name="MsgBox_Content_UninstallMelonLoaderSuccess">
+    <value>MelonLoader sikeresen eltávolítva\n</value>
+  </data>
+  <data name="MsgBox_Content_UninstallMelonLoaderFailed">
+    <value>MelonLoader eltávolítása sikertelen\nEllenőrizd, hogy nem fut-e a játék!</value>
+  </data>
+  <data name="MsgBox_Content_NoMelonLoaderFolder">
+    <value>A MelonLoader mappa hiányzik\nFeltelepítetted a MelonLoader-t?</value>
+  </data>
+  <data name="MsgBox_Content_ChooseCorrectPath">
+    <value>Válaszd ki a Muse Dash mappát!</value>
+  </data>
+  <data name="MsgBox_Content_InstallModTools">
+    <value>Nincsen feltelepítve a MuseDashModTools mod,\namely minden indításnál ellenőrzi a modok verzióját\nTelepíted most?</value>
+  </data>
+  <data name="MsgBox_Content_NoDownloadLink">
+    <value>Ehhez a modhoz nem tartozik letölthető fájl\n</value>
+  </data>
+  <data name="MsgBox_Content_InstallModFailed_Internet">
+    <value>Mod telepítés sikertelen. Online vagy?\n{0}</value>
+  </data>
+  <data name="MsgBox_Content_InstallModFailed_Game">
+    <value>Mod telepítés sikertelen. Fut a játék?\n{0}</value>
+  </data>
+  <data name="MsgBox_Content_InstallModFailed">
+    <value>Mod telepítés sikertelen\n{0}</value>
+  </data>
+  <data name="MsgBox_Content_InstallDependencyFailed">
+    <value>Függőség feltelepítése sikertelen\n{0}</value>
+  </data>
+  <data name="MsgBox_Content_EnableDependency">
+    <value>Szeretnéd bekapcsolni {0} függőségét, {1}-et?</value>
+  </data>
+  <data name="MsgBox_Content_InstallModSuccess">
+    <value>{0} sikeresen telepítve\n</value>
+  </data>
+  <data name="MsgBox_Content_ReinstallMod">
+    <value>{0} újra lesz telepítve\nErősítsd meg a műveletet</value>
+  </data>
+  <data name="MsgBox_Content_UninstallModFailed_Game">
+    <value>Mod eltávolítás sikertelen\n{0}</value>
+  </data>
+  <data name="MsgBox_Content_UninstallModFailed">
+    <value>Mod eltávolítás sikertelen. Fut a játék?\n{0}</value>
+  </data>
+  <data name="XAML_Mod_Incompatible">
+    <value>{0}-nak az {1}-es verziója nem működik ezen a játék verzión</value>
+  </data>
+  <data name="XAML_Mod_Outdated">
+    <value>Helyi verzió: {0} (Újabb elérhető: {1})</value>
+  </data>
+  <data name="XAML_Mod_Newer">
+    <value>Helyi verzió: {0} (ATYA ÚRISTEN, ÖN FEJLESZTŐ?!)</value>
+  </data>
+  <data name="XAML_Mod_Modified">
+    <value>Helyi verzió: {0} (Módosított)</value>
+  </data>
+  <data name="XAML_Mod_Normal">
+    <value>Hely verzió: {0}</value>
+  </data>
+  <data name="XAML_Mod_Description">
+    <value>{0}\n\nFejlesztő: {1}\nOnline verzió: {2}\nKompatibilis játék verzió: {3}</value>
+  </data>
+  <data name="XAML_Mod_CompatibleGameVersion">
+    <value>Mind</value>
+  </data>
+  <data name="XAML_Mod_Dependencies">
+    <value>Függőségek:</value>
+  </data>
+  <data name="XAML_Mod_Duplicate">
+    <value>Duplikálja:</value>
+  </data>
+  <data name="MsgBox_Content_DisableModConfirm">
+    <value>{0} az a(z) {1}-nek a függősége\nBiztos hogy ki akarod kapcsolni?</value>
+  </data>
+  <data name="MsgBox_Content_DisableReverseDependency">
+    <value>Ki akarod kapcsolni a(z) {0}-ra függő modokat?</value>
+  </data>
+  <data name="MsgBox_Content_DuplicateMods">
+    <value>Manuálisan válaszd ki és töröld ki a duplikált modot\n{0}</value>
+  </data>
+  <data name="MsgBox_Content_UninstallModFailed_Null">
+    <value>Nem lehet egy nem létező fájlt törölni</value>
+  </data>
+  <data name="MsgBox_Content_UninstallModSuccess">
+    <value>{0} sikeresen eltávolítva\n</value>
+  </data>
+  <data name="MsgBox_Content_DeleteModConfirm">
+    <value>{0} az a(z) {1}-nek a függősége\nBiztos hogy ki akarod törölni?</value>
+  </data>
+  <data name="MsgBox_Content_ChangeModStateFailed_Unauthorized">
+    <value>Mod be-/kikapcsolás sikertelen. Nincs jogosultság.\n{0}</value>
+  </data>
+  <data name="MsgBox_Content_ChangeModStateFailed_Game">
+    <value>Mod be-/kikapcsolás sikertelen. Fut a játék?\n{0}</value>
+  </data>
+  <data name="MsgBox_Content_ChangeModStateFailed">
+    <value>Mod be-/kikapcsolás sikertelen\n{0}</value>
+  </data>
+  <data name="XAML_HomePage">
+    <value>Fő-oldal</value>
+  </data>
+  <data name="MsgBox_Content_InstallMelonLoaderFailed_Internet">
+    <value>MelonLoader letöltés sikertelen\nOnline vagy?\n{0}</value>
+  </data>
+  <data name="MsgBox_Content_InstallMelonLoaderFailed">
+    <value>MelonLoader letöltés sikertelen\n{0}</value>
+  </data>
+  <data name="MsgBox_Content_UnzipMelonLoaderFailed">
+    <value>Nem sikerült kicsomagolni MelonLoader.zip-et\n{0}\nHiba:{1}\nProbáld meg manuálisan</value>
+  </data>
+  <data name="MsgBox_Content_DeleteMelonLoaderZipFailed">
+    <value>Nem sikerült kitörölni MelonLoader.zip-et\n{0}\nHiba:{1}\nProbáld meg manuálisan</value>
+  </data>
+  <data name="MsgBox_Content_InstallMelonLoaderSuccess">
+    <value>MelonLoader sikeresen települt\n</value>
+  </data>
+  <data name="MsgBox_Content_UninstallMelonLoader">
+    <value>MelonLoader el lesz távolítva\nErősítsd meg a műveletet</value>
+  </data>
+  <data name="XAML_Tab_ModManage">
+    <value>Mod-ok</value>
+  </data>
+  <data name="XAML_Tab_Setting">
+    <value>Beállítások</value>
+  </data>
+  <data name="XAML_UserDataFolder">
+    <value>UserData</value>
+  </data>
+  <data name="XAML_Setting_EnableDependency_Install">
+    <value>Függőségek bekapcsolása mod telepítésekor</value>
+  </data>
+  <data name="XAML_Setting_EnableDependency_Enable">
+    <value>Függőségek bekapcsolása mod bekapcsolásakor</value>
+  </data>
+  <data name="XAML_Setting_DisableDependency_Delete">
+    <value>Függőségek kikapcsolása mod törlésekor</value>
+  </data>
+  <data name="XAML_Setting_DisableDependency_Disable">
+    <value>Függőségek kikapcsolása mod kikapcsolásakor</value>
+  </data>
+  <data name="XAML_ChangePath">
+    <value>Mappaválasztás</value>
+  </data>
+  <data name="XAML_HelpTranslate">
+    <value>Közreműködés</value>
+  </data>
+  <data name="XAML_Language">
+    <value>Nyelv</value>
+  </data>
+  <data name="XAML_Apply">
+    <value>Alkalmaz</value>
+  </data>
+  <data name="XAML_AskType_Always">
+    <value>Kérdezz rá</value>
+  </data>
+  <data name="XAML_AskType_Yes">
+    <value>Igen</value>
+  </data>
+  <data name="XAML_AskType_No">
+    <value>Nem</value>
+  </data>
+</root>
