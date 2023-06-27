@@ -286,7 +286,7 @@
         <value>帮助翻译</value>
     </data>
   <data name="XAML_Language" xml:space="preserve">
-        <value>语言</value>
+        <value>语言：</value>
     </data>
   <data name="XAML_Apply" xml:space="preserve">
         <value>应用</value>
@@ -299,5 +299,20 @@
     </data>
   <data name="XAML_AskType_No" xml:space="preserve">
         <value>否</value>
+    </data>
+  <data name="XAML_DownloadSource" xml:space="preserve">
+        <value>下载源：</value>
+    </data>
+  <data name="XAML_DownloadSource_Github" xml:space="preserve">
+        <value>Github</value>
+    </data>
+  <data name="XAML_DownloadSource_GithubMirror" xml:space="preserve">
+        <value>Github 镜像</value>
+    </data>
+  <data name="XAML_DownloadSource_Gitee" xml:space="preserve">
+        <value>Gitee</value>
+    </data>
+  <data name="XAML_Font" xml:space="preserve">
+        <value>字体：</value>
     </data>
 </root>
