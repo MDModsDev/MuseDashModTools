@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <PublishSingleFile>true</PublishSingleFile>
         <OutputType>WinExe</OutputType>
@@ -50,7 +50,7 @@
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
         <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.21"/>
         <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.21"/>
-        <PackageReference Include="Avalonia.Xaml.Behaviors" Version="0.10.19"/>
+        <PackageReference Include="Avalonia.Xaml.Behaviors" Version="11.0.0.1"/>
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0"/>
         <PackageReference Include="DialogHost.Avalonia" Version="0.6.0-avalonia10"/>
         <PackageReference Include="LavaGang.MelonLoader" Version="0.6.1"/>
