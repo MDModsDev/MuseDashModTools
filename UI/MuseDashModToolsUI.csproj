@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <PublishSingleFile>true</PublishSingleFile>
         <OutputType>WinExe</OutputType>
@@ -46,7 +46,7 @@
     <ItemGroup>
         <PackageReference Include="AssetsTools.NET" Version="3.0.0-preview3"/>
         <PackageReference Include="Avalonia" Version="0.10.21"/>
-        <PackageReference Include="Avalonia.Desktop" Version="0.10.21"/>
+        <PackageReference Include="Avalonia.Desktop" Version="11.0.0"/>
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
         <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.21"/>
         <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.21"/>
