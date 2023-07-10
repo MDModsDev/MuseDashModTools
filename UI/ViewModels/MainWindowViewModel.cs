@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
 using System.Reflection;
 using System.Text.Json;
@@ -12,28 +11,29 @@ using MuseDashModToolsUI.Models;
 using Serilog;
 using static MuseDashModToolsUI.Localization.Resources;
 
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+
 namespace MuseDashModToolsUI.ViewModels;
 
 public partial class MainWindowViewModel : ViewModelBase, IMainWindowViewModel
 {
     private readonly ILogger _logger;
     private readonly ISettingService _settingService;
-    [ObservableProperty] private ViewModelBase? _content;
+    [ObservableProperty] private ViewModelBase _content;
     [ObservableProperty] private int _selectedTabIndex;
     [ObservableProperty] private List<TabView> _tabs = new();
     public static string Version => Assembly.GetExecutingAssembly().GetName().Version?.ToString(3)!;
 
-    public MainWindowViewModel(IGitHubService gitHubService, ILogger logger, ISettingService settingService,
-        ISettingsViewModel settingsViewModel, IModManageViewModel modManageViewModel)
+    public MainWindowViewModel(IGitHubService gitHubService, ILogger logger, ILogAnalysisViewModel logAnalysisViewModel,
+        ISettingService settingService, ISettingsViewModel settingsViewModel, IModManageViewModel modManageViewModel)
     {
         _logger = logger;
         _settingService = settingService;
-        if (settingService.Settings.LanguageCode is not null)
-            CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo(settingService.Settings.LanguageCode);
 
         Tabs = new List<TabView>
         {
             new((ViewModelBase)modManageViewModel, XAML_Tab_ModManage, "ModManage"),
+            new((ViewModelBase)logAnalysisViewModel, XAML_Tab_LogAnalysis, "LogAnalysis"),
             new((ViewModelBase)settingsViewModel, XAML_Tab_Setting, "Setting")
         };
         SwitchTab();

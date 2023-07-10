@@ -1,14 +1,9 @@
-#define WINDOWS
-
 using System;
 using System.Diagnostics;
 using System.IO;
 using Avalonia;
 using MuseDashModToolsUI.Models;
 using Serilog;
-#if DEBUG && WINDOWS
-using System.Runtime.InteropServices;
-#endif
 
 namespace MuseDashModToolsUI;
 
@@ -22,9 +17,6 @@ internal static class Program
     [STAThread]
     public static void Main(string[] args)
     {
-#if DEBUG && WINDOWS
-        AttachToParentConsole();
-#endif
         CreateLogger();
         RegisterDependencies();
         try
@@ -39,7 +31,7 @@ internal static class Program
                 if (OperatingSystem.IsWindows())
                     Process.Start("explorer.exe", "/select, " + Path.Combine("Logs", LogFileName));
                 if (OperatingSystem.IsLinux())
-                    Process.Start("xdg-open", "--select " + Path.Combine("Logs", LogFileName));
+                    Process.Start("xdg-open", Path.Combine("Logs", LogFileName));
             }
         }
     }
@@ -50,10 +42,10 @@ internal static class Program
     {
         Log.Logger = new LoggerConfiguration()
             .MinimumLevel.Debug()
-#if DEBUG && WINDOWS
+#if DEBUG
             .WriteTo.Console()
 #endif
-            .WriteTo.File(new TextFormatter(),
+            .WriteTo.File(new LogFileFormatter(),
                 Path.Combine("Logs", LogFileName),
                 rollingInterval: RollingInterval.Infinite,
                 retainedFileCountLimit: 60)
@@ -65,16 +57,4 @@ internal static class Program
         => AppBuilder.Configure<App>()
             .UsePlatformDetect()
             .LogToTrace();
-
-#if DEBUG && WINDOWS
-    private const int AttachParentProcess = -1;
-
-    [DllImport("kernel32.dll")]
-    private static extern bool AttachConsole(int dwProcessId);
-
-    private static void AttachToParentConsole()
-    {
-        AttachConsole(AttachParentProcess);
-    }
-#endif
 }

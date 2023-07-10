@@ -24,106 +24,63 @@ public class GitHubService : IGitHubService
     private const string ReleaseInfoLink = "https://api.github.com/repos/MDModsDev/MuseDashModToolsUI/releases/latest";
 
     private const string PrimaryLink = "https://raw.githubusercontent.com/MDModsDev/ModLinks/main/";
+
     private const string SecondaryLink = "https://ghproxy.com/https://raw.githubusercontent.com/MDModsDev/ModLinks/main/";
+
     private const string ThirdLink = "https://gitee.com/lxymahatma/ModLinks/raw/main/";
+
+    private static Dictionary<DownloadSources, string> DownloadSourceDictionary => new()
+    {
+        { DownloadSources.Github, PrimaryLink },
+        { DownloadSources.GithubMirror, SecondaryLink },
+        { DownloadSources.Gitee, ThirdLink }
+    };
+
     public HttpClient Client { get; init; }
     public ILogger Logger { get; init; }
     public IMessageBoxService MessageBoxService { get; init; }
+    public ISettingService SettingService { get; init; }
 
-    public async Task<List<Mod>> GetModsAsync()
+    public async Task<List<Mod>?> GetModListAsync()
     {
-        List<Mod> mods;
-        try
+        var defaultDownloadSource = DownloadSourceDictionary[SettingService.Settings.DownloadSource];
+        var mods = await GetModListFromSourceAsync(defaultDownloadSource);
+        if (mods is not null) return mods;
+
+        foreach (var pair in DownloadSourceDictionary.Where(pair => pair.Key != SettingService.Settings.DownloadSource))
         {
-            mods = (await Client.GetFromJsonAsync<List<Mod>>(PrimaryLink + "ModLinks.json"))!;
-            Logger.Information("Get mods list from primary link success");
-        }
-        catch
-        {
-            Logger.Warning("Get mods list from primary link failed, try secondary link...");
-            try
-            {
-                mods = (await Client.GetFromJsonAsync<List<Mod>>(SecondaryLink + "ModLinks.json"))!;
-                Logger.Information("Get mods list from secondary link success");
-            }
-            catch
-            {
-                Logger.Warning("Get mods list from secondary link failed, try third link...");
-                mods = (await Client.GetFromJsonAsync<List<Mod>>(ThirdLink + "ModLinks.json"))!;
-                Logger.Information("Get mods list from third link success");
-            }
+            mods = await GetModListFromSourceAsync(pair.Value);
+            if (mods is not null) return mods;
         }
 
-        return mods;
+        await MessageBoxService.CreateErrorMessageBox(MsgBox_Content_GetModListFailed);
+        return null;
     }
 
     public async Task DownloadModAsync(string link, string path)
     {
-        HttpResponseMessage result;
-        try
-        {
-            result = await Client.GetAsync(PrimaryLink + link);
-            Logger.Information("Download mod from primary link success");
-        }
-        catch
-        {
-            try
-            {
-                Logger.Warning("Download mod from primary link failed, try secondary link...");
-                result = await Client.GetAsync(SecondaryLink + link);
-                Logger.Information("Download mod from secondary link success");
-            }
-            catch
-            {
-                Logger.Warning("Download mod from secondary link failed, try third link...");
-                result = await Client.GetAsync(ThirdLink + link);
-                Logger.Information("Download mod from third link success");
-            }
-        }
+        var defaultDownloadSource = DownloadSourceDictionary[SettingService.Settings.DownloadSource];
+        var result = await DownloadModFromSourceAsync(defaultDownloadSource, link, path);
+        if (result is not null) return;
 
-        await using var fs = new FileStream(path, FileMode.OpenOrCreate);
-        await result.Content.CopyToAsync(fs);
+        foreach (var pair in DownloadSourceDictionary.Where(pair => pair.Key != SettingService.Settings.DownloadSource))
+        {
+            result = await DownloadModFromSourceAsync(pair.Value, link, path);
+            if (result is not null) return;
+        }
     }
 
     public async Task DownloadMelonLoader(string path, IProgress<double> downloadProgress)
     {
-        HttpResponseMessage result;
-        try
-        {
-            result = await Client.GetAsync(PrimaryLink + "MelonLoader.zip", HttpCompletionOption.ResponseHeadersRead);
-            Logger.Information("Get MelonLoader Download ResponseHeader from primary link success");
-        }
-        catch
-        {
-            try
-            {
-                Logger.Warning("Get MelonLoader Download ResponseHeader from primary link failed, try secondary link...");
-                result = await Client.GetAsync(SecondaryLink + "MelonLoader.zip", HttpCompletionOption.ResponseHeadersRead);
-                Logger.Information("Get MelonLoader Download ResponseHeader from secondary link success");
-            }
-            catch
-            {
-                Logger.Warning("Get MelonLoader Download ResponseHeader from secondary link failed, try third link...");
-                result = await Client.GetAsync(ThirdLink + "MelonLoader.zip", HttpCompletionOption.ResponseHeadersRead);
-                Logger.Information("Get MelonLoader Download ResponseHeader from third link success");
-            }
-        }
+        var defaultDownloadSource = DownloadSourceDictionary[SettingService.Settings.DownloadSource];
+        var result = await DownloadMelonLoaderFromSource(defaultDownloadSource, path, downloadProgress);
+        if (result is not null) return;
 
-        var totalLength = result.Content.Headers.ContentLength;
-        var contentStream = await result.Content.ReadAsStreamAsync();
-        await using var fs = new FileStream(path, FileMode.OpenOrCreate);
-        var buffer = new byte[5 * 1024];
-        var readLength = 0L;
-        int length;
-        while ((length = await contentStream.ReadAsync(buffer.AsMemory(0, buffer.Length), CancellationToken.None)) != 0)
+        foreach (var pair in DownloadSourceDictionary.Where(pair => pair.Key != SettingService.Settings.DownloadSource))
         {
-            readLength += length;
-            if (totalLength > 0) downloadProgress.Report(Math.Round((double)readLength / totalLength.Value * 100, 2));
-
-            fs.Write(buffer, 0, length);
+            result = await DownloadMelonLoaderFromSource(pair.Value, path, downloadProgress);
+            if (result is not null) return;
         }
-
-        Logger.Information("Download MelonLoader success");
     }
 
     public async Task CheckUpdates(bool userClick = false)
@@ -148,7 +105,7 @@ public class GitHubService : IGitHubService
             if (version <= currentVersion)
             {
                 if (userClick)
-                    await MessageBoxService.CreateMessageBox(MsgBox_Title_Success, MsgBox_Content_LatestVersion.Localize());
+                    await MessageBoxService.CreateSuccessMessageBox(MsgBox_Content_LatestVersion.Localize());
                 return;
             }
 
@@ -183,9 +140,77 @@ public class GitHubService : IGitHubService
             Logger.Information("Launch updater success, exit...");
             Environment.Exit(0);
         }
+        catch (Exception ex)
+        {
+            Logger.Error(ex, "Check updates failed");
+            await MessageBoxService.CreateErrorMessageBox(MsgBox_Content_CheckUpdateFailed.Localize());
+        }
+    }
+
+    private async Task<HttpResponseMessage?> DownloadMelonLoaderFromSource(string downloadSource, string path,
+        IProgress<double> downloadProgress)
+    {
+        var url = downloadSource + "MelonLoader.zip";
+        try
+        {
+            var result = await Client.GetAsync(url, HttpCompletionOption.ResponseHeadersRead);
+            Logger.Information("Get MelonLoader Download ResponseHeader from {URL} success", url);
+
+            var totalLength = result.Content.Headers.ContentLength;
+            var contentStream = await result.Content.ReadAsStreamAsync();
+            await using var fs = new FileStream(path, FileMode.OpenOrCreate);
+            var buffer = new byte[5 * 1024];
+            var readLength = 0L;
+            int length;
+            while ((length = await contentStream.ReadAsync(buffer.AsMemory(0, buffer.Length), CancellationToken.None)) != 0)
+            {
+                readLength += length;
+                if (totalLength > 0) downloadProgress.Report(Math.Round((double)readLength / totalLength.Value * 100, 2));
+
+                fs.Write(buffer, 0, length);
+            }
+
+            Logger.Information("Download MelonLoader success");
+            return result;
+        }
         catch
         {
-            await MessageBoxService.CreateErrorMessageBox(MsgBox_Content_CheckUpdateFailed.Localize());
+            Logger.Warning("Download MelonLoader from {URL} failed", url);
+            return null;
+        }
+    }
+
+    private async Task<HttpResponseMessage?> DownloadModFromSourceAsync(string downloadSource, string link, string path)
+    {
+        var url = downloadSource + link;
+        try
+        {
+            var result = await Client.GetAsync(url);
+            Logger.Information("Download mod from {URL} success", url);
+            await using var fs = new FileStream(path, FileMode.OpenOrCreate);
+            await result.Content.CopyToAsync(fs);
+            return result;
+        }
+        catch
+        {
+            Logger.Warning("Download mod from {URL} failed", url);
+            return null;
+        }
+    }
+
+    private async Task<List<Mod>?> GetModListFromSourceAsync(string downloadSource)
+    {
+        var url = downloadSource + "ModLinks.json";
+        try
+        {
+            var mods = (await Client.GetFromJsonAsync<List<Mod>>(url))!;
+            Logger.Information("Get mod list from {URL} success", url);
+            return mods;
+        }
+        catch
+        {
+            Logger.Warning("Get mod list from {URL} failed", url);
+            return null;
         }
     }
 
@@ -215,7 +240,8 @@ public class GitHubService : IGitHubService
         catch (Exception ex)
         {
             Logger.Information("Copy Updater.exe to Update folder failed: {Exception}", ex.ToString());
-            await MessageBoxService.CreateErrorMessageBox(string.Format(MsgBox_Content_CopyUpdaterFailed.Localize(), ex));
+            await MessageBoxService.CreateErrorMessageBox(
+                string.Format(MsgBox_Content_CopyUpdaterFailed.Localize(), ex));
         }
 
         Process.Start(updaterTargetPath, launchArgs);

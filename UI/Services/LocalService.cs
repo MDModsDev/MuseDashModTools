@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using AssetsTools.NET.Extra;
+using DialogHostAvalonia;
 using MelonLoader;
 using MuseDashModToolsUI.Contracts;
 using MuseDashModToolsUI.Contracts.ViewModels;
@@ -20,12 +21,10 @@ namespace MuseDashModToolsUI.Services;
 
 public class LocalService : ILocalService
 {
-    public IDialogService DialogService { get; init; }
+    public IMessageBoxService MessageBoxService { get; init; }
     public IDownloadWindowViewModel DownloadWindowViewModel { get; init; }
     public ILogger Logger { get; init; }
-    public IMessageBoxService MessageBoxService { get; init; }
     public ISettingService SettingService { get; init; }
-
     private bool IsValidPath { get; set; }
 
     public IEnumerable<string> GetModFiles(string path) => Directory.GetFiles(path)
@@ -60,12 +59,13 @@ public class LocalService : ILocalService
         Logger.Information("Checking valid path...");
         var exePath = Path.Join(SettingService.Settings.MuseDashFolder, "MuseDash.exe");
         var gameAssemblyPath = Path.Join(SettingService.Settings.MuseDashFolder, "GameAssembly.dll");
-        var userDataPath = Path.Join(SettingService.Settings.MuseDashFolder, "UserData");
+
         if (!File.Exists(exePath) || !File.Exists(gameAssemblyPath))
         {
             Logger.Error("No game files found, showing error message box...");
             await MessageBoxService.CreateErrorMessageBox(MsgBox_Content_NoExeFound.Localize());
             await SettingService.OnChoosePath();
+            return false;
         }
 
         try
@@ -84,25 +84,15 @@ public class LocalService : ILocalService
                 Logger.Information("Mods folder not found, created");
             }
 
-            if (!Directory.Exists(userDataPath))
+            if (!Directory.Exists(SettingService.Settings.UserDataFolder))
             {
-                Directory.CreateDirectory(userDataPath);
+                Directory.CreateDirectory(SettingService.Settings.UserDataFolder);
                 Logger.Information("UserData folder not found, created");
             }
 
             var cfgFilePath = Path.Join(SettingService.Settings.MuseDashFolder, "UserData", "MuseDashModTools.cfg");
-            if (!File.Exists(cfgFilePath))
-            {
-                await File.WriteAllTextAsync(cfgFilePath, Environment.ProcessPath);
-                Logger.Information("UserData config file not found, created");
-            }
-            else
-            {
-                var path = await File.ReadAllTextAsync(cfgFilePath);
-                if (path != Environment.ProcessPath)
-                    await File.WriteAllTextAsync(cfgFilePath, Environment.ProcessPath);
-                Logger.Information("UserData config file found, path updated");
-            }
+            await File.WriteAllTextAsync(cfgFilePath, Environment.ProcessPath);
+            Logger.Information("Write path into cfg file successfully");
 
             IsValidPath = true;
             Logger.Information("Path verified");
@@ -150,34 +140,34 @@ public class LocalService : ILocalService
         var versionFile = Path.Join(SettingService.Settings.MuseDashFolder, "version.dll");
         if (Directory.Exists(melonLoaderFolder) && File.Exists(versionFile)) return;
         var install = await MessageBoxService.CreateConfirmMessageBox(MsgBox_Title_Notice, MsgBox_Content_InstallMelonLoader.Localize());
-        if (install) OnInstallMelonLoader();
+        if (install)
+            await OnInstallMelonLoader();
     }
 
-    public void OnInstallMelonLoader()
+    public async Task OnInstallMelonLoader()
     {
         if (!IsValidPath) return;
         Logger.Information("Showing MelonLoader download window...");
-        DialogService.ShowDialog(DownloadWindowViewModel, (_, _) => DownloadWindowViewModel.InstallMelonLoader());
+        await DialogHost.Show(DownloadWindowViewModel, "DownloadWindowDialog",
+            (object _, DialogOpenedEventArgs _) => DownloadWindowViewModel.InstallMelonLoader());
     }
 
     public async Task OnUninstallMelonLoader()
     {
         if (!IsValidPath) return;
-        var result = await MessageBoxService.CreateConfirmMessageBox(MsgBox_Content_UninstallMelonLoader.Localize());
-        if (!result) return;
-        var melonLoaderFolder = Path.Join(SettingService.Settings.MuseDashFolder, "MelonLoader");
+        if (!await MessageBoxService.CreateConfirmMessageBox(MsgBox_Content_UninstallMelonLoader.Localize())) return;
         var versionFile = Path.Join(SettingService.Settings.MuseDashFolder, "version.dll");
         var noticeTxt = Path.Join(SettingService.Settings.MuseDashFolder, "NOTICE.txt");
 
-        if (Directory.Exists(melonLoaderFolder))
+        if (Directory.Exists(SettingService.Settings.MelonLoaderFolder))
         {
             try
             {
-                Directory.Delete(melonLoaderFolder, true);
+                Directory.Delete(SettingService.Settings.MelonLoaderFolder, true);
                 File.Delete(versionFile);
                 File.Delete(noticeTxt);
                 Logger.Information("MelonLoader uninstalled successfully");
-                await MessageBoxService.CreateMessageBox(MsgBox_Title_Success, MsgBox_Content_UninstallMelonLoaderSuccess.Localize());
+                await MessageBoxService.CreateSuccessMessageBox(MsgBox_Content_UninstallMelonLoaderSuccess.Localize());
             }
             catch (Exception ex)
             {
@@ -226,5 +216,23 @@ public class LocalService : ILocalService
             FileName = SettingService.Settings.UserDataFolder,
             UseShellExecute = true
         });
+    }
+
+    public async Task OpenLogFolder()
+    {
+        if (!IsValidPath)
+        {
+            Logger.Error("Not valid path, showing error message box...");
+            await MessageBoxService.CreateErrorMessageBox(MsgBox_Content_ChooseCorrectPath);
+            await SettingService.OnChoosePath();
+            return;
+        }
+
+        var logPath = Path.Combine(SettingService.Settings.MelonLoaderFolder, "Latest.log");
+        Logger.Information("Opening Log folder...");
+        if (OperatingSystem.IsWindows())
+            Process.Start("explorer.exe", "/select, " + logPath);
+        if (OperatingSystem.IsLinux())
+            Process.Start("xdg-open", logPath);
     }
 }

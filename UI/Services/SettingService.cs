@@ -23,15 +23,17 @@ public class SettingService : ISettingService
 {
     private readonly ILogger _logger;
     public IMessageBoxService MessageBoxService { get; init; }
+    public Lazy<ILogAnalysisViewModel> LogAnalysisViewModel { get; init; }
+    public Lazy<IModManageViewModel> ModManageViewModel { get; init; }
     public Lazy<ISettingsViewModel> SettingsViewModel { get; init; }
 
     public SettingService(ILogger logger)
     {
         _logger = logger;
-        Task.Run(InitializeLanguageAndPath);
+        LoadSavedSetting().Wait();
     }
 
-    public Setting Settings { get; set; } = new();
+    public Setting Settings { get; private set; } = new();
 
     public async Task InitializeSettings()
     {
@@ -62,21 +64,13 @@ public class SettingService : ISettingService
                 _logger.Warning("Settings.json stored language code is empty, using system language");
             }
 
+            if (string.IsNullOrEmpty(settings.FontName))
+            {
+                settings.FontName = "Segoe UI";
+                _logger.Warning("Settings.json stored font name is empty, using default font Segoe UI");
+            }
+
             Settings = settings.Clone();
-
-            var updateDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Update");
-            var updaterPath = Path.Combine(updateDirectory, "Updater.exe");
-            if (File.Exists(updaterPath))
-            {
-                File.Delete(updaterPath);
-                _logger.Information("Updater.exe found, deleting it");
-            }
-
-            if (Directory.Exists(updateDirectory))
-            {
-                Directory.Delete(updateDirectory);
-                _logger.Information("Update directory found, deleting it");
-            }
         }
         catch (Exception ex)
         {
@@ -85,7 +79,7 @@ public class SettingService : ISettingService
         }
     }
 
-    public async Task<bool> OnChoosePath()
+    public async Task OnChoosePath()
     {
         while (true)
         {
@@ -99,7 +93,7 @@ public class SettingService : ISettingService
                 if (!string.IsNullOrEmpty(Settings.MuseDashFolder))
                 {
                     _logger.Information("Path not changed");
-                    return false;
+                    return;
                 }
 
                 _logger.Error("Invalid path, showing error message box");
@@ -111,30 +105,53 @@ public class SettingService : ISettingService
             if (path == Settings.MuseDashFolder)
             {
                 _logger.Information("Path not changed");
-                return false;
+                return;
             }
 
             _logger.Information("User chose path {Path}", path);
             Settings.MuseDashFolder = path;
-            Settings.LanguageCode = CultureInfo.CurrentUICulture.ToString();
+            Settings.LanguageCode ??= CultureInfo.CurrentUICulture.Name;
 
             var json = JsonSerializer.Serialize(Settings, new JsonSerializerOptions { WriteIndented = true });
             await File.WriteAllTextAsync("Settings.json", json);
             _logger.Information("Settings saved to Settings.json");
 
             SettingsViewModel.Value.Initialize();
-            return true;
+            ModManageViewModel.Value.Initialize();
+            LogAnalysisViewModel.Value.Initialize();
+            return;
         }
     }
 
-    private async Task InitializeLanguageAndPath()
+    private async Task LoadSavedSetting()
     {
         if (!File.Exists("Settings.json"))
             return;
         var text = await File.ReadAllTextAsync("Settings.json");
-        var setting = JsonNode.Parse(text);
-        Settings.LanguageCode = setting?["LanguageCode"]?.ToString();
-        Settings.MuseDashFolder = setting?["MuseDashFolder"]?.ToString();
-        _logger.Information("Language and Path loaded from Settings.json");
+        var settings = JsonNode.Parse(text);
+
+        Settings.MuseDashFolder = settings?["MuseDashFolder"]?.ToString();
+        Settings.LanguageCode = settings?["LanguageCode"]?.ToString();
+        Settings.FontName = settings?["FontName"]?.ToString();
+        Settings.DownloadSource = Enum.Parse<DownloadSources>(settings?["DownloadSource"]?.ToString()!);
+        Settings.AskEnableDependenciesWhenInstalling = Enum.Parse<AskType>(settings?["AskEnableDependenciesWhenInstalling"]?.ToString()!);
+        Settings.AskEnableDependenciesWhenEnabling = Enum.Parse<AskType>(settings?["AskEnableDependenciesWhenEnabling"]?.ToString()!);
+        Settings.AskDisableDependenciesWhenDeleting = Enum.Parse<AskType>(settings?["AskDisableDependenciesWhenDeleting"]?.ToString()!);
+        Settings.AskDisableDependenciesWhenDisabling = Enum.Parse<AskType>(settings?["AskDisableDependenciesWhenDisabling"]?.ToString()!);
+        _logger.Information("Saved setting loaded from Settings.json");
+
+        var updateDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Update");
+        var updaterPath = Path.Combine(updateDirectory, "Updater.exe");
+        if (File.Exists(updaterPath))
+        {
+            File.Delete(updaterPath);
+            _logger.Information("Updater.exe found, deleting it");
+        }
+
+        if (Directory.Exists(updateDirectory))
+        {
+            Directory.Delete(updateDirectory);
+            _logger.Information("Update directory found, deleting it");
+        }
     }
 }

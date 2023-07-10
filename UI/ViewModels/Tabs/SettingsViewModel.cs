@@ -15,65 +15,104 @@ namespace MuseDashModToolsUI.ViewModels.Tabs;
 
 public partial class SettingsViewModel : ViewModelBase, ISettingsViewModel
 {
+    private readonly IFontManageService _fontManageService;
+    private readonly ILocalizationService _localizationService;
     private readonly ILogger _logger;
     private readonly ISettingService _settingService;
-    [ObservableProperty] private string[] _askTypes = { XAML_AskType_Always, XAML_AskType_Yes, XAML_AskType_No };
-    [ObservableProperty] private Language? _currentLanguage;
+    [ObservableProperty] private string[] _askTypes;
+    [ObservableProperty] private int _currentDownloadSource;
+    [ObservableProperty] private int _currentFontIndex;
+    [ObservableProperty] private int _currentLanguageIndex;
     [ObservableProperty] private int _disableDependenciesWhenDeleting;
     [ObservableProperty] private int _disableDependenciesWhenDisabling;
+    [ObservableProperty] private string[] _downloadSources;
     [ObservableProperty] private int _enableDependenciesWhenEnabling;
     [ObservableProperty] private int _enableDependenciesWhenInstalling;
     [ObservableProperty] private string? _path;
-    public ILocalizationService LocalizationService { get; init; }
-    public IModManageViewModel ModManageViewModel { get; init; }
-    public List<Language> AvailableLanguages => LocalizationService.AvailableLanguages;
+    public List<Language> AvailableLanguages => _localizationService.AvailableLanguages;
+    public List<string> AvailableFonts => _fontManageService.AvailableFonts;
 
-    public SettingsViewModel(ILogger logger, ISettingService settingService)
+    public SettingsViewModel(IFontManageService fontManageService, ILocalizationService localizationService, ILogger logger,
+        ISettingService settingService)
     {
-        _settingService = settingService;
+        _fontManageService = fontManageService;
+        _localizationService = localizationService;
         _logger = logger;
+        _settingService = settingService;
         Initialize();
     }
 
     public void Initialize()
     {
-        CurrentLanguage = _settingService.Settings.LanguageCode is null
-            ? new Language(CultureInfo.CurrentUICulture)
-            : new Language(CultureInfo.GetCultureInfo(_settingService.Settings.LanguageCode));
+        if (_settingService.Settings.LanguageCode is not null)
+            CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo(_settingService.Settings.LanguageCode);
+        AskTypes = new[] { XAML_AskType_Always, XAML_AskType_Yes, XAML_AskType_No };
+        DownloadSources = new[] { XAML_DownloadSource_Github, XAML_DownloadSource_GithubMirror, XAML_DownloadSource_Gitee };
+        CurrentLanguageIndex = AvailableLanguages.FindIndex(x => x.Name == CultureInfo.CurrentUICulture.Name);
+        CurrentFontIndex = AvailableFonts.FindIndex(x => x == _settingService.Settings.FontName);
         Path = _settingService.Settings.MuseDashFolder;
+        CurrentDownloadSource = (int)_settingService.Settings.DownloadSource;
+        EnableDependenciesWhenInstalling = (int)_settingService.Settings.AskEnableDependenciesWhenInstalling;
+        EnableDependenciesWhenEnabling = (int)_settingService.Settings.AskEnableDependenciesWhenEnabling;
+        DisableDependenciesWhenDeleting = (int)_settingService.Settings.AskDisableDependenciesWhenDeleting;
+        DisableDependenciesWhenDisabling = (int)_settingService.Settings.AskDisableDependenciesWhenDisabling;
+
         _logger.Information("Settings Window initialized");
     }
 
     [RelayCommand]
-    private void SetLanguage() => LocalizationService.SetLanguage(CurrentLanguage!.Name!);
+    private void SetLanguage() => _localizationService.SetLanguage(AvailableLanguages[CurrentLanguageIndex].Name!);
+
+    [RelayCommand]
+    private void SetFont() => _fontManageService.SetFont(AvailableFonts[CurrentFontIndex]);
 
     [RelayCommand]
     private async Task OnChoosePath()
     {
         _logger.Information("Choose path button clicked");
-        var changed = await _settingService.OnChoosePath();
-        if (changed) ModManageViewModel.Initialize();
+        await _settingService.OnChoosePath();
     }
 
     #region OnPropertyChanged
 
+    partial void OnCurrentDownloadSourceChanged(int oldValue, int newValue)
+    {
+        if (newValue == -1)
+            newValue = oldValue;
+        else
+            _settingService.Settings.DownloadSource = (DownloadSources)newValue;
+    }
+
     partial void OnEnableDependenciesWhenInstallingChanged(int oldValue, int newValue)
     {
-        switch (newValue)
-        {
-            case -1:
-                EnableDependenciesWhenInstalling = oldValue;
-                break;
-            case 0:
-                _settingService.Settings.AskEnableDependenciesWhenInstalling = AskType.Always;
-                break;
-            case 1:
-                _settingService.Settings.AskEnableDependenciesWhenInstalling = AskType.YesAndNoAsk;
-                break;
-            case 2:
-                _settingService.Settings.AskEnableDependenciesWhenInstalling = AskType.NoAndNoAsk;
-                break;
-        }
+        if (newValue == -1)
+            newValue = oldValue;
+        else
+            _settingService.Settings.AskEnableDependenciesWhenInstalling = (AskType)newValue;
+    }
+
+    partial void OnEnableDependenciesWhenEnablingChanged(int oldValue, int newValue)
+    {
+        if (newValue == -1)
+            newValue = oldValue;
+        else
+            _settingService.Settings.AskEnableDependenciesWhenEnabling = (AskType)newValue;
+    }
+
+    partial void OnDisableDependenciesWhenDeletingChanged(int oldValue, int newValue)
+    {
+        if (newValue == -1)
+            newValue = oldValue;
+        else
+            _settingService.Settings.AskDisableDependenciesWhenDeleting = (AskType)newValue;
+    }
+
+    partial void OnDisableDependenciesWhenDisablingChanged(int oldValue, int newValue)
+    {
+        if (newValue == -1)
+            newValue = oldValue;
+        else
+            _settingService.Settings.AskDisableDependenciesWhenDisabling = (AskType)newValue;
     }
 
     #endregion

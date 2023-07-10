@@ -14,16 +14,16 @@
         ExtendClientAreaTitleBarHeightHint="-1"
         WindowStartupLocation="CenterScreen">
 
-    <Grid RowDefinitions="100,*">
-        <Image Grid.Row="0"
-               Margin="20,0,0,0"
+    <Grid RowDefinitions="100,*" ColumnDefinitions="250,*,150">
+        <Image Grid.Row="0" Grid.Column="0"
+               Margin="15,0,0,0"
                Source="/Assets/Icon.ico"
                Height="50"
                Width="50"
                HorizontalAlignment="Left"
                VerticalAlignment="Center" />
 
-        <TextBlock Grid.Row="0"
+        <TextBlock Grid.Row="0" Grid.Column="0"
                    Margin="80,25,0,0"
                    Height="50"
                    FontSize="25"
@@ -31,7 +31,7 @@
                    VerticalAlignment="Center"
                    Text="Muse Dash Mod Tools" />
 
-        <TabStrip Grid.Row="0"
+        <TabStrip Grid.Row="0" Grid.Column="1"
                   HorizontalAlignment="Center"
                   Margin="0,10,0,0"
                   ItemsSource="{Binding Tabs}"
@@ -49,9 +49,13 @@
                     <Setter Property="Background" Value="#4D4D4D" />
                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                     <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                    <Setter Property="Margin" Value="0.5,0" />
                 </Style>
                 <Style Selector="TabStripItem:selected ContentPresenter">
                     <Setter Property="Background" Value="#808080" />
+                </Style>
+                <Style Selector="TabStripItem:pointerover">
+                    <Setter Property="Background" Value="#595959" />
                 </Style>
             </TabStrip.Styles>
 
@@ -67,13 +71,13 @@
             </TabStrip.ItemTemplate>
         </TabStrip>
 
-        <TextBlock Grid.Row="0"
-                   Margin="0,0,50,0"
-                   HorizontalAlignment="Right"
+        <TextBlock Grid.Row="0" Grid.Column="2"
+                   HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    FontSize="25"
                    Text="{Binding Version}" />
 
-        <UserControl Grid.Row="1" Content="{Binding Content}" />
+        <UserControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
+                     Content="{Binding Content}" />
     </Grid>
 </Window>
