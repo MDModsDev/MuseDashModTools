@@ -240,7 +240,7 @@ namespace MuseDashModToolsUI.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Your game path doesn&apos;t contain &quot;steamapps\common\Muse Dash&quot;\nAre you using pirate version?.
+        ///   Looks up a localized string similar to Your game path doesn&apos;t contain &quot;steamapps\common\Muse Dash\musedash.exe&quot;\nAre you using pirate version?.
         /// </summary>
         internal static string MsgBox_Content_GamePathError {
             get {
@@ -276,7 +276,7 @@ namespace MuseDashModToolsUI.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dependency failed to install\n{0}.
+        ///   Looks up a localized string similar to Dependency {0} failed to install\n{1}.
         /// </summary>
         internal static string MsgBox_Content_InstallDependencyFailed {
             get {
@@ -384,7 +384,7 @@ namespace MuseDashModToolsUI.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A newer version of Muse Dash Mod Tools ({0}) is released\nDo you want to install it now?\n\nRelease Title:\n{1}\n\nRelease Info:\n{2}.
+        ///   Looks up a localized string similar to A newer version of Muse Dash Mod Tools ({0}) is released\n\nDo you want to install it now?\n\nRelease Title:\n{1}\n\nRelease Info:\n{2}.
         /// </summary>
         internal static string MsgBox_Content_NewerVersion {
             get {
@@ -438,6 +438,15 @@ namespace MuseDashModToolsUI.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No Log File Found\nYou have to launch the game once after installing MelonLoader to generate log.
+        /// </summary>
+        internal static string MsgBox_Content_NoLogFile {
+            get {
+                return ResourceManager.GetString("MsgBox_Content_NoLogFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cannot find MelonLoader Folder\nHave you installed MelonLoader?.
         /// </summary>
         internal static string MsgBox_Content_NoMelonLoaderFolder {
@@ -447,11 +456,29 @@ namespace MuseDashModToolsUI.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cannot find MelonLoader version from log.
+        /// </summary>
+        internal static string MsgBox_Content_NoMelonLoaderVersion {
+            get {
+                return ResourceManager.GetString("MsgBox_Content_NoMelonLoaderVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your stored Muse Dash Folder path is null\nPlease choose the correct folder.
         /// </summary>
         internal static string MsgBox_Content_NullPath {
             get {
                 return ResourceManager.GetString("MsgBox_Content_NullPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} is outdated, please update using &quot;ModManage&quot;page.
+        /// </summary>
+        internal static string MsgBox_Content_OutdatedMod {
+            get {
+                return ResourceManager.GetString("MsgBox_Content_OutdatedMod", resourceCulture);
             }
         }
         
@@ -672,6 +699,15 @@ namespace MuseDashModToolsUI.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Download Prerelease: .
+        /// </summary>
+        internal static string XAML_DownloadPrerelease {
+            get {
+                return ResourceManager.GetString("XAML_DownloadPrerelease", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Download Source: .
         /// </summary>
         internal static string XAML_DownloadSource {
@@ -807,7 +843,7 @@ namespace MuseDashModToolsUI.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dependencies:.
+        ///   Looks up a localized string similar to Dependencies: .
         /// </summary>
         internal static string XAML_Mod_Dependencies {
             get {
@@ -825,7 +861,7 @@ namespace MuseDashModToolsUI.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Duplicated by:.
+        ///   Looks up a localized string similar to Duplicated by: .
         /// </summary>
         internal static string XAML_Mod_Duplicate {
             get {
@@ -983,6 +1019,15 @@ namespace MuseDashModToolsUI.Localization {
         internal static string XAML_Tab_Setting {
             get {
                 return ResourceManager.GetString("XAML_Tab_Setting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trouble Shoot.
+        /// </summary>
+        internal static string XAML_TroubleShoot {
+            get {
+                return ResourceManager.GetString("XAML_TroubleShoot", resourceCulture);
             }
         }
         

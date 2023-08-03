@@ -2,16 +2,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:contract="clr-namespace:MuseDashModToolsUI.Contracts.ViewModels"
-             xmlns:tabs="clr-namespace:MuseDashModToolsUI.ViewModels.Tabs"
-             xmlns:ext="clr-namespace:MuseDashModToolsUI.Extensions"
              xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
+             xmlns:contract="using:MuseDashModToolsUI.Contracts.ViewModels"
+             xmlns:tabs="using:MuseDashModToolsUI.ViewModels.Tabs"
+             xmlns:ext="using:MuseDashModToolsUI.Extensions"
              mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="700"
              x:Class="MuseDashModToolsUI.Views.Tabs.Settings"
              x:DataType="tabs:SettingsViewModel"
              DataContext="{ext:DependencyInjection Type=contract:ISettingsViewModel}">
 
-    <Grid RowDefinitions="*,*,*,*,*,*,*,*" Background="#424242">
+    <Grid RowDefinitions="*,*,*,*,*,*,*,*,*" Background="#424242">
         <Grid.Styles>
             <Style Selector="controls|Card">
                 <Setter Property="Margin" Value="0,1" />
@@ -84,6 +84,7 @@
             </StackPanel>
         </controls:Card>
 
+        <!--Download Source-->
         <controls:Card Grid.Row="2">
             <StackPanel>
                 <TextBlock Text="{ext:LocalizeExtensions XAML_DownloadSource}" />
@@ -95,7 +96,17 @@
             </StackPanel>
         </controls:Card>
 
+        <!--Prerelease-->
         <controls:Card Grid.Row="3">
+            <StackPanel>
+                <TextBlock Text="{ext:LocalizeExtensions XAML_DownloadPrerelease}" />
+
+                <ToggleSwitch Margin="20,0,0,0" IsChecked="{Binding DownloadPrerelease}" />
+            </StackPanel>
+        </controls:Card>
+
+        <!--Font-->
+        <controls:Card Grid.Row="4">
             <StackPanel>
                 <TextBlock Text="{ext:LocalizeExtensions XAML_Font}" />
 
@@ -110,7 +121,7 @@
             </StackPanel>
         </controls:Card>
 
-        <controls:Card Grid.Row="4">
+        <controls:Card Grid.Row="5">
             <StackPanel>
                 <TextBlock Text="{ext:LocalizeExtensions XAML_Setting_EnableDependency_Install}" />
 
@@ -121,7 +132,7 @@
             </StackPanel>
         </controls:Card>
 
-        <controls:Card Grid.Row="5">
+        <controls:Card Grid.Row="6">
             <StackPanel>
                 <TextBlock Text="{ext:LocalizeExtensions XAML_Setting_EnableDependency_Enable}" />
 
@@ -132,7 +143,7 @@
             </StackPanel>
         </controls:Card>
 
-        <controls:Card Grid.Row="6">
+        <controls:Card Grid.Row="7">
             <StackPanel>
                 <TextBlock Text="{ext:LocalizeExtensions XAML_Setting_DisableDependency_Delete}" />
 
@@ -143,7 +154,7 @@
             </StackPanel>
         </controls:Card>
 
-        <controls:Card Grid.Row="7">
+        <controls:Card Grid.Row="8">
             <StackPanel>
                 <TextBlock Text="{ext:LocalizeExtensions XAML_Setting_DisableDependency_Disable}" />
 

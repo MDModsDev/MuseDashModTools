@@ -2,10 +2,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:contract="clr-namespace:MuseDashModToolsUI.Contracts.ViewModels"
-             xmlns:tabs="clr-namespace:MuseDashModToolsUI.ViewModels.Tabs"
-             xmlns:ext="clr-namespace:MuseDashModToolsUI.Extensions"
              xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
+             xmlns:tabs="using:MuseDashModToolsUI.ViewModels.Tabs"
+             xmlns:contract="using:MuseDashModToolsUI.Contracts.ViewModels"
+             xmlns:ext="using:MuseDashModToolsUI.Extensions"
              mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="700"
              x:Class="MuseDashModToolsUI.Views.Tabs.LogAnalysis"
              x:DataType="tabs:LogAnalysisViewModel"
@@ -34,11 +34,18 @@
                     Content="{ext:LocalizeExtensions XAML_Analyze}"
                     Command="{Binding AnalyzeLogCommand}" />
 
+            <Button Grid.Row="0" Grid.Column="1"
+                    Classes="dark"
+                    HorizontalAlignment="Center"
+                    Content="{ext:LocalizeExtensions XAML_LogFolder}"
+                    Command="{Binding OpenLogFolderCommand}" />
+
             <Button Grid.Row="0" Grid.Column="2" Classes="dark"
                     HorizontalAlignment="Right"
                     Margin="0,0,10,0"
-                    Content="{ext:LocalizeExtensions XAML_LogFolder}"
-                    Command="{Binding OpenLogFolderCommand}" />
+                    Content="{ext:LocalizeExtensions XAML_TroubleShoot}"
+                    Command="{Binding OpenUrlCommand}"
+                    CommandParameter="https://discord.com/channels/812100927468470273/812771828514816040" />
 
             <TextBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
                      Margin="10,0"

@@ -12,6 +12,7 @@ using MuseDashModToolsUI.Contracts;
 using MuseDashModToolsUI.Contracts.ViewModels;
 using MuseDashModToolsUI.Extensions;
 using MuseDashModToolsUI.Models;
+using NuGet.Versioning;
 using Serilog;
 using static MuseDashModToolsUI.Localization.Resources;
 
@@ -31,8 +32,19 @@ public class ModService : IModService
     public ILocalService LocalService { get; init; }
     public ILogger Logger { get; init; }
     public IMessageBoxService MessageBoxService { get; init; }
-    public ISettingService SettingService { get; init; }
+    public ISavingService SavingService { get; init; }
     public ISettingsViewModel SettingsViewModel { get; init; }
+
+    public bool CompareVersion(string modName, string modVersion)
+    {
+        var webMod = _webMods?.Find(x => x.Name == modName);
+        if (webMod is null) return false;
+
+        var webModVersion = SemanticVersion.Parse(webMod.Version!);
+        var loadedModVersion = SemanticVersion.Parse(modVersion);
+
+        return webModVersion > loadedModVersion;
+    }
 
     public async Task InitializeModList(SourceCache<Mod, string> sourceCache, ReadOnlyObservableCollection<Mod> mods)
     {
@@ -46,7 +58,7 @@ public class ModService : IModService
 
         _webMods ??= await GitHubService.GetModListAsync();
         if (_webMods is null) return;
-        var localPaths = LocalService.GetModFiles(SettingService.Settings.ModsFolder);
+        var localPaths = LocalService.GetModFiles(SavingService.Settings.ModsFolder);
         List<Mod>? localMods;
         try
         {
@@ -78,14 +90,14 @@ public class ModService : IModService
 
         try
         {
-            var path = Path.Join(SettingService.Settings.ModsFolder,
+            var path = Path.Join(SavingService.Settings.ModsFolder,
                 item.IsLocal ? item.FileNameExtended() : item.DownloadLink.Split("/")[1]);
             await GitHubService.DownloadModAsync(item.DownloadLink, path);
 
             var downloadedMod = LocalService.LoadMod(path)!;
             _webMods ??= await GitHubService.GetModListAsync();
             if (_webMods is null) return;
-            var mod = _webMods?.FirstOrDefault(x => x.Name == downloadedMod.Name)!;
+            var mod = _webMods?.Find(x => x.Name == downloadedMod.Name)!;
             mod.IsDisabled = downloadedMod.IsDisabled;
             mod.FileName = downloadedMod.FileName;
             mod.LocalVersion = downloadedMod.LocalVersion;
@@ -133,7 +145,7 @@ public class ModService : IModService
             if (item.IsDisabled)
             {
                 var (result, askType) = await DisableReverseDependencies(item, MsgBox_Content_DisableModConfirm.Localize(),
-                    SettingService.Settings.AskDisableDependenciesWhenDisabling);
+                    SavingService.Settings.AskDisableDependenciesWhenDisabling);
                 if (!result)
                     return;
 
@@ -144,8 +156,8 @@ public class ModService : IModService
                 await CheckDependencyInstall(item);
             }
 
-            File.Move(Path.Join(SettingService.Settings.ModsFolder, item.FileNameExtended(true)),
-                Path.Join(SettingService.Settings.ModsFolder, item.FileNameExtended()));
+            File.Move(Path.Join(SavingService.Settings.ModsFolder, item.FileNameExtended(true)),
+                Path.Join(SavingService.Settings.ModsFolder, item.FileNameExtended()));
             Logger.Information("Change mod {Name} state to {State}", item.Name,
                 item.IsDisabled ? "Disabled" : "Enabled");
         }
@@ -164,7 +176,7 @@ public class ModService : IModService
             return;
         }
 
-        var path = Path.Join(SettingService.Settings.ModsFolder, item.FileNameExtended());
+        var path = Path.Join(SavingService.Settings.ModsFolder, item.FileNameExtended());
         if (!File.Exists(path))
         {
             Logger.Error("Delete mod {Name} failed: File not found", item.Name);
@@ -175,13 +187,13 @@ public class ModService : IModService
         try
         {
             var (result, askType) = await DisableReverseDependencies(item, MsgBox_Content_DeleteModConfirm.Localize(),
-                SettingService.Settings.AskDisableDependenciesWhenDeleting);
+                SavingService.Settings.AskDisableDependenciesWhenDeleting);
             if (!result)
                 return;
 
             SettingsViewModel.DisableDependenciesWhenDeleting = (int)askType;
             File.Delete(path);
-            var mod = _webMods?.FirstOrDefault(x => x.Name == item.Name)?.SetDefault();
+            var mod = _webMods?.Find(x => x.Name == item.Name)?.SetDefault();
             _sourceCache?.AddOrUpdate(mod);
             Logger.Information("Delete mod {Name} success", item.Name);
             await MessageBoxService.CreateSuccessMessageBox(string.Format(MsgBox_Content_UninstallModSuccess.Localize(), item.Name));
@@ -245,7 +257,7 @@ public class ModService : IModService
         var isTracked = new bool[localMods.Count];
         foreach (var webMod in webMods!)
         {
-            var localMod = localMods.FirstOrDefault(x => x.Name == webMod.Name);
+            var localMod = localMods.Find(x => x.Name == webMod.Name);
             var localModIdx = localMods.IndexOf(localMod!);
 
             if (localMod is null)
@@ -276,8 +288,8 @@ public class ModService : IModService
             localMod.HomePage = webMod.HomePage;
             localMod.Description = webMod.Description;
 
-            var versionState = new Version(webMod.Version!) > new Version(localMod.LocalVersion!) ? -1
-                : new Version(webMod.Version!) < new Version(localMod.LocalVersion!) ? 1 : 0;
+            var versionState = SemanticVersion.Parse(webMod.Version!) > SemanticVersion.Parse(localMod.LocalVersion!) ? -1
+                : SemanticVersion.Parse(webMod.Version!) < SemanticVersion.Parse(localMod.LocalVersion!) ? 1 : 0;
             localMod.State = (UpdateState)versionState;
             localMod.IsShaMismatched = versionState == 0 && webMod.SHA256 != localMod.SHA256;
             if (localMod.IsShaMismatched)
@@ -312,12 +324,12 @@ public class ModService : IModService
 
     private async Task CheckModToolsInstall(Mod mod)
     {
-        if (SettingService.Settings.AskInstallMuseDashModTools != AskType.Always) return;
+        if (SavingService.Settings.AskInstallMuseDashModTools != AskType.Always) return;
         if (mod.Name != "MuseDashModTools") return;
         var result =
             await MessageBoxService.CreateCustomConfirmMessageBox(MsgBox_Content_InstallModTools.Localize(), 3);
         if (result == MsgBox_Button_Yes) await OnInstallMod(mod);
-        else if (result == MsgBox_Button_NoNoAsk) SettingService.Settings.AskInstallMuseDashModTools = AskType.NoAndNoAsk;
+        else if (result == MsgBox_Button_NoNoAsk) SavingService.Settings.AskInstallMuseDashModTools = AskType.NoAndNoAsk;
     }
 
     private bool CheckCompatible(Mod mod) =>
@@ -337,7 +349,7 @@ public class ModService : IModService
             if (installedMod is not null) continue;
             try
             {
-                var path = Path.Join(SettingService.Settings.ModsFolder, dependency.DownloadLink!.Split("/")[1]);
+                var path = Path.Join(SavingService.Settings.ModsFolder, dependency.DownloadLink!.Split("/")[1]);
                 await GitHubService.DownloadModAsync(dependency.DownloadLink, path);
                 var mod = LocalService.LoadMod(path);
                 dependency.IsDisabled = mod!.IsDisabled;
@@ -350,13 +362,13 @@ public class ModService : IModService
             }
             catch (Exception ex)
             {
-                errors.AppendLine(ex.ToString());
+                errors.AppendFormat(MsgBox_Content_InstallDependencyFailed.Localize(), dependency.Name, ex).AppendLine();
                 Logger.Information(ex, "Install dependency {Name} failed", dependency.Name);
             }
         }
 
         SettingsViewModel.EnableDependenciesWhenInstalling = (int)await EnableDependencies(item, dependencies,
-            MsgBox_Content_EnableDependency, SettingService.Settings.AskEnableDependenciesWhenInstalling);
+            MsgBox_Content_EnableDependency, SavingService.Settings.AskEnableDependenciesWhenInstalling);
         return errors;
     }
 
