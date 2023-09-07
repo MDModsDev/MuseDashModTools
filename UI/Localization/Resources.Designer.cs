@@ -168,7 +168,7 @@ namespace MuseDashModToolsUI.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cannot copy Updater.exe to target path\n{0}.
+        ///   Looks up a localized string similar to Cannot copy Updater to target path\n{0}.
         /// </summary>
         internal static string MsgBox_Content_CopyUpdaterFailed {
             get {
@@ -384,6 +384,15 @@ namespace MuseDashModToolsUI.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Log analysis completed, no obvious errors are found in your log file\nIf you still have issues please go to trouble shoot channel.
+        /// </summary>
+        internal static string MsgBox_Content_LogAnalyzeComplete {
+            get {
+                return ResourceManager.GetString("MsgBox_Content_LogAnalyzeComplete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to A newer version of Muse Dash Mod Tools ({0}) is released\n\nDo you want to install it now?\n\nRelease Title:\n{1}\n\nRelease Info:\n{2}.
         /// </summary>
         internal static string MsgBox_Content_NewerVersion {
@@ -582,7 +591,7 @@ namespace MuseDashModToolsUI.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cannot find Updater.exe\nPlease make sure you have downloaded full software.
+        ///   Looks up a localized string similar to Cannot find Updater\nPlease make sure you have downloaded full software.
         /// </summary>
         internal static string MsgBox_Content_UpdaterNotFound {
             get {

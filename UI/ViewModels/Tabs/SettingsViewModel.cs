@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using Autofac;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MuseDashModToolsUI.Contracts;
@@ -30,17 +31,18 @@ public partial class SettingsViewModel : ViewModelBase, ISettingsViewModel
     public List<Language> AvailableLanguages => _localizationService.AvailableLanguages;
     public List<string> AvailableFonts => _fontManageService.AvailableFonts;
 
-    public SettingsViewModel(IFontManageService fontManageService, ILocalizationService localizationService, ILogger logger,
-        ISavingService savingService)
+    public SettingsViewModel(IComponentContext context)
     {
-        _fontManageService = fontManageService;
-        _localizationService = localizationService;
-        _logger = logger;
-        _savingService = savingService;
+        _fontManageService = context.Resolve<IFontManageService>();
+        _localizationService = context.Resolve<ILocalizationService>();
+        _logger = context.Resolve<ILogger>();
+        _savingService = context.Resolve<ISavingService>();
         Initialize();
     }
 
-    public void Initialize()
+    public void UpdatePath() => Path = _savingService.Settings.MuseDashFolder;
+
+    private void Initialize()
     {
         if (_savingService.Settings.LanguageCode is not null)
             CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo(_savingService.Settings.LanguageCode);
