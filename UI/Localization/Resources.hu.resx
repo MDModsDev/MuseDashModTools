@@ -118,10 +118,10 @@
         <value>Ellenőrzés sikertelen\nBiztos hogy online vagy?</value>
     </data>
   <data name="MsgBox_Content_UpdaterNotFound" xml:space="preserve">
-        <value>Az Updater.exe nem található\nEllenőrizd a telepítésed</value>
+        <value>Az Updater nem található\nEllenőrizd a telepítésed</value>
     </data>
   <data name="MsgBox_Content_CopyUpdaterFailed" xml:space="preserve">
-        <value>Updater.exe másolása sikertelen\n{0}</value>
+        <value>Updater másolása sikertelen\n{0}</value>
     </data>
   <data name="MsgBox_Content_NoExeFound" xml:space="preserve">
         <value>MuseDash.exe vagy GameAssembly.dll nem található\nVálaszd ki a helyes mappát</value>
