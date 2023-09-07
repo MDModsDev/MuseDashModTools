@@ -118,10 +118,10 @@
         <value>檢查更新失敗\n是否已連網?</value>
     </data>
   <data name="MsgBox_Content_UpdaterNotFound" xml:space="preserve">
-        <value>無法找到 Updater.exe\n請確認你下載了整個軟體</value>
+        <value>無法找到 Updater\n請確認你下載了整個軟體</value>
     </data>
   <data name="MsgBox_Content_CopyUpdaterFailed" xml:space="preserve">
-        <value>無法將 Updater.exe 複製到目標文件夾\n{0}</value>
+        <value>無法將 Updater 複製到目標文件夾\n{0}</value>
     </data>
   <data name="MsgBox_Content_NoExeFound" xml:space="preserve">
         <value>無法找到 Muse Dash.exe 或 GameAssmbly.dll\n請選擇正確的文件夾</value>
