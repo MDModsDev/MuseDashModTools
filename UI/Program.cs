@@ -1,4 +1,7 @@
+#if DEBUG
+#else
 using System.Diagnostics;
+#endif
 using System.IO;
 using Avalonia;
 using MuseDashModToolsUI.Models;
@@ -27,6 +30,8 @@ internal static class Program
             Log.Logger.Fatal(ex, "Unhandled exception");
             if (File.Exists(Path.Combine("Logs", LogFileName)))
             {
+#if DEBUG
+#else
                 if (OperatingSystem.IsWindows())
                     Process.Start("explorer.exe", "/select, " + Path.Combine("Logs", LogFileName));
                 if (OperatingSystem.IsLinux())
@@ -36,6 +41,7 @@ internal static class Program
                     FileName = IssuePage,
                     UseShellExecute = true
                 });
+#endif
             }
         }
     }

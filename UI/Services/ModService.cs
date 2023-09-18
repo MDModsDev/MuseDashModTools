@@ -6,7 +6,6 @@ using System.Text;
 using DynamicData;
 using MuseDashModToolsUI.Contracts;
 using MuseDashModToolsUI.Contracts.ViewModels;
-using MuseDashModToolsUI.Extensions;
 using MuseDashModToolsUI.Models;
 using NuGet.Versioning;
 using static MuseDashModToolsUI.Localization.Resources;
@@ -60,7 +59,7 @@ public class ModService : IModService
         }
         catch (Exception ex)
         {
-            await MessageBoxService.CreateErrorMessageBox(string.Format(MsgBox_Content_BrokenMods.Localize(), ex));
+            await MessageBoxService.CreateErrorMessageBox(MsgBox_Content_BrokenMods, ex);
             await LocalService.OpenModsFolder();
             Logger.Fatal(ex, "Load local mods failed");
             Environment.Exit(0);
@@ -75,7 +74,7 @@ public class ModService : IModService
         if (item.DownloadLink is null)
         {
             Logger.Error("Download link is null");
-            await MessageBoxService.CreateErrorMessageBox(MsgBox_Content_NoDownloadLink.Localize());
+            await MessageBoxService.CreateErrorMessageBox(MsgBox_Content_NoDownloadLink);
             return;
         }
 
@@ -90,14 +89,12 @@ public class ModService : IModService
             var downloadedMod = LocalService.LoadMod(path)!;
             _webMods ??= await GitHubService.GetModListAsync();
             if (_webMods is null) return;
-            var mod = _webMods?.Find(x => x.Name == downloadedMod.Name)!;
-            mod.IsDisabled = downloadedMod.IsDisabled;
-            mod.FileName = downloadedMod.FileName;
-            mod.LocalVersion = downloadedMod.LocalVersion;
-            mod.SHA256 = downloadedMod.SHA256;
+            var webMod = _webMods.Find(x => x.Name == downloadedMod.Name)!;
+            downloadedMod.CloneOnlineInfo(webMod);
+            CheckVersionState(webMod, downloadedMod);
 
-            Logger.Information("Install mod {Name} success", mod.Name);
-            _sourceCache?.AddOrUpdate(mod);
+            Logger.Information("Install mod {Name} success", downloadedMod.Name);
+            _sourceCache?.AddOrUpdate(downloadedMod);
         }
         catch (Exception ex)
         {
@@ -113,7 +110,7 @@ public class ModService : IModService
             return;
         }
 
-        await MessageBoxService.CreateSuccessMessageBox(string.Format(MsgBox_Content_InstallModSuccess.Localize(), item.Name));
+        await MessageBoxService.CreateSuccessMessageBox(string.Format(MsgBox_Content_InstallModSuccess, item.Name));
     }
 
     public async Task OnReinstallMod(Mod item)
@@ -125,9 +122,10 @@ public class ModService : IModService
             return;
         }
 
-        var reinstall = await MessageBoxService.CreateConfirmMessageBox(string.Format(MsgBox_Content_ReinstallMod.Localize(), item.Name));
+        var reinstall = await MessageBoxService.CreateConfirmMessageBox(string.Format(MsgBox_Content_ReinstallMod, item.Name));
         if (!reinstall) return;
         Logger.Information("Reinstalling mod {Name}", item.Name);
+        File.Delete(Path.Join(SavingService.Settings.ModsFolder, item.FileNameExtended()));
         await OnInstallMod(item);
     }
 
@@ -137,7 +135,7 @@ public class ModService : IModService
         {
             if (item.IsDisabled)
             {
-                var (result, askType) = await DisableReverseDependencies(item, MsgBox_Content_DisableModConfirm.Localize(),
+                var (result, askType) = await DisableReverseDependencies(item, MsgBox_Content_DisableModConfirm,
                     SavingService.Settings.AskDisableDependenciesWhenDisabling);
                 if (!result)
                     return;
@@ -164,7 +162,7 @@ public class ModService : IModService
     {
         if (item.IsDuplicated)
         {
-            await MessageBoxService.CreateNoticeMessageBox(string.Format(MsgBox_Content_DuplicateMods.Localize(), item.DuplicatedModNames));
+            await MessageBoxService.CreateNoticeMessageBox(string.Format(MsgBox_Content_DuplicateMods, item.DuplicatedModNames));
             await LocalService.OpenModsFolder();
             return;
         }
@@ -179,17 +177,17 @@ public class ModService : IModService
 
         try
         {
-            var (result, askType) = await DisableReverseDependencies(item, MsgBox_Content_DeleteModConfirm.Localize(),
+            var (result, askType) = await DisableReverseDependencies(item, MsgBox_Content_DeleteModConfirm,
                 SavingService.Settings.AskDisableDependenciesWhenDeleting);
             if (!result)
                 return;
 
             SettingsViewModel.DisableDependenciesWhenDeleting = (int)askType;
             File.Delete(path);
-            var mod = _webMods?.Find(x => x.Name == item.Name)?.SetDefault();
+            var mod = _webMods?.Find(x => x.Name == item.Name)?.RemoveLocalInfo();
             _sourceCache?.AddOrUpdate(mod);
             Logger.Information("Delete mod {Name} success", item.Name);
-            await MessageBoxService.CreateSuccessMessageBox(string.Format(MsgBox_Content_UninstallModSuccess.Localize(), item.Name));
+            await MessageBoxService.CreateSuccessMessageBox(string.Format(MsgBox_Content_UninstallModSuccess, item.Name));
         }
         catch (Exception ex)
         {
@@ -202,17 +200,17 @@ public class ModService : IModService
         switch (ex)
         {
             case HttpRequestException:
-                errors.AppendFormat(MsgBox_Content_InstallModFailed_Internet.Localize(), ex).AppendLine();
+                errors.AppendFormat(MsgBox_Content_InstallModFailed_Internet, ex).AppendLine();
                 break;
 
             case SecurityException:
             case UnauthorizedAccessException:
             case IOException:
-                errors.AppendFormat(MsgBox_Content_InstallModFailed_Game.Localize(), ex).AppendLine();
+                errors.AppendFormat(MsgBox_Content_InstallModFailed_Game, ex).AppendLine();
                 break;
 
             default:
-                errors.AppendFormat(MsgBox_Content_InstallModFailed.Localize(), ex).AppendLine();
+                errors.AppendFormat(MsgBox_Content_InstallModFailed, ex).AppendLine();
                 break;
         }
     }
@@ -221,13 +219,13 @@ public class ModService : IModService
     {
         var errorMsg = ex switch
         {
-            UnauthorizedAccessException => MsgBox_Content_ChangeModStateFailed_Unauthorized.Localize(),
-            IOException => MsgBox_Content_ChangeModStateFailed_Game.Localize(),
-            _ => MsgBox_Content_ChangeModStateFailed.Localize()
+            UnauthorizedAccessException => MsgBox_Content_ChangeModStateFailed_Unauthorized,
+            IOException => MsgBox_Content_ChangeModStateFailed_Game,
+            _ => MsgBox_Content_ChangeModStateFailed
         };
 
         Logger.Error(ex, "Change mod {Name} state failed", item.Name);
-        await MessageBoxService.CreateErrorMessageBox(string.Format(errorMsg, ex));
+        await MessageBoxService.CreateErrorMessageBox(errorMsg, ex);
 
         item.IsDisabled = !item.IsDisabled;
     }
@@ -236,8 +234,8 @@ public class ModService : IModService
     {
         var errorMsg = string.Format(
             ex is UnauthorizedAccessException or IOException
-                ? MsgBox_Content_UninstallModFailed_Game.Localize()
-                : MsgBox_Content_UninstallModFailed.Localize(), ex);
+                ? MsgBox_Content_UninstallModFailed_Game
+                : MsgBox_Content_UninstallModFailed, ex);
 
         Logger.Error(ex, "Delete mod {Name} failed", item.Name);
         await MessageBoxService.CreateErrorMessageBox(errorMsg);
@@ -281,18 +279,23 @@ public class ModService : IModService
             localMod.HomePage = webMod.HomePage;
             localMod.Description = webMod.Description;
 
-            var versionState = SemanticVersion.Parse(webMod.Version!) > SemanticVersion.Parse(localMod.LocalVersion!) ? -1
-                : SemanticVersion.Parse(webMod.Version!) < SemanticVersion.Parse(localMod.LocalVersion!) ? 1 : 0;
-            localMod.State = (UpdateState)versionState;
-            localMod.IsShaMismatched = versionState == 0 && webMod.SHA256 != localMod.SHA256;
-            if (localMod.IsShaMismatched)
-                localMod.State = UpdateState.Modified;
-            localMod.IsIncompatible = !CheckCompatible(localMod);
+            CheckVersionState(webMod, localMod);
             _sourceCache?.AddOrUpdate(localMod);
             Logger?.Information("Mod {Name} loaded to UI", localMod.Name);
         }
 
         CheckDuplicatedMods(isTracked, localMods);
+    }
+
+    private void CheckVersionState(Mod webMod, Mod localMod)
+    {
+        var versionState = SemanticVersion.Parse(webMod.Version!) > SemanticVersion.Parse(localMod.LocalVersion!) ? -1
+            : SemanticVersion.Parse(webMod.Version!) < SemanticVersion.Parse(localMod.LocalVersion!) ? 1 : 0;
+        localMod.State = (UpdateState)versionState;
+        localMod.IsShaMismatched = versionState == 0 && webMod.SHA256 != localMod.SHA256;
+        if (localMod.IsShaMismatched)
+            localMod.State = UpdateState.Modified;
+        localMod.IsIncompatible = !CheckCompatible(localMod);
     }
 
     private void CheckDuplicatedMods(IReadOnlyList<bool> isTracked, IReadOnlyList<Mod> localMods)
@@ -320,7 +323,7 @@ public class ModService : IModService
         if (SavingService.Settings.AskInstallMuseDashModTools != AskType.Always) return;
         if (mod.Name != "MuseDashModTools") return;
         var result =
-            await MessageBoxService.CreateCustomConfirmMessageBox(MsgBox_Content_InstallModTools.Localize(), 3);
+            await MessageBoxService.CreateCustomConfirmMessageBox(MsgBox_Content_InstallModTools, 3);
         if (result == MsgBox_Button_Yes) await OnInstallMod(mod);
         else if (result == MsgBox_Button_NoNoAsk) SavingService.Settings.AskInstallMuseDashModTools = AskType.NoAndNoAsk;
     }
@@ -355,7 +358,7 @@ public class ModService : IModService
             }
             catch (Exception ex)
             {
-                errors.AppendFormat(MsgBox_Content_InstallDependencyFailed.Localize(), dependency.Name, ex).AppendLine();
+                errors.AppendFormat(MsgBox_Content_InstallDependencyFailed, dependency.Name, ex).AppendLine();
                 Logger.Information(ex, "Install dependency {Name} failed", dependency.Name);
             }
         }
