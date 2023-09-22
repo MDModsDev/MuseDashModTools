@@ -4,7 +4,7 @@ using NuGet.Versioning;
 
 namespace MuseDashModToolsUI.Converters;
 
-public class VersionConverter : JsonConverter<SemanticVersion>
+public class SemanticVersionJsonConverter : JsonConverter<SemanticVersion>
 {
     public override SemanticVersion Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
