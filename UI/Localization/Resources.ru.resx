@@ -166,7 +166,7 @@
         <value>Неуспешная установка мода\n{0}</value>
     </data>
   <data name="MsgBox_Content_InstallDependencyFailed" xml:space="preserve">
-        <value>Неуспешная установка зависимости\n{0}</value>
+        <value>Dependency {0} failed to install\n{1}</value>
     </data>
   <data name="MsgBox_Content_EnableDependency" xml:space="preserve">
         <value>Хотели ли бы Вы включить зависимость {1} мода {0}?</value>
@@ -331,42 +331,42 @@
         <value>Ваш путь к игре не содержит "steamapps\common\Muse Dash\musedash.exe"\nВы используете пиратскую версию?</value>
     </data>
   <data name="MsgBox_Content_NoApplicationPath" xml:space="preserve">
-        <value>You don't have application path in the log</value>
+        <value>В журнале отсутствует путь к приложению</value>
     </data>
   <data name="MsgBox_Content_NoInstallRecord" xml:space="preserve">
-        <value>Cannot verify you have bought the game on Steam\nAre you using pirate version?</value>
+        <value>Невозможно проверить, что вы купили игру в Steam\nВы используете пиратскую версию?</value>
     </data>
   <data name="MsgBox_Content_IncorrectMelonLoaderVersion" xml:space="preserve">
-        <value>You have incorrect MelonLoader version installed: {0}\nPlease use the button in ModManage window to install MelonLoader 0.5.7</value>
+        <value>У вас установлена неверная версия MelonLoader: {0}\nПожалуйста, используйте кнопку в окне ModManage для установки MelonLoader 0.5.7</value>
     </data>
   <data name="MsgBox_Content_NoDlcPurchased" xml:space="preserve">
-        <value>Cannot find purchase record for Muse Dash's DLC\nYou have to buy it in order to play custom chart</value>
+        <value>Не удается найти запись о покупке DLC Muse Dash\nДля того, чтобы играть в пользовательскую карту, ее нужно купить</value>
     </data>
   <data name="MsgBox_Content_OutdatedMod" xml:space="preserve">
-        <value>{0} is outdated, please update using "ModManage"page</value>
+        <value>{0} устарел, пожалуйста, обновите его с помощью страницы "ModManage"</value>
     </data>
   <data name="MsgBox_Content_NoLogFile" xml:space="preserve">
-        <value>No Log File Found\nYou have to launch the game once after installing MelonLoader to generate log</value>
+        <value>Файл журнала не найден\nДля создания журнала необходимо один раз запустить игру после установки MelonLoader</value>
     </data>
   <data name="XAML_DownloadPrerelease" xml:space="preserve">
-        <value>Download Prerelease: </value>
+        <value>Скачать предварительный релиз: </value>
     </data>
   <data name="MsgBox_Content_NoMelonLoaderVersion" xml:space="preserve">
-        <value>Cannot find MelonLoader version from log</value>
+        <value>Невозможно найти версию MelonLoader из журнала</value>
     </data>
   <data name="XAML_TroubleShoot" xml:space="preserve">
-        <value>Trouble Shoot</value>
+        <value>Поиск неисправностей</value>
     </data>
   <data name="MsgBox_Title_AnalyzeSuccess" xml:space="preserve">
-        <value>Analyze Success</value>
+        <value>Успешный анализ</value>
     </data>
   <data name="MsgBox_Content_RegisterHQ" xml:space="preserve">
-        <value>You have not registered Headquarters Mod\nPlease register in #bot-commands channel in MDMC discord</value>
+        <value>Вы не зарегистрировали Headquarters Mod\nПожалуйста, зарегистрируйтесь в mdmc.moe/connect</value>
     </data>
   <data name="MsgBox_Content_LogAnalyzeComplete" xml:space="preserve">
-        <value>Log analysis completed, no obvious errors are found in your log file\nIf you still have issues please go to trouble shoot channel</value>
+        <value>Анализ журнала завершен, явных ошибок в файле журнала не обнаружено\nЕсли у вас все еще есть проблемы, перейдите в канал устранения неполадок</value>
     </data>
   <data name="MsgBox_Content_InstallPathConfirm" xml:space="preserve">
-        <value>Detected Muse Dash folder path is {0}\nIs this the correct game folder?</value>
+        <value>Обнаружен путь к папке Muse Dash - {0}\nЭто правильная папка игры?</value>
     </data>
 </root>
