@@ -31,23 +31,17 @@ public partial class SavingService : ISavingService
     public ISerializeService SerializeService { get; init; }
 
     [UsedImplicitly]
-    public Lazy<ILocalService> LocalService { get; init; }
+    public IUpdateUIService UpdateUIService { get; init; }
 
     [UsedImplicitly]
-    public Lazy<ILogAnalysisViewModel> LogAnalysisViewModel { get; init; }
-
-    [UsedImplicitly]
-    public Lazy<IModManageViewModel> ModManageViewModel { get; init; }
-
-    [UsedImplicitly]
-    public Lazy<ISettingsViewModel> SettingsViewModel { get; init; }
+    public ILocalService LocalService { get; init; }
 
     public SavingService(IFileSystem fileSystem, ILogger logger, IPlatformService platformService)
     {
         _fileSystem = fileSystem;
         _logger = logger;
         _platformService = platformService;
-        Load().Wait();
+        Load().ConfigureAwait(false);
     }
 
     public Setting Settings { get; } = new();
@@ -58,18 +52,24 @@ public partial class SavingService : ISavingService
 
         if (!_isSavedLoaded)
         {
-            _logger.Error("Settings.json not found or invalid, getting game path...");
+            _logger.Warning("Didn't load setting from Settings.json, getting game path...");
             await TryGetGameFolderPath();
         }
 
         await CheckSettingValidity();
+        await UpdateUIService.InitializeAllTabs();
 
-        // Update path in SettingsView and log content in LogAnalysisView
-        SettingsViewModel.Value.UpdatePath();
-        await LogAnalysisViewModel.Value.Initialize();
+        _logger.Information("Settings initialize finished");
     }
 
-    public async Task OnChoosePath(bool isInitializeTabs = false)
+    public async Task Save()
+    {
+        var json = SerializeService.SerializeSetting(Settings);
+        await _fileSystem.File.WriteAllTextAsync(SettingPath, json);
+        _logger.Information("Settings saved to Settings.json");
+    }
+
+    public async Task OnChoosePath()
     {
         var path = await GetChosenPath();
 
@@ -83,19 +83,5 @@ public partial class SavingService : ISavingService
         Settings.MuseDashFolder = path;
 
         await CheckSettingValidity();
-
-        if (isInitializeTabs)
-        {
-            SettingsViewModel.Value.UpdatePath();
-            await LogAnalysisViewModel.Value.Initialize();
-            await ModManageViewModel.Value.Initialize();
-        }
-    }
-
-    public async Task Save()
-    {
-        var json = SerializeService.SerializeSetting(Settings);
-        await _fileSystem.File.WriteAllTextAsync(SettingPath, json);
-        _logger.Information("Settings saved to Settings.json");
     }
 }

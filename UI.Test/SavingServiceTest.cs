@@ -38,8 +38,10 @@ public class SavingServiceTest
         fs.Setup(f => f.File.ReadAllTextAsync(It.IsAny<string>(), It.IsAny<CancellationToken>())).ReturnsAsync(SettingJson);
         var savingService = new SavingService(fs.Object, _logger, new Mock<IPlatformService>().Object)
         {
+            LocalService = new Mock<ILocalService>().Object,
             MessageBoxService = new Mock<IMessageBoxService>().Object,
-            SerializeService = new SerializeService()
+            SerializeService = new SerializeService(),
+            UpdateUIService = new Mock<IUpdateUIService>().Object
         };
         await savingService.InitializeSettings();
 
