@@ -367,9 +367,9 @@
         <value>¿Tienes Muse Dash instalado en esta carpeta?\n{0}</value>
     </data>
   <data name="XAML_Tab_About" xml:space="preserve">
-        <value>About</value>
+        <value>Acerca de</value>
     </data>
   <data name="XAML_ReportBug" xml:space="preserve">
-        <value>Report Bug</value>
+        <value>Reporta un error</value>
     </data>
 </root>
