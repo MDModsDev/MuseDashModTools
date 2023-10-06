@@ -19,8 +19,17 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         </value>
   </resheader>
+  <data name="XAML_UserDataFolder" xml:space="preserve">
+        <value>UserData</value>
+    </data>
+  <data name="XAML_ReportBug" xml:space="preserve">
+        <value>Hibajelentés</value>
+    </data>
   <data name="XAML_Check_Update" xml:space="preserve">
         <value>Frissítés</value>
+    </data>
+  <data name="XAML_DownloadSource_GithubMirror" xml:space="preserve">
+        <value>Github tükörlink</value>
     </data>
   <data name="XAML_Analyze" xml:space="preserve">
         <value>Log elemzése</value>
@@ -42,6 +51,12 @@
     </data>
   <data name="XAML_DownloadPrerelease" xml:space="preserve">
         <value>Korai kiadások letöltése: </value>
+    </data>
+  <data name="XAML_DownloadSource_Gitee" xml:space="preserve">
+        <value>Gitee</value>
+    </data>
+  <data name="XAML_DownloadSource_Github" xml:space="preserve">
+        <value>Github</value>
     </data>
   <data name="XAML_DownloadSource" xml:space="preserve">
         <value>Letöltési forrás: </value>
@@ -156,5 +171,14 @@
     </data>
   <data name="XAML_Update_Mod" xml:space="preserve">
         <value>Frissítés</value>
+    </data>
+  <data name="XAML_DownloadSource_Custom" xml:space="preserve">
+        <value>Egyéni forrás</value>
+    </data>
+  <data name="XAML_UseCustomDownloadSource" xml:space="preserve">
+        <value>Add meg az egyéni forrás linkjét</value>
+    </data>
+  <data name="XAML_CustomDownloadSourceFormat" xml:space="preserve">
+        <value>A linknek "/"-el kell végződnie, emellett elérhetőnek és értelemezhetőnek kell lennie úgy, hogy ha "ModLinks.json" van a végéhez fűzve (Ugyanaz mint egy GitHub projekt felépítése)\nÚjraindítás után lép életbe</value>
     </data>
 </root>
