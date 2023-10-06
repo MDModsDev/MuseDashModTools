@@ -129,6 +129,9 @@
   <data name="XAML_DownloadSource_GithubMirror" xml:space="preserve">
     <value>Github tükörlink</value>
   </data>
+  <data name="XAML_Analyze" xml:space="preserve">
+    <value>Log elemzése</value>
+  </data>
   <data name="XAML_Apply" xml:space="preserve">
     <value>Alkalmaz</value>
   </data>
@@ -234,6 +237,18 @@
   <data name="XAML_SearchBar" xml:space="preserve">
     <value>Keresés</value>
   </data>
+  <data name="XAML_Setting_DisableDependency_Delete" xml:space="preserve">
+    <value>Függő modok kikapcsolása mod törlésekor</value>
+  </data>
+  <data name="XAML_Setting_DisableDependency_Disable" xml:space="preserve">
+    <value>Függő modok kikapcsolása mod kikapcsolásakor</value>
+  </data>
+  <data name="XAML_Setting_EnableDependency_Enable" xml:space="preserve">
+    <value>Függőségek bekapcsolása mod bekapcsolásakor</value>
+  </data>
+  <data name="XAML_Setting_EnableDependency_Install" xml:space="preserve">
+    <value>Függőségek bekapcsolása mod telepítésekor</value>
+  </data>
   <data name="XAML_Tab_LogAnalysis" xml:space="preserve">
     <value>Elemzés</value>
   </data>
@@ -242,6 +257,9 @@
   </data>
   <data name="XAML_Tab_Setting" xml:space="preserve">
     <value>Beállítások</value>
+  </data>
+  <data name="XAML_TroubleShoot" xml:space="preserve">
+    <value>Hibakeresés</value>
   </data>
   <data name="XAML_Uninstall_MelonLoader" xml:space="preserve">
     <value>MelonLoader\nEltávolítása</value>
@@ -257,5 +275,8 @@
   </data>
   <data name="XAML_UseCustomDownloadSource" xml:space="preserve">
     <value>Add meg az egyéni forrás linkjét</value>
+  </data>
+  <data name="XAML_CustomDownloadSourceFormat" xml:space="preserve">
+    <value>A linknek "/"-el kell végződnie, emellett elérhetőnek és értelemezhetőnek kell lennie úgy, hogy ha "ModLinks.json" van a végéhez fűzve (Ugyanaz mint egy GitHub projekt felépítése)\nÚjraindítás után lép életbe</value>
   </data>
 </root>
