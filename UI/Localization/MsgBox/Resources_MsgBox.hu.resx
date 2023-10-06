@@ -243,6 +243,9 @@
   <data name="MsgBox_Content_NoExeFound" xml:space="preserve">
     <value>MuseDash.exe vagy GameAssembly.dll nem található\nVálaszd ki a helyes mappát</value>
   </data>
+  <data name="MsgBox_Content_NoInstallRecord" xml:space="preserve">
+    <value>Nem sikerült igazolni hogy birtoklod Steam-en a játékot\nKalóz verziót használsz?</value>
+  </data>
   <data name="MsgBox_Content_NoLogFile" xml:space="preserve">
     <value>Nem található log fájl\nEl kell indítani a játékot egyszer MelonLoader telepítése után hogy legyen log</value>
   </data>
@@ -257,6 +260,12 @@
   </data>
   <data name="MsgBox_Content_OutdatedMod" xml:space="preserve">
     <value>{0} elavult, a főoldalon tudod frissíteni</value>
+  </data>
+  <data name="MsgBox_Content_ReadGameVersionFailed" xml:space="preserve">
+    <value>Nem sikerült leolvasni a játékverziót\nTeljes a telepítésed?\nEllenőrizd a globalgamemanagers fájlod itt:\n{0}</value>
+  </data>
+  <data name="MsgBox_Content_RegisterHQ" xml:space="preserve">
+    <value>Nem regisztráltál Headquarters fiókot\nRegisztrálj a mod közösség (MDMC) discord-ban, vagy annak weboldalán</value>
   </data>
   <data name="MsgBox_Content_ReinstallMod" xml:space="preserve">
     <value>{0} újra lesz telepítve\nErősítsd meg a műveletet</value>
@@ -281,6 +290,15 @@
   </data>
   <data name="MsgBox_Content_UninstallModSuccess" xml:space="preserve">
     <value>{0} sikeresen eltávolítva\n</value>
+  </data>
+  <data name="MsgBox_Content_UnzipMelonLoaderFailed" xml:space="preserve">
+    <value>Nem sikerült kicsomagolni MelonLoader.zip-et\n{0}\nHiba: {1}\nProbáld meg manuálisan</value>
+  </data>
+  <data name="MsgBox_Content_UpdaterNotFound" xml:space="preserve">
+    <value>Az Updater nem található\nEllenőrizd a telepítésed és az antivírusod</value>
+  </data>
+  <data name="MsgBox_Title_AnalyzeSuccess" xml:space="preserve">
+    <value>Elemzés sikeres</value>
   </data>
   <data name="MsgBox_Title_Failure" xml:space="preserve">
     <value>Hiba</value>
