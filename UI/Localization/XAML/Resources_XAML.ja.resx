@@ -44,13 +44,13 @@
         <value>いいえ</value>
     </data>
   <data name="XAML_AskType_Yes" xml:space="preserve">
-        <value>YES</value>
+        <value>Yes</value>
     </data>
   <data name="XAML_ChangePath" xml:space="preserve">
         <value>Change Path</value>
     </data>
   <data name="XAML_DownloadPrerelease" xml:space="preserve">
-        <value>プリリリースをダウンロード </value>
+        <value>プリリリースをダウンロード ：</value>
     </data>
   <data name="XAML_DownloadSource_Gitee" xml:space="preserve">
         <value>Gitee</value>
@@ -89,7 +89,7 @@
         <value>Install</value>
     </data>
   <data name="XAML_Language" xml:space="preserve">
-        <value>Language: </value>
+        <value>言語：</value>
     </data>
   <data name="XAML_LogFolder" xml:space="preserve">
         <value>Open Log Folder</value>
@@ -98,7 +98,7 @@
         <value>Mods</value>
     </data>
   <data name="XAML_Mod_CompatibleGameVersion" xml:space="preserve">
-        <value>All</value>
+        <value>すべて</value>
     </data>
   <data name="XAML_Mod_Dependencies" xml:space="preserve">
         <value>Dependencies: </value>
@@ -158,16 +158,16 @@
         <value>Mods</value>
     </data>
   <data name="XAML_Tab_Setting" xml:space="preserve">
-        <value>Setting</value>
+        <value>設定</value>
     </data>
   <data name="XAML_TroubleShoot" xml:space="preserve">
-        <value>Troubleshoot</value>
+        <value>トラブルシューティング</value>
     </data>
   <data name="XAML_Uninstall_MelonLoader" xml:space="preserve">
-        <value>Uninstall\nMelonLoader</value>
+        <value>アンインストール\nメロンローダー</value>
     </data>
   <data name="XAML_Uninstall_Mod" xml:space="preserve">
-        <value>Uninstall</value>
+        <value>アンインストール</value>
     </data>
   <data name="XAML_Update_Mod" xml:space="preserve">
         <value>Update</value>
@@ -236,9 +236,9 @@
         <value>Master</value>
     </data>
   <data name="XAML_ChartFilterType_Hidden" xml:space="preserve">
-        <value>Hidden</value>
+        <value>隠し</value>
     </data>
   <data name="XAML_SearchBar" xml:space="preserve">
-        <value>Search Mods    (Name, Author, Descriptions)</value>
+        <value>Modsを探す （名前，作者，説明）</value>
     </data>
 </root>
