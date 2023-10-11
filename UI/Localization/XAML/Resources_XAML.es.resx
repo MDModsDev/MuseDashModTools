@@ -23,7 +23,7 @@
         <value>Carpeta de\najustes local</value>
     </data>
   <data name="XAML_ReportBug" xml:space="preserve">
-        <value>Report Bug</value>
+        <value>Reporta un error</value>
     </data>
   <data name="XAML_Check_Update" xml:space="preserve">
         <value>Comprobar actualización</value>
@@ -80,7 +80,7 @@
         <value>Instalado</value>
     </data>
   <data name="XAML_Incompatible" xml:space="preserve">
-        <value>Incompatible</value>
+        <value>No compatible</value>
     </data>
   <data name="XAML_Install_MelonLoader" xml:space="preserve">
         <value>Instalar\nMelonLoader</value>
