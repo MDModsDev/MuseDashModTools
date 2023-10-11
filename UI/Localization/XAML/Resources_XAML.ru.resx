@@ -20,7 +20,7 @@
         </value>
   </resheader>
   <data name="XAML_UserDataFolder" xml:space="preserve">
-        <value>Данные пользователя</value>
+        <value>UserData</value>
     </data>
   <data name="XAML_ReportBug" xml:space="preserve">
         <value>Нашли баг?</value>
@@ -32,7 +32,7 @@
         <value>Github Mirror</value>
     </data>
   <data name="XAML_Analyze" xml:space="preserve">
-        <value>Анализ журнала</value>
+        <value>Анализировать логи</value>
     </data>
   <data name="XAML_Apply" xml:space="preserve">
         <value>Применить</value>
@@ -50,7 +50,7 @@
         <value>Изменить путь</value>
     </data>
   <data name="XAML_DownloadPrerelease" xml:space="preserve">
-        <value>Скачать предварительный релиз: </value>
+        <value>Скачать пре-релиз: </value>
     </data>
   <data name="XAML_DownloadSource_Gitee" xml:space="preserve">
         <value>Gitee</value>
@@ -92,7 +92,7 @@
         <value>Язык: </value>
     </data>
   <data name="XAML_LogFolder" xml:space="preserve">
-        <value>Открыть папку с журналами</value>
+        <value>Открыть папку с логами</value>
     </data>
   <data name="XAML_ModsFolder" xml:space="preserve">
         <value>Моды</value>
@@ -104,19 +104,19 @@
         <value>Зависимости:</value>
     </data>
   <data name="XAML_Mod_Description" xml:space="preserve">
-        <value>{0} \n\nАвтор: {1} \nОнлайн версия: {2}\nСовместимая версия игры: {3}</value>
+        <value>{0} \n\nАвтор: {1} \nПоследняя версия: {2}\nСовместимая версия игры: {3}</value>
     </data>
   <data name="XAML_Mod_Duplicate" xml:space="preserve">
         <value>Дубликат к:</value>
     </data>
   <data name="XAML_Mod_Incompatible" xml:space="preserve">
-        <value>Версия {1} мода {0} является несовместимой с вашей версией игры</value>
+        <value>Версия {1} мода {0} несовместима с вашей версией игры</value>
     </data>
   <data name="XAML_Mod_Modified" xml:space="preserve">
-        <value>Локальная версия: {0} (Модифицирована)</value>
+        <value>Установленная версия: {0} (Модифицирована)</value>
     </data>
   <data name="XAML_Mod_Newer" xml:space="preserve">
-        <value>Локальная версия: {0} (ВАУ МОДОДЕЛ)</value>
+        <value>Установленная версия: {0} (ВАУ МОДОДЕЛ)</value>
     </data>
   <data name="XAML_Mod_Normal" xml:space="preserve">
         <value>Локальная версия: {0}</value>
