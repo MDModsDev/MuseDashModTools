@@ -89,7 +89,7 @@
         <value>MuseDash.exe는 올바른 버전이 아닙니다.\n다른버전 또는 수정된 버전을 사용하고 있습니까?</value>
     </data>
   <data name="MsgBox_Content_InstallDependencyFailed" xml:space="preserve">
-        <value>딸려있는 {0} 을 설치하지 못했습니다.\n{1}</value>
+        <value>하위 {0} 을 설치하지 못했습니다.\n{1}</value>
     </data>
   <data name="MsgBox_Content_InstallMelonLoader" xml:space="preserve">
         <value>MelonLoader를 설치하지 않았습니다\n모든 모드를 실행하는 데 필요합니다\n지금 설치하시겠습니까?</value>
@@ -170,57 +170,57 @@
         <value>Headquaters랭킹에 등록하지 않았습니다\nMDMC discord 또는 mdmc.moe 웹사이트의 #bot-commands 채널에 등록해주세요.</value>
     </data>
   <data name="MsgBox_Content_ReinstallMod" xml:space="preserve">
-        <value>You are asking to reinstall {0}\nPlease confirm your operation</value>
+        <value>{0} 을다시 설치하려고 합니다.\n작업을 확인해주세요.</value>
     </data>
   <data name="MsgBox_Content_UninstallMelonLoader" xml:space="preserve">
-        <value>You are asking to uninstall MelonLoader\nPlease confirm your operation</value>
+        <value>MelonLoader를 제거하려고 합니다.\n작업을 확인해주세요.</value>
     </data>
   <data name="MsgBox_Content_UninstallMelonLoaderFailed" xml:space="preserve">
-        <value>Cannot uninstall MelonLoader\nPlease make sure your game is not running!</value>
+        <value>MelonLoader를 제거할 수 없습니다.\n게임이 꺼져있는지 확인하세요!</value>
     </data>
   <data name="MsgBox_Content_UninstallMelonLoaderSuccess" xml:space="preserve">
-        <value>MelonLoader has been successfully uninstalled\n</value>
+        <value>MelonLoader가 성공적으로 제거되었습니다.\n</value>
     </data>
   <data name="MsgBox_Content_UninstallModFailed" xml:space="preserve">
-        <value>Mod uninstall failed. Is the game running?\n{0}</value>
+        <value>모드 제거에 실패했습니다. 게임이 실행 중인가요?\n{0}</value>
     </data>
   <data name="MsgBox_Content_UninstallModFailed_Game" xml:space="preserve">
-        <value>Mod uninstall failed\n{0}</value>
+        <value>모드 제거 실패\n{0}</value>
     </data>
   <data name="MsgBox_Content_UninstallModFailed_Null" xml:space="preserve">
-        <value>Cannot delete file that doesn't exist</value>
+        <value>존재하지 않는 파일은 삭제할 수 없습니다.</value>
     </data>
   <data name="MsgBox_Content_UninstallModSuccess" xml:space="preserve">
-        <value>{0} has been successfully deleted\n</value>
+        <value>{0} 이 성공적으로 삭제되었습니다.\n</value>
     </data>
   <data name="MsgBox_Content_UnzipMelonLoaderFailed" xml:space="preserve">
-        <value>Cannot unzip MelonLoader.zip in\n{0}\nError:{1}\nTry to manually unzip?</value>
+        <value>MelonLoader.zip 압축해제를 할 수 없습니다 \n{0}\n오류:{1}\n수동으로 압축해제 하시겠습니까?</value>
     </data>
   <data name="MsgBox_Content_UpdaterNotFound" xml:space="preserve">
-        <value>Cannot find Updater\nPlease make sure you have downloaded full software,\nand check your antivirus</value>
+        <value>업데이트를 찾을 수 없습니다\n전체 소프트웨어를 다운로드했는지 확인하고\n바이러스 백신을 확인해주세요.</value>
     </data>
   <data name="MsgBox_Title_AnalyzeSuccess" xml:space="preserve">
-        <value>Analysis successful</value>
+        <value>분석 성공</value>
     </data>
   <data name="MsgBox_Title_Failure" xml:space="preserve">
-        <value>Failure</value>
+        <value>실패</value>
     </data>
   <data name="MsgBox_Title_Notice" xml:space="preserve">
-        <value>Notice</value>
+        <value>알림</value>
     </data>
   <data name="MsgBox_Title_Success" xml:space="preserve">
-        <value>Success</value>
+        <value>성공</value>
     </data>
   <data name="MsgBox_Title_Warning" xml:space="preserve">
-        <value>Warning</value>
+        <value>주의</value>
     </data>
   <data name="MsgBox_Content_DownloadChartFailed" xml:space="preserve">
-        <value>Chart download failed\n{0}</value>
+        <value>차트 다운로드 실패\n{0}</value>
     </data>
   <data name="MsgBox_Content_DownloadChartSuccess" xml:space="preserve">
-        <value>Chart {0} has been successfully downloaded\n</value>
+        <value>차트 {0} 이 성공적으로 다운로드되었습니다.\n</value>
     </data>
   <data name="MsgBox_Content_OverrideChart" xml:space="preserve">
-        <value>You have already downloaded the chart {0}\nContinue downloading and overriding the existing file?</value>
+        <value>이미 차트를 다운로드했습니다. {0}\n계속 다운로드하고 바꾸시겠습니까?</value>
     </data>
 </root>
