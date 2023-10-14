@@ -29,25 +29,25 @@
         <value>Ja</value>
     </data>
   <data name="MsgBox_Content_BrokenMods" xml:space="preserve">
-        <value>Your downloaded mods are broken\nPlease delete 0KB mods if they exist, then restart the application\n{0}</value>
+        <value>Deine heruntergeladenen Mods sind kaputt\n Bitte löschen Sie 0-KB-Mods, falls vorhanden, und starten Sie dann die Anwendung neu\n{0}</value>
     </data>
   <data name="MsgBox_Button_YesNoAsk" xml:space="preserve">
-        <value>Yes and Don't Ask Again</value>
+        <value>Ja und frag nicht wieder</value>
     </data>
   <data name="MsgBox_Content_ChangeModStateFailed" xml:space="preserve">
-        <value>Mod enable/disable failed\n{0}</value>
+        <value>Mod aktivieren/deaktivieren fehlgeschlagen\n{0}</value>
     </data>
   <data name="MsgBox_Content_ChangeModStateFailed_Game" xml:space="preserve">
-        <value>Mod enable/disable failed. Is the game running?\n{0}</value>
+        <value>Mod aktivieren/deaktivieren fehlgeschlagen. Läuft das Spiel?\n{0}</value>
     </data>
   <data name="MsgBox_Content_ChangeModStateFailed_Unauthorized" xml:space="preserve">
-        <value>Mod enable/disable failed. Unauthorized\n{0}</value>
+        <value>Mod aktivieren/deaktivieren fehlgeschlagen. Nicht autorisiert\n{0}</value>
     </data>
   <data name="MsgBox_Content_CheckUpdateFailed" xml:space="preserve">
-        <value>Checking updates failed\nAre you online?</value>
+        <value>Überprüfung der Updates fehlgeschlagen\n. Bist du online?</value>
     </data>
   <data name="MsgBox_Content_ChooseCorrectPath" xml:space="preserve">
-        <value>Choose correct Muse Dash folder first!</value>
+        <value>Wählen Sie zuerst den richtigen Muse Dash Ordner!</value>
     </data>
   <data name="MsgBox_Content_ChoosePath" xml:space="preserve">
         <value>You haven't chosen a Muse Dash Folder\nPlease choose the folder</value>
