@@ -29,22 +29,23 @@
         <value>Silencia Muse Dash cuando no está enfocado.</value>
     </data>
   <data name="AlwaysAprilFool" xml:space="preserve">
-        <value>Boss always shoot pigeon and tutorial is always april fool's, activate good tek hidden</value>
+        <value>Todos los Jefes van a disparar ataques con Palomas y el Tutorial mantendrá activo su modo oculto.</value>
     </data>
   <data name="AlwaysBadApple" xml:space="preserve">
-        <value>A mod which changes the background and character etc into black and white in tohou scene</value>
+        <value>Un mod que activará el modo Bad Apple en todos los escenarios de Touhou.</value>
     </data>
   <data name="AlwaysPigeons" xml:space="preserve">
-        <value>Boss always shoot pigeon, do not use AlwaysAprilFool at the same time</value>
+        <value>¡Los Jefes empezarán a disparar Palomas!\n
+Pequeño recordatorio: NO uses el mod AlwaysAprilFool con ESTE mod.</value>
     </data>
   <data name="BestCombinationSuggest" xml:space="preserve">
-        <value>Displays the best character combination for a level in the pause screen\nThe character combo displayed is usually correct, but don't put your blind faith in it\nWhen in doubt, refer to CharacterScoreboard</value>
+        <value>Este mod calculará cuál es la mejor combinación posible para cada Canción y Dificultad\nEntra a una canción y al pausar, podras ver la sugerencia de personajes.\n¡Pero! Toma en cuenta que el mod puede no ser preciso en muchos casos.</value>
     </data>
   <data name="BPMDisplay" xml:space="preserve">
-        <value>A mod which displays the BPM info above level designer on preparation screen</value>
+        <value>Este mod muestra el BPM de cada canción en la pantalla de selección de dificultad.</value>
     </data>
   <data name="CharacterRandomizer" xml:space="preserve">
-        <value>Everytime you play a chart, a random character combination will be selected</value>
+        <value>Cada vez que juegues una canción, un personaje aleatorio será seleccionado.</value>
     </data>
   <data name="CharacterScoreboard" xml:space="preserve">
         <value>Displays which character a specific score was achieved with on the leaderboard (OCS)\nIt can also display your own local scores (LCS)</value>
