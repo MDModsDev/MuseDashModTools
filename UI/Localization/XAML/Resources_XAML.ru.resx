@@ -263,7 +263,7 @@
         <value>Level</value>
     </data>
   <data name="XAML_InfoJson_SearchTags" xml:space="preserve">
-        <value>Search Tags</value>
+        <value>Теги для поиска</value>
     </data>
   <data name="XAML_InfoJson_HideBmsMode" xml:space="preserve">
         <value>Hide Bms Mode</value>
@@ -275,7 +275,7 @@
         <value>Hide Bms Message</value>
     </data>
   <data name="XAML_ChooseChartPath" xml:space="preserve">
-        <value>Choose Chart Folder</value>
+        <value>Выберите папку чарта</value>
     </data>
   <data name="XAML_Scene_SpaceStation" xml:space="preserve">
         <value>Space Station</value>
