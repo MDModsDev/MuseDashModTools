@@ -20,13 +20,13 @@
         </value>
   </resheader>
   <data name="Accuracy Indicator" xml:space="preserve">
-        <value>Adds a more exact accuracy indicator on the bottom of the screen.\nAlso displays average accuracy in milliseconds at the end of the level.</value>
+        <value>Añade un medidor de precisión en arriba de la barra de vida,\ny muestra al final del nivel un gráfico de tu media de precisión durante la canción.</value>
     </data>
   <data name="AccuracyDisplay" xml:space="preserve">
-        <value>A live accuracy display for your viewing pleasure.</value>
+        <value>Un medidor de precisión a tiempo real en la parte superior izquierda de tu pantalla.</value>
     </data>
   <data name="Alt Tab Mute" xml:space="preserve">
-        <value>Mutes the game when it's not focused.</value>
+        <value>Silencia Muse Dash cuando no está enfocado.</value>
     </data>
   <data name="AlwaysAprilFool" xml:space="preserve">
         <value>Boss always shoot pigeon and tutorial is always april fool's, activate good tek hidden</value>
