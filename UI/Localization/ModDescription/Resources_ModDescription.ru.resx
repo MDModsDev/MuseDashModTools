@@ -20,58 +20,58 @@
         </value>
   </resheader>
   <data name="Accuracy Indicator" xml:space="preserve">
-        <value>Adds a more exact accuracy indicator on the bottom of the screen.\nAlso displays average accuracy in milliseconds at the end of the level.</value>
+        <value>Добавляет более точный индикатор точности снизу экрана.\nТакже показывает среднюю точность в миллисекундах в конце уровня.</value>
     </data>
   <data name="AccuracyDisplay" xml:space="preserve">
-        <value>A live accuracy display for your viewing pleasure.</value>
+        <value>Показывает точность во время игры.</value>
     </data>
   <data name="Alt Tab Mute" xml:space="preserve">
-        <value>Mutes the game when it's not focused.</value>
+        <value>Заглушает игру, когда окно свёрнуто.</value>
     </data>
   <data name="AlwaysAprilFool" xml:space="preserve">
-        <value>Boss always shoot pigeon and tutorial is always april fool's, activate good tek hidden</value>
+        <value>Босс всегда стреляет птицами, туториал теперь всегда, как на первое апреля, включает Goodtek hidden</value>
     </data>
   <data name="AlwaysBadApple" xml:space="preserve">
-        <value>A mod which changes the background and character etc into black and white in tohou scene</value>
+        <value>Мод, который делает все чёрно-белым со сценой Touhou</value>
     </data>
   <data name="AlwaysPigeons" xml:space="preserve">
-        <value>Boss always shoot pigeon, do not use AlwaysAprilFool at the same time</value>
+        <value>Босс всегда стреляет птицами, не используйте с модом AlwaysAprilFools</value>
     </data>
   <data name="BestCombinationSuggest" xml:space="preserve">
-        <value>Displays the best character combination for a level in the pause screen\nThe character combo displayed is usually correct, but don't put your blind faith in it\nWhen in doubt, refer to CharacterScoreboard</value>
+        <value>Показывает лучшую комбинацию для уровня в меню паузы\nПоказанное комбо чаще всего правильное, но не рассчитывайте на него всегда\nЕсли не знаете, что взять, то используйте CharacterScroreboard</value>
     </data>
   <data name="BPMDisplay" xml:space="preserve">
-        <value>A mod which displays the BPM info above level designer on preparation screen</value>
+        <value>Показывает BPM инфо сверху от надписи со создателем чарта на экране подготовки</value>
     </data>
   <data name="CharacterRandomizer" xml:space="preserve">
-        <value>Everytime you play a chart, a random character combination will be selected</value>
+        <value>Выбирает случайную комбинацию каждый раз, когда вы заходите в уровень</value>
     </data>
   <data name="CharacterScoreboard" xml:space="preserve">
-        <value>Displays which character a specific score was achieved with on the leaderboard (OCS)\nIt can also display your own local scores (LCS)</value>
+        <value>Показывает сколько какие-либо персонажи получили опыта в таблице лидеров (OCS)\nТакже можно посмотреть личные рекорды (LCS)</value>
     </data>
   <data name="ChartDeleter" xml:space="preserve">
-        <value>Allows you to queue custom charts to be deleted or moved when you exit the game.</value>
+        <value>Позволяет ставить чарты в очередь для удаления или перемещения когда вы выходите из игры.</value>
     </data>
   <data name="ChartReview" xml:space="preserve">
-        <value>Automatically selects sleepwalker, sets offset to 0, sets fever to manual, disables certain UI elements.\nCan be toggled on/off while in-game</value>
+        <value>Автоматически выбирает сонную Рин, ставит оффсет на 0, меняет fever на ручной, выключает некоторые элементы интерфейса.\nМожно включать/выключать прямо в игре</value>
     </data>
   <data name="ChineseMode" xml:space="preserve">
-        <value>Censores certain aspects of the game (Characters, illustrations, etc)</value>
+        <value>Цензурит некоторые аспекты игры (персонажей, иллюстрации и прочее)</value>
     </data>
   <data name="Cinema" xml:space="preserve">
-        <value>The mod that allows you to see video backgrounds in custom charts</value>
+        <value>Позволяет использовать видео как задний план в чартах</value>
     </data>
   <data name="CustomAlbums" xml:space="preserve">
-        <value>The mod that allows you to load in custom charts</value>
+        <value>Позволяет играть в кастомные чарты</value>
     </data>
   <data name="CustomAnchorSupport" xml:space="preserve">
-        <value>Allows you to use add the streamer tag in your info.json to mark a song as copyright-free\n(for use with streamer mode)</value>
+        <value>Позволяет использовать "Add the streamer" тег в файле info.json, чтобы помечать треки без авторских прав\n(для режима стримера)</value>
     </data>
   <data name="CustomBGBrightness" xml:space="preserve">
-        <value>Allows you to adjust background brightness lower than 40%</value>
+        <value>Позволяет делать яркость заднего плана ниже, чем 40%</value>
     </data>
   <data name="CustomHitSound" xml:space="preserve">
-        <value>Allows you to make custom hit sound\nDetailed instructions on github readme</value>
+        <value>Позволяет делать кастомные звуки ударов\nБолее подробная инструкция есть в файле readme на гитхабе</value>
     </data>
   <data name="CustomLoadingScreens" xml:space="preserve">
         <value>Allows you to add custom loading screens (CustomLoadingScreens folder)\nAlso allows you to add custom loading screen messages (UserData/CustomLoadingScreens.cfg)\nMessages can be paired with an image, or be left as random</value>
