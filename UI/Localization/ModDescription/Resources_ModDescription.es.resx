@@ -48,16 +48,16 @@ Pequeño recordatorio: NO uses el mod AlwaysAprilFool con ESTE mod.</value>
         <value>Cada vez que juegues una canción, un personaje aleatorio será seleccionado.</value>
     </data>
   <data name="CharacterScoreboard" xml:space="preserve">
-        <value>Displays which character a specific score was achieved with on the leaderboard (OCS)\nIt can also display your own local scores (LCS)</value>
+        <value>(OCS)Muestra la combinación de personajes utilizados por otros jugadores en el Leaderboard\n(LCS)Permite mostrar los scores conseguidos de manera local</value>
     </data>
   <data name="ChartDeleter" xml:space="preserve">
-        <value>Allows you to queue custom charts to be deleted or moved when you exit the game.</value>
+        <value>Permite hacer una lista de charts que desees eliminar o mover, cuando cierres Muse Dash.</value>
     </data>
   <data name="ChartReview" xml:space="preserve">
-        <value>Automatically selects sleepwalker, sets offset to 0, sets fever to manual, disables certain UI elements.\nCan be toggled on/off while in-game</value>
+        <value>Automáticamente selecciona a Rin Sleepwalker, establece el offset a 0,\ndesactiva el Auto-Fever y Oculta elementos de la interfaz.\n¡Además! Tienes un botón in-game para poder desactivar esto cuando quieras.</value>
     </data>
   <data name="ChineseMode" xml:space="preserve">
-        <value>Censores certain aspects of the game (Characters, illustrations, etc)</value>
+        <value>Permite activar Muse Dash en modo Chino. Esto modifica contenido del juego como:\n-  Modelos de los Personajes\n- Ilustraciones\n- Escenarios\n- Y otras características exclusivas</value>
     </data>
   <data name="Cinema" xml:space="preserve">
         <value>The mod that allows you to see video backgrounds in custom charts</value>
