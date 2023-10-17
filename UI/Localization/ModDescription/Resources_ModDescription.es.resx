@@ -60,76 +60,77 @@ Pequeño recordatorio: NO uses el mod AlwaysAprilFool con ESTE mod.</value>
         <value>Permite activar Muse Dash en modo Chino. Esto modifica contenido del juego como:\n-  Modelos de los Personajes\n- Ilustraciones\n- Escenarios\n- Y otras características exclusivas</value>
     </data>
   <data name="Cinema" xml:space="preserve">
-        <value>The mod that allows you to see video backgrounds in custom charts</value>
+        <value>El mod permite a ciertos charts, reproducir un video en reemplazo del Fondo de Escenario.</value>
     </data>
   <data name="CustomAlbums" xml:space="preserve">
-        <value>The mod that allows you to load in custom charts</value>
+        <value>Este mod permite la carga de Custom Charts(O canciones customs).</value>
     </data>
   <data name="CustomAnchorSupport" xml:space="preserve">
-        <value>Allows you to use add the streamer tag in your info.json to mark a song as copyright-free\n(for use with streamer mode)</value>
+        <value>Este mod permite que algunos Custom Charts estén disponibles en el Modo Streamer.\n
+¡Esto permite jugar Canciones NO Oficiales, sabiendo que No tienen reclamación por Copyright!</value>
     </data>
   <data name="CustomBGBrightness" xml:space="preserve">
-        <value>Allows you to adjust background brightness lower than 40%</value>
+        <value>Permite bajar el brillo del escenario a menos del 40%</value>
     </data>
   <data name="CustomHitSound" xml:space="preserve">
-        <value>Allows you to make custom hit sound\nDetailed instructions on github readme</value>
+        <value>Permite añadir o crear tus propios Hit Sounds\nMas detalles en Github.</value>
     </data>
   <data name="CustomLoadingScreens" xml:space="preserve">
-        <value>Allows you to add custom loading screens (CustomLoadingScreens folder)\nAlso allows you to add custom loading screen messages (UserData/CustomLoadingScreens.cfg)\nMessages can be paired with an image, or be left as random</value>
+        <value>Permite tener Pantallas de Carga y Mensajes de Carga customizables.\nLos mensajes pueden estar vinculados a las imágenes que añadas\no dejar que se activen de manera aleatoria.\nMás información en: UserData/CustomLoadingScreens.cfg </value>
     </data>
   <data name="CustomResolution" xml:space="preserve">
-        <value>Adds a Custom option in resolution settings, which can be changed in the config</value>
+        <value>Permite ajustar la resolución de Muse Dash a uno que tú prefieras desde la configuración.</value>
     </data>
   <data name="EffectDisable" xml:space="preserve">
-        <value>Disables some in-game effects</value>
+        <value>Desactiva algunos efectos in-game</value>
     </data>
   <data name="FavGirl" xml:space="preserve">
-        <value>Allows you to favorite characters and elfins\nThis will make you look like that character even if another character is selected.\nYou will have the abilities of the selected character &amp; your plays will be submitted as such</value>
+        <value>Permite el reemplazar las habilidades de los Personajes y Elfins por otros.\nEl personaje/elfin que selecciones abajo a la derecha será la habilidad seleccionada,\nmientras que el Personaje/Elfin seleccionado con el corazón de arriba a la izquierda, será la apariencia que desees usar.</value>
     </data>
   <data name="FC AP indicator" xml:space="preserve">
-        <value>Tells you whether you're on All Perfect/Full Combo pace, and displays the number of misses/greats</value>
+        <value>Este mod mostrará cuando estés en una ruta AP(Todo Perfecto), FC(Full Combo) o La cantidad de Fallas y Greats registrados.</value>
     </data>
   <data name="FeverEffectDisable" xml:space="preserve">
-        <value>Disables the fever background effect</value>
+        <value>Desactiva el fondo del modo Fever</value>
     </data>
   <data name="Headquarters" xml:space="preserve">
-        <value>Allows you to submit scores on custom charts obtained from the MDMC website</value>
+        <value>Permite acceder al Ranking de MDMC a todas las canciones descargadas desde la web MDMC.</value>
     </data>
   <data name="HiddenQoL" xml:space="preserve">
-        <value>Adds a button to always show hidden difficulties.\nE.g. you don't need to spam click and such to unlock them before playing</value>
+        <value>Permite añadir un botón el cual permite activar/desactivar el modo Hidden de las canciones.\nBastante útil para saltarte los pasos de desbloquearlos</value>
     </data>
   <data name="IntroSkip" xml:space="preserve">
-        <value>Skips the "PeroPero HasuHasu" and the opening scene.</value>
+        <value>Salta la intro de "PeroPero HasuHasu" y la pantalla de bienvenida.</value>
     </data>
   <data name="KeybindManager" xml:space="preserve">
-        <value>A library for other mods to parse and listen to keybinds</value>
+        <value>Una librería que permite a otros mods comprender y detectar muchas más teclas.</value>
     </data>
   <data name="LocalizeLib" xml:space="preserve">
-        <value>A library for other mods to localize text</value>
+        <value>Una librería que permite a otros mods detectar texto</value>
     </data>
   <data name="MDRPC" xml:space="preserve">
-        <value>Muse Dash Rich Presence, which is exactly what it says it is.</value>
+        <value>Muse Dash Rich Presence. Un mod que permite mostrar que canción estás jugando en Discord.</value>
     </data>
   <data name="ModManager" xml:space="preserve">
-        <value>Allows you to disable &amp; delete mods while in-game.</value>
+        <value>Un mod que te permite activar/desactivar mods mientras esta in-game.</value>
     </data>
   <data name="Muse Dash Mirror" xml:space="preserve">
-        <value>A library that makes it easier to access PlayerData, BattleComponents info and create UI elements.\nThis mod does nothing by itself.</value>
+        <value>Una librería que permite acceder a Datos del Jugador, Componentes de Batalla y Crear elementos de Interfaz.</value>
     </data>
   <data name="MuseDashModTools" xml:space="preserve">
-        <value>Automatically detects and logs available mod updates.</value>
+        <value>Automáticamente analiza todos los mods y detecta posibles actualizaciones de cada una.</value>
     </data>
   <data name="NoAutoPause" xml:space="preserve">
-        <value>Prevents the game from automatically pausing when the game loses focus.</value>
+        <value>Evita que la Auto Pausa de Muse Dash sea active al cambiar de pestaña. </value>
     </data>
   <data name="NoLevelUpAnimations" xml:space="preserve">
-        <value>Level up animations take ages;\nLet's skip them.</value>
+        <value>Permite saltarte la animación de Subiste de Nivel</value>
     </data>
   <data name="PerfectDisable" xml:space="preserve">
-        <value>Allows you to disable the judgements in-game.\n(example: show early/late perfects but not pure perfects)\nInspired by ADOFAI Tweaks</value>
+        <value>Permite ocultar como el juego juzga cada objeto que golpees.\nPor ejemplo, en ADOFAI se muestran los avisos de Early/Late, pero no se\nmuestra nada cuando es un Perfecto Exacto.</value>
     </data>
   <data name="PopupLib" xml:space="preserve">
-        <value>A library for other mods to manage popups and windows</value>
+        <value>Una librería que permite gestionar Ventanas y Popups</value>
     </data>
   <data name="PreventLowAcc" xml:space="preserve">
         <value>A mod that that allows let's you prevent a score from uploading,\nand still be able to take a screenshot.</value>
