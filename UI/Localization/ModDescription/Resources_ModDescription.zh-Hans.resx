@@ -26,13 +26,13 @@
         <value>实时显示准度百分比</value>
     </data>
   <data name="Alt Tab Mute" xml:space="preserve">
-        <value>游戏界面不聚焦时静音游戏</value>
+        <value>游戏被最小化或者游戏窗口后台时静音</value>
     </data>
   <data name="AlwaysAprilFool" xml:space="preserve">
         <value>Boss 子弹改为鸽子，开启愚人节新手教程和 Good Tek 里谱</value>
     </data>
   <data name="AlwaysBadApple" xml:space="preserve">
-        <value>在东方场景让背景和人物等变成黑白的</value>
+        <value>在东方场景让背景和人物等变成黑白</value>
     </data>
   <data name="AlwaysPigeons" xml:space="preserve">
         <value>Boss 子弹改为鸽子，请不要和 AlwaysAprilFool 同时使用</value>
@@ -41,7 +41,7 @@
         <value>在暂停界面显示当前谱面最佳角色精灵组合\n通常来说都是正确组合，但也不能盲目相信\n如果有任何疑问，请查看 CharacterScoreboard</value>
     </data>
   <data name="BPMDisplay" xml:space="preserve">
-        <value>在准备界面的 level designer 上方显示 BPM 信息</value>
+        <value>在准备界面的谱师上方显示 BPM 信息</value>
     </data>
   <data name="CharacterRandomizer" xml:space="preserve">
         <value>每次进入谱面都会随机选择角色和精灵</value>
@@ -71,7 +71,7 @@
         <value>可调整背景亮度低于40%</value>
     </data>
   <data name="CustomHitSound" xml:space="preserve">
-        <value>自制音效 Mod\n细节教程在 Github Readme 里</value>
+        <value>自制音效 Mod\n详细教程在 Github Readme 里</value>
     </data>
   <data name="CustomLoadingScreens" xml:space="preserve">
         <value>可添加自定义加载界面（CustomLoadingScreens 文件夹）\n而且可以设置自定义加载消息(UserData/CustomLoadingScreens.cfg)\n消息可以和图片成对，也可以单独随机出现</value>
