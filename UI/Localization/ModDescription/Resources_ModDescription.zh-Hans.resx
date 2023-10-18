@@ -164,7 +164,7 @@
         <value>在排名1000到2000的时候显示真实排名而不是 “999+”</value>
     </data>
   <data name="UI Disable" xml:space="preserve">
-        <value>可禁用部分游戏元素（例：打击点）</value>
+        <value>可禁用部分 UI 元素（例：打击点）</value>
     </data>
   <data name="UltraInstinctSleepwalking" xml:space="preserve">
         <value>让梦游少女打满沙包</value>
@@ -173,6 +173,6 @@
         <value>解锁所有大触难度（删除 Mod 即可移除效果）</value>
     </data>
   <data name="VictoryScreenSwitcher" xml:space="preserve">
-        <value>可以切换成 DJMAX 或者明日方舟的结算界面</value>
+        <value>可以切换成 DJMAX 或者明日方舟的结算界面\n两个都不勾选则一直为普通结算界面</value>
     </data>
 </root>
