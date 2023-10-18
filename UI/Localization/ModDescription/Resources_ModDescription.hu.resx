@@ -92,70 +92,70 @@
         <value>Kikapcsolja a Fever-nek a hátterét</value>
     </data>
   <data name="Headquarters" xml:space="preserve">
-        <value>Allows you to submit scores on custom charts obtained from the MDMC website</value>
+        <value>Lehetővé teszi hogy egyedi pályák ranglétráját elérd</value>
     </data>
   <data name="HiddenQoL" xml:space="preserve">
-        <value>Adds a button to always show hidden difficulties.\nE.g. you don't need to spam click and such to unlock them before playing</value>
+        <value>Lerak egy gombot, amely láthatóvá teszi az összes rejtett pályát\nMagyarul, nem kell spam-elned vagy rajzolgatnod hogy megjelenjenek</value>
     </data>
   <data name="IntroSkip" xml:space="preserve">
-        <value>Skips the "PeroPero HasuHasu" and the opening scene.</value>
+        <value>Átugorja a "PeroPero HasuHasu" képernyőt és nyító animációt.</value>
     </data>
   <data name="KeybindManager" xml:space="preserve">
-        <value>A library for other mods to parse and listen to keybinds</value>
+        <value>Egy könyvtár más modoknak gomb-lenyomások érzékelésére és értelmezésére</value>
     </data>
   <data name="LocalizeLib" xml:space="preserve">
-        <value>A library for other mods to localize text</value>
+        <value>Egy könyvtár más modoknak hogy lokalizáljanak szöveget</value>
     </data>
   <data name="MDRPC" xml:space="preserve">
-        <value>Muse Dash Rich Presence, which is exactly what it says it is.</value>
+        <value>Muse Dash Rich Presence, pontosan az aminek hívja magát.</value>
     </data>
   <data name="ModManager" xml:space="preserve">
-        <value>Allows you to disable &amp; delete mods while in-game.</value>
+        <value>Lehetővé teszi hogy kitörölj/kikapcsolj modok játékon belül.</value>
     </data>
   <data name="Muse Dash Mirror" xml:space="preserve">
-        <value>A library that makes it easier to access PlayerData, BattleComponents info and create UI elements.\nThis mod does nothing by itself.</value>
+        <value>Egy könyvtár más modoknak amely könnyebbé teszi a hozzáférést bizonyos adatok és UI elemek létrehozását.\nEgy magában nem csinál semmit.</value>
     </data>
   <data name="MuseDashModTools" xml:space="preserve">
-        <value>Automatically detects and logs available mod updates.</value>
+        <value>Automatikusan megnézi hogy vannak a modjaidnak elérhető frissítései.</value>
     </data>
   <data name="NoAutoPause" xml:space="preserve">
-        <value>Prevents the game from automatically pausing when the game loses focus.</value>
+        <value>Megakadályozza hogy a játék szüneteljen, amikor elveszti a fókuszt.</value>
     </data>
   <data name="NoLevelUpAnimations" xml:space="preserve">
-        <value>Level up animations take ages;\nLet's skip them.</value>
+        <value>A szint-lépés animáció évekig tart;\nUgorjuk át.</value>
     </data>
   <data name="PerfectDisable" xml:space="preserve">
-        <value>Allows you to disable the judgements in-game.\n(example: show early/late perfects but not pure perfects)\nInspired by ADOFAI Tweaks</value>
+        <value>Lehetővé teszi hogy kikapcsolj kiértékeléseket.\n(pl.: mutassa az Early/Late Perfect-et, de az igazi Perfect-et ne)\nADOFAI Tweaks inspirálta</value>
     </data>
   <data name="PopupLib" xml:space="preserve">
-        <value>A library for other mods to manage popups and windows</value>
+        <value>Egy könyvtár más modoknak hogy kezeljenek felugró ablakokat</value>
     </data>
   <data name="PreventLowAcc" xml:space="preserve">
-        <value>A mod that that allows let's you prevent a score from uploading,\nand still be able to take a screenshot.</value>
+        <value>Lehetővé teszi, hogy ne töltődjön fel a pontszámod,\nde ugyanúgy le tudd azt fotózni.</value>
     </data>
   <data name="QuickRestart" xml:space="preserve">
-        <value>Allows you to use Delete to instantly leave a chart &amp; Allows you to use Backspace to instantly restart a chart\nUpdate now allows you to set custom keybinds.</value>
+        <value>Lehetővé teszi, hogy Delete-el azonnal kilépj egy pályából &amp; Backspace-el azonnal újraindítsd\nA gombok tetszőlegesen állíthatóak.</value>
     </data>
   <data name="QuickSwitchCombination" xml:space="preserve">
-        <value>Allows you to set keybinds to quickly change your characters.\nNow has an in-game menu to add keybinds</value>
+        <value>Lehetővé teszi, hogy billentyű-kombinációkat állíts gyors karakter-váltásra\nElérhető egy játékon belüli menü</value>
     </data>
   <data name="SceneEggs" xml:space="preserve">
-        <value>Makes it possible for customs to use certain background decorations that the default charts use.</value>
+        <value>Lehetővé teszi egyedi pályáknak hogy bizonyos háttérdíszítéseket használjanak.</value>
     </data>
   <data name="Scoreboard characters and elfins" xml:space="preserve">
-        <value>Similar to CharacterScoreboard, however, it instead adds icon clickable icon representations,\nwhich automatically switches to the character combo when clicked.</value>
+        <value>Hasonló a CharacterScoreboard-hoz, de helyette kattintható ikonokat jelenít meg,\namely automatikusan arra a karakterkombinációra váltanak dupla kattintásra.</value>
     </data>
   <data name="ScrollSpeed" xml:space="preserve">
-        <value>Allows charters (not players) to set custom scroll speeds.\nIt's completely up to you whether you wanna use this, most charters don't use it though.</value>
+        <value>Lehetővé teszi pálya készítőknek hogy saját sebességet állítsanak.\nÁltalában nem használják.</value>
     </data>
   <data name="SearchPlusPlus" xml:space="preserve">
-        <value>Displays the title, artist, and difficulty of the song in the top-right corner during play.</value>
+        <value>Megjeleníti a zene címét, művészét és nehézségét a jobb felső sarokban a játék alatt.</value>
     </data>
   <data name="Song Desc" xml:space="preserve">
-        <value>An extension to SearchPlusPlus, allowing you to create folders\nand search for songs in said folders.</value>
+        <value>Egy SearchPlusPlus bővítmény, amely lehetővé teszi mappák létrehozását\nés azon mappákban lévő zenék keresését.</value>
     </data>
   <data name="Search++ Folder Tag" xml:space="preserve">
-        <value>Any search feature you will ever need (probably).\nCheck the homepage or in-game forum for more info.</value>
+        <value>Minden keresési funkció amire valaha szükséged lehet (talán).\nNézd meg a főoldalát további infóért.</value>
     </data>
   <data name="StricterJudge" xml:space="preserve">
         <value>A mod which changes the judgement window and make the game harder\nYou can manually change the judgement range in Stricter Judge.cfg</value>
