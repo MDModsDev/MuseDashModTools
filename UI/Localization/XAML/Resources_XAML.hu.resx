@@ -242,7 +242,7 @@
         <value>Keresés</value>
     </data>
   <data name="XAML_InfoJson_ChartName" xml:space="preserve">
-        <value>Name</value>
+        <value>Cím</value>
     </data>
   <data name="XAML_InfoJson_Author" xml:space="preserve">
         <value>Artist</value>
