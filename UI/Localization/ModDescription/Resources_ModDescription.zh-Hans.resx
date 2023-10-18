@@ -26,7 +26,7 @@
         <value>实时显示准度百分比</value>
     </data>
   <data name="Alt Tab Mute" xml:space="preserve">
-        <value>游戏被最小化或者游戏窗口后台时静音</value>
+        <value>游戏被最小化或者游戏窗口在后台时静音</value>
     </data>
   <data name="AlwaysAprilFool" xml:space="preserve">
         <value>Boss 子弹改为鸽子，开启愚人节新手教程和 Good Tek 里谱</value>
@@ -119,7 +119,7 @@
         <value>自动检测和输出可用 Mod 更新</value>
     </data>
   <data name="NoAutoPause" xml:space="preserve">
-        <value>禁止游戏在不聚焦时自动暂停</value>
+        <value>禁止游戏被最小化或者游戏窗口在后台时自动暂停</value>
     </data>
   <data name="NoLevelUpAnimations" xml:space="preserve">
         <value>跳过升级动画</value>
@@ -134,7 +134,7 @@
         <value>可禁用成绩上传\n仍然可以截屏</value>
     </data>
   <data name="QuickRestart" xml:space="preserve">
-        <value>可用 Delete 按键立刻退出谱面和用 Backspace 立刻重开谱面\n可在配置文件里设置自定义键位</value>
+        <value>用 Delete 按键立刻退出谱面和用 Backspace 立刻重开谱面\n可在配置文件里设置自定义键位</value>
     </data>
   <data name="QuickSwitchCombination" xml:space="preserve">
         <value>可设置快捷键位来快切人物和精灵\n有内置 UI 界面 （默认键位 F11）</value>
@@ -155,7 +155,7 @@
         <value>SearchPlusPlus的扩展\n可以创建文件夹并在其中搜索歌曲</value>
     </data>
   <data name="Search++ Folder Tag" xml:space="preserve">
-        <value>包含你可能需要的所有搜索功能\n查看主页获取详细信息</value>
+        <value>包含你可能需要的所有搜索功能\n查看项目主页获取详细信息</value>
     </data>
   <data name="StricterJudge" xml:space="preserve">
         <value>严判 Mod，改变游戏判定区间\n可以在 Stricter Judge.cfg 的配置文件里修改判定区间</value>
