@@ -29,16 +29,16 @@
         <value>游戏界面不聚焦时静音游戏</value>
     </data>
   <data name="AlwaysAprilFool" xml:space="preserve">
-        <value>Boss 子弹为鸽子，开启愚人节新手教程和 Good Tek 里谱</value>
+        <value>Boss 子弹改为鸽子，开启愚人节新手教程和 Good Tek 里谱</value>
     </data>
   <data name="AlwaysBadApple" xml:space="preserve">
         <value>在东方场景让背景和人物等变成黑白的</value>
     </data>
   <data name="AlwaysPigeons" xml:space="preserve">
-        <value>Boss 子弹为鸽子，请不要和 AlwaysAprilFool 一起使用</value>
+        <value>Boss 子弹改为鸽子，请不要和 AlwaysAprilFool 同时使用</value>
     </data>
   <data name="BestCombinationSuggest" xml:space="preserve">
-        <value>在暂停界面显示最佳角色精灵组合\n一般来说显示的都是正确的，但是不能盲目相信\n有疑问就查看 CharacterScoreboard</value>
+        <value>在暂停界面显示当前谱面最佳角色精灵组合\n通常来说都是正确组合，但也不能盲目相信\n如果有任何疑问，请查看 CharacterScoreboard</value>
     </data>
   <data name="BPMDisplay" xml:space="preserve">
         <value>在准备界面的 level designer 上方显示 BPM 信息</value>
@@ -47,7 +47,7 @@
         <value>每次进入谱面都会随机选择角色和精灵</value>
     </data>
   <data name="CharacterScoreboard" xml:space="preserve">
-        <value>显示排行榜上的人的得分组合（OCS）\n显示你自己的分数和组合（LCS）</value>
+        <value>显示排行榜上玩家的得分组合（OCS）\n显示你自己的分数和组合（LCS）</value>
     </data>
   <data name="ChartDeleter" xml:space="preserve">
         <value>将谱面排入删除或移动队列，退出游戏时执行</value>
@@ -56,7 +56,7 @@
         <value>自动选择梦游少女，偏移为0，设置手动 fever，禁用部分 UI 元素\n可以在游戏内开关</value>
     </data>
   <data name="ChineseMode" xml:space="preserve">
-        <value>和谐游戏的部分内容（角色，插图等）</value>
+        <value>和谐部分游戏内容（角色，插图等）</value>
     </data>
   <data name="Cinema" xml:space="preserve">
         <value>可在自制谱背景播放视频</value>
