@@ -133,48 +133,48 @@ Pequeño recordatorio: NO uses el mod AlwaysAprilFool con ESTE mod.</value>
         <value>Una librería que permite gestionar Ventanas y Popups</value>
     </data>
   <data name="PreventLowAcc" xml:space="preserve">
-        <value>A mod that that allows let's you prevent a score from uploading,\nand still be able to take a screenshot.</value>
+        <value>Un mod que previene enviar puntajes al leaderboard,\npero permite sacar screenshots del intento.</value>
     </data>
   <data name="QuickRestart" xml:space="preserve">
-        <value>Allows you to use Delete to instantly leave a chart &amp; Allows you to use Backspace to instantly restart a chart\nUpdate now allows you to set custom keybinds.</value>
+        <value>Pulsar la tecla [Supr] te dejará abandonar el chart\nPulsar la tecla [ ← ] te dejará reiniciar el chart\n¡Y ahora puedes customizar que tecla usar para cada acción!</value>
     </data>
   <data name="QuickSwitchCombination" xml:space="preserve">
-        <value>Allows you to set keybinds to quickly change your characters.\nNow has an in-game menu to add keybinds</value>
+        <value>Permite asignar una tecla para seleccionar personajes rápidamente.\nAhora dispone de una interfaz para editar.</value>
     </data>
   <data name="SceneEggs" xml:space="preserve">
-        <value>Makes it possible for customs to use certain background decorations that the default charts use.</value>
+        <value>Hace posible que Custom Charts puedan utilizar escenarios con decoración especial.</value>
     </data>
   <data name="Scoreboard characters and elfins" xml:space="preserve">
-        <value>Similar to CharacterScoreboard, however, it instead adds icon clickable icon representations,\nwhich automatically switches to the character combo when clicked.</value>
+        <value>Igual que CharacterScoreboard, pero permite ver un icono de los personajes utilizados,\nlos cuales puedes pulsar para seleccionar.</value>
     </data>
   <data name="ScrollSpeed" xml:space="preserve">
-        <value>Allows charters (not players) to set custom scroll speeds.\nIt's completely up to you whether you wanna use this, most charters don't use it though.</value>
+        <value>Permite a los Diseñadores poder asignar velocidades custom a los charts.\nEs completamente opcional el utilizar este mod.</value>
     </data>
   <data name="SearchPlusPlus" xml:space="preserve">
-        <value>Displays the title, artist, and difficulty of the song in the top-right corner during play.</value>
+        <value>Muestra la canción, artista y dificultad de la canción que estás jugando en la esquina superior derecha.</value>
     </data>
   <data name="Song Desc" xml:space="preserve">
-        <value>An extension to SearchPlusPlus, allowing you to create folders\nand search for songs in said folders.</value>
+        <value>Una extensión de SearchPlusPlus, que permite crear carpetas\ny buscar por canciones dentro de estas carpetas.</value>
     </data>
   <data name="Search++ Folder Tag" xml:space="preserve">
-        <value>Any search feature you will ever need (probably).\nCheck the homepage or in-game forum for more info.</value>
+        <value>Permite expandir el sistema de búsqueda del juego.\nDispones de filtros extras que el propio juego no dispone como: BPM, Traducciones extras, Dificultad, Escenario, etc.</value>
     </data>
   <data name="StricterJudge" xml:space="preserve">
-        <value>A mod which changes the judgement window and make the game harder\nYou can manually change the judgement range in Stricter Judge.cfg</value>
+        <value>Este mod aumenta la dificultad de Muse Dash, reduciendo el área de hit de los objetos del chart.</value>
     </data>
   <data name="True rank for 999+" xml:space="preserve">
-        <value>Displays actual ranking instead of "999+" for ranks 1000 to 2000</value>
+        <value>Permite mostrar una mayor cantidad del ranking, en lugar del limitado "+999"</value>
     </data>
   <data name="UI Disable" xml:space="preserve">
-        <value>Allows you to disable certain visual aspects of the game (example: hit circles)</value>
+        <value>Permite ocultar elementos de la interfaz de Muse Dash (Por ejemplo, los círculos de golpe)</value>
     </data>
   <data name="UltraInstinctSleepwalking" xml:space="preserve">
-        <value>Makes Sleepwalker Rin do mashers at max speed instead of the normal slow speed.</value>
+        <value>Este mod permite que Sleepwalker Rin pueda alcanzar el hit máximo de todos los smashers.</value>
     </data>
   <data name="UnlockAll2" xml:space="preserve">
-        <value>An alternative to UnlockAll.\nMaster's stay unlocked only for as long as the mod is installed.</value>
+        <value>Permite desbloquear todas las dificultades Master automáticamente,\n solo mientras el mod esté instalado.</value>
     </data>
   <data name="VictoryScreenSwitcher" xml:space="preserve">
-        <value>Allows you to switch victory screen in the settings menu either to DJMAX or Arknights. Swaps original screen with arknights/djmax and vise versa.</value>
+        <value>Permite reemplazar la Pantalla de Victoria al modo DJMAX o ARKNIGHTS.</value>
     </data>
 </root>
