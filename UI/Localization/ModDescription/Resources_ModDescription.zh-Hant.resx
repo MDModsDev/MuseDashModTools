@@ -50,7 +50,7 @@
         <value>顯示排行榜上玩家的得分組合 (OCS)\n並同時顯示你自己的分數與組合 (LCS)</value>
     </data>
   <data name="ChartDeleter" xml:space="preserve">
-        <value>Allows you to queue custom charts to be deleted or moved when you exit the game.</value>
+        <value>將譜面排入刪除或移動列隊, 退出遊戲時執行</value>
     </data>
   <data name="ChartReview" xml:space="preserve">
         <value>自動選擇夢遊少女、偏移值為0、手動Fever、停用部分UI元素\n可以在遊戲中開/關</value>
@@ -68,61 +68,62 @@
         <value>在 info.json 裡添加 streamer tag 標籤來表示這首歌是無版權的\n(直播模式使用)</value>
     </data>
   <data name="CustomBGBrightness" xml:space="preserve">
-        <value>Allows you to adjust background brightness lower than 40%</value>
+        <value>可調整背景亮度低於40%</value>
     </data>
   <data name="CustomHitSound" xml:space="preserve">
-        <value>Allows you to make custom hit sound\nDetailed instructions on github readme</value>
+        <value>自製音效 Mod\n詳細教程在 Github Readme 里</value>
     </data>
   <data name="CustomLoadingScreens" xml:space="preserve">
-        <value>Allows you to add custom loading screens (CustomLoadingScreens folder)\nAlso allows you to add custom loading screen messages (UserData/CustomLoadingScreens.cfg)\nMessages can be paired with an image, or be left as random</value>
+        <value>可添加自訂義加載介面 (CustomLoadingScreens 文件夾) \n而且可以設置自訂義加載消息
+(UserData/CustomLoadingScreens.cfg)\n消息可以和圖片成對, 也可以單獨隨機出現</value>
     </data>
   <data name="CustomResolution" xml:space="preserve">
-        <value>Adds a Custom option in resolution settings, which can be changed in the config</value>
+        <value>分辨率設置里加入自訂義分辨率, 可以在配置文件里修改</value>
     </data>
   <data name="EffectDisable" xml:space="preserve">
-        <value>Disables some in-game effects</value>
+        <value>禁用部分遊戲特效</value>
     </data>
   <data name="FavGirl" xml:space="preserve">
-        <value>Allows you to favorite characters and elfins\nThis will make you look like that character even if another character is selected.\nYou will have the abilities of the selected character &amp; your plays will be submitted as such</value>
+        <value>換皮 Mod, 可以收藏人物或精靈\n遊戲內會顯示你收藏的人物和精靈外表\n技能扔然是選中的人物, 而且成績會被上傳</value>
     </data>
   <data name="FC AP indicator" xml:space="preserve">
-        <value>Tells you whether you're on All Perfect/Full Combo pace, and displays the number of misses/greats</value>
+        <value>指示是否還是 All Perfect 或 Full Combo, 顯示Miss 和 Great 個數</value>
     </data>
   <data name="FeverEffectDisable" xml:space="preserve">
-        <value>Disables the fever background effect</value>
+        <value>禁用 fever 背景特效</value>
     </data>
   <data name="Headquarters" xml:space="preserve">
-        <value>Allows you to submit scores on custom charts obtained from the MDMC website</value>
+        <value>可以在 MDMC 網站上的自製譜面上傳成績</value>
     </data>
   <data name="HiddenQoL" xml:space="preserve">
-        <value>Adds a button to always show hidden difficulties.\nE.g. you don't need to spam click and such to unlock them before playing</value>
+        <value>遊戲左下角加入一個可以一直顯示里譜的按鈕\n例: 不需要狂按難度去打開里譜</value>
     </data>
   <data name="IntroSkip" xml:space="preserve">
-        <value>Skips the "PeroPero HasuHasu" and the opening scene.</value>
+        <value>跳過遊戲開始界面以及 ''PeroPero HasuHasu''</value>
     </data>
   <data name="KeybindManager" xml:space="preserve">
-        <value>A library for other mods to parse and listen to keybinds</value>
+        <value>讓其他 Mod 可以監聽和解析健位的庫</value>
     </data>
   <data name="LocalizeLib" xml:space="preserve">
-        <value>A library for other mods to localize text</value>
+        <value>讓其他 Mod 可以有本地化文字的庫</value>
     </data>
   <data name="MDRPC" xml:space="preserve">
-        <value>Muse Dash Rich Presence, which is exactly what it says it is.</value>
+        <value>Discord 活動顯示 Mod</value>
     </data>
   <data name="ModManager" xml:space="preserve">
-        <value>Allows you to disable &amp; delete mods while in-game.</value>
+        <value>可以在遊戲內禁用或刪除 Mod</value>
     </data>
   <data name="Muse Dash Mirror" xml:space="preserve">
-        <value>A library that makes it easier to access PlayerData, BattleComponents info and create UI elements.\nThis mod does nothing by itself.</value>
+        <value>讓其他 Mod 更容易獲取 PlayerData 和 BattleComponents 信息, 以及創建 UI元素的庫. \n 它不執行任何操作</value>
     </data>
   <data name="MuseDashModTools" xml:space="preserve">
-        <value>Automatically detects and logs available mod updates.</value>
+        <value>自動檢測和輸出可用Mod更新</value>
     </data>
   <data name="NoAutoPause" xml:space="preserve">
-        <value>Prevents the game from automatically pausing when the game loses focus.</value>
+        <value>禁止遊戲被最小化或者遊戲窗口在後台時自動暫停</value>
     </data>
   <data name="NoLevelUpAnimations" xml:space="preserve">
-        <value>Level up animations take ages;\nLet's skip them.</value>
+        <value>跳過升級動畫</value>
     </data>
   <data name="PerfectDisable" xml:space="preserve">
         <value>Allows you to disable the judgements in-game.\n(example: show early/late perfects but not pure perfects)\nInspired by ADOFAI Tweaks</value>
