@@ -45,17 +45,21 @@
 1. English (Default)
 2. Chinese Simplified (Full)
 3. Chinese Traditional (Full)
-4. French (None)
-5. Hungarian (Full)
-6. Japanese (Partial)
-7. Korean (Full)
-8. Russian (Full)
-9. Spanish (Full)
+4. Croatian (None)
+5. French (None)
+6. German (Partial)
+7. Hungarian (Full)
+8. Japanese (Partial)
+9. Korean (Partial)
+10. Russian (Full)
+11. Spanish (Full)
 
 **If you want to contribute to translation, use [Crowdin](https://crowdin.com/project/musedashmodtools) to translate.** (If you cannot find the language you want to translate, ask me on Discord or create an issue.)
 
 **Also, Notice That The Translation is not real-time updated. I have to update the translation file and release a new version manually.**
 
+## ChangeLog
+### See [CHANGELOG.md](CHANGELOG.md)
 
 ## Nightly Versions
 **The following links are the nightly builds from github action for this app from dev/rewrite branch. It may be unstable and have bugs. Use it at your own risk.**
@@ -71,9 +75,10 @@
 ## Contribution
 ![Alt](https://repobeats.axiom.co/api/embed/383f9213373d55530c04c5bdec49e842cd5e17d7.svg)
 
-### Credits (See About Page)
-#### Developers
+## Credits (See About Page)
+### Developers
 ![Developers](Intro/Developers.png)
 
-#### Translators
-![Translators](Intro/Translators.png)
+### Translators
+![Translators](Intro/Translator1.png)
+![Translators](Intro/Translator2.png)

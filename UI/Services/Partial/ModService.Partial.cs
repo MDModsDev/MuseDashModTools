@@ -110,12 +110,24 @@ public partial class ModService
             localMod.HomePage = webMod.HomePage;
             localMod.Description = webMod.Description;
 
+            CheckConfigFileExist(localMod);
             CheckVersionState(webMod, localMod);
             _sourceCache?.AddOrUpdate(localMod);
             Logger?.Information("Mod {Name} loaded to UI", localMod.Name);
         }
 
         CheckDuplicatedMods();
+    }
+
+    /// <summary>
+    ///     Check if the mod's config file path is valid
+    /// </summary>
+    /// <param name="localMod"></param>
+    private void CheckConfigFileExist(Mod localMod)
+    {
+        if (localMod.ConfigFile is null) return;
+        var configFile = Path.Join(SavingService.Settings.ModsFolder, localMod.ConfigFile);
+        localMod.IsValidConfigFile = File.Exists(configFile);
     }
 
     /// <summary>
@@ -165,7 +177,7 @@ public partial class ModService
         if (SavingService.Settings.AskInstallMuseDashModTools != AskType.Always) return;
         if (mod.Name != "MuseDashModTools") return;
         var result = await MessageBoxService.CustomConfirmMessageBox(MsgBox_Content_InstallModTools, 3);
-        if (result == MsgBox_Button_Yes) await OnInstallMod(mod);
+        if (result == MsgBox_Button_Yes) await OnInstallModAsync(mod);
         else if (result == MsgBox_Button_NoNoAsk) SavingService.Settings.AskInstallMuseDashModTools = AskType.NoAndNoAsk;
     }
 
@@ -197,12 +209,13 @@ public partial class ModService
             try
             {
                 var path = Path.Join(SavingService.Settings.ModsFolder, dependency.DownloadLink!.Split("/")[1]);
-                await GitHubService.DownloadMod(dependency.DownloadLink, path);
+                await GitHubService.DownloadModAsync(dependency.DownloadLink, path);
                 var downloadedMod = LocalService.LoadMod(path);
                 dependency.IsDisabled = downloadedMod!.IsDisabled;
                 dependency.FileName = downloadedMod.FileName;
                 dependency.LocalVersion = downloadedMod.LocalVersion;
                 dependency.SHA256 = downloadedMod.SHA256;
+                CheckConfigFileExist(dependency);
                 Logger.Information("Install dependency {Name} success", downloadedMod.Name);
                 _sourceCache.AddOrUpdate(dependency);
                 await CheckDependencyInstall(dependency);
@@ -332,7 +345,7 @@ public partial class ModService
         {
             if (dependency!.IsDisabled == turnOff) continue;
             dependency.IsDisabled = turnOff;
-            await OnToggleMod(dependency);
+            await OnToggleModAsync(dependency);
         }
     }
 
