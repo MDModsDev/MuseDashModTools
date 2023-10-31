@@ -248,13 +248,13 @@
     <value>Permite a los Diseñadores poder asignar velocidades custom a los charts.\nEs completamente opcional el utilizar este mod.</value>
   </data>
   <data name="SearchPlusPlus" xml:space="preserve">
-    <value>Muestra la canción, artista y dificultad de la canción que estás jugando en la esquina superior derecha.</value>
+    <value>Any search feature you will ever need (probably).\nOptional dependencies: KeybindManager, CustomAlbums</value>
   </data>
   <data name="Song Desc" xml:space="preserve">
-    <value>Una extensión de SearchPlusPlus, que permite crear carpetas\ny buscar por canciones dentro de estas carpetas.</value>
+    <value>Displays the title, artist, and difficulty of the song in the top-right corner during play.</value>
   </data>
   <data name="Search++ Folder Tag" xml:space="preserve">
-    <value>Permite expandir el sistema de búsqueda del juego.\nDispones de filtros extras que el propio juego no dispone como: BPM, Traducciones extras, Dificultad, Escenario, etc.</value>
+    <value>An extension to SearchPlusPlus, allowing you to create folders\nand search for songs in said folders.</value>
   </data>
   <data name="StricterJudge" xml:space="preserve">
     <value>Este mod aumenta la dificultad de Muse Dash, reduciendo el área de hit de los objetos del chart.</value>
