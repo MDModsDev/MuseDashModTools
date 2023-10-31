@@ -196,7 +196,7 @@
     <value>游戏左下角加入一个可以一直显示里谱的按钮\n例：不需要狂按难度去打开里谱</value>
   </data>
   <data name="IntroSkip" xml:space="preserve">
-    <value>Skips past opening scene by speeding the game up.\nYou can configure the speed and whether to skip past the animated illustration.\nSpiritual successor of RobotLucca's one-liner</value>
+    <value>Skips past opening scene by speeding the game up.\nYou can configure the speed and whether to skip past the animated illustration.\nSpiritual successor of RobotLucca's mod</value>
   </data>
   <data name="KeybindManager" xml:space="preserve">
     <value>让其他 Mod 可以监听和解析键位的库</value>
