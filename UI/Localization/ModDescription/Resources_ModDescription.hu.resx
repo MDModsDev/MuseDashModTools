@@ -127,13 +127,13 @@
     <value>Lenémítja a játékot, amikor az nincsen fókuszban.</value>
   </data>
   <data name="AlwaysAprilFool" xml:space="preserve">
-    <value>Boss always shoots pigeons, tutorial is always april fool's version, and activates good tek hidden</value>
+    <value>A Boss mindig galambokat lő ki, és elhiteti a játékkal, hogy április 1. van (tutorial, GOODTEK rejtett pálya)</value>
   </data>
   <data name="AlwaysBadApple" xml:space="preserve">
     <value>Egy mod ami átalakítja a hátteret, karaktert, stb., fekete fehérré a Touhou helyszínen</value>
   </data>
   <data name="AlwaysPigeons" xml:space="preserve">
-    <value>Boss always shoots pigeons, do not use AlwaysAprilFool at the same time</value>
+    <value>A Boss mindig galambokat lő, ne használd az AlwaysAprilFool mod-dal együtt</value>
   </data>
   <data name="BestCombinationSuggest" xml:space="preserve">
     <value>Kiírja a pályához a legjobb karakter kombinációt a Pause menüben\nEz a kombináció csak általában helyes, nem pedig mindig, nem bízz meg benne vakon\nHa nem vagy biztos, használd a CharacterScoreboard vagy ScoreboardCharacters mod-ot</value>
@@ -145,7 +145,7 @@
     <value>Minden probálkozásnál véletlenszerűen kiválaszt egy karakter kombinációt</value>
   </data>
   <data name="CharacterScoreboard" xml:space="preserve">
-    <value>Displays which character a specific score was achieved with on the leaderboard (OCS)\nIt can also display your own local scores (LCS)\nLCS and OCS have inconsistent behavior on custom songs.</value>
+    <value>Kiírja hogy mely karakterekkel lett elérve egy rekord a ranglétra (OCS gomb)\nA saját helyi próbálkozásaidat is megjeleníti (LCS)\nLCS és OCS változékony viselkedése van custom-pályákon.</value>
   </data>
   <data name="ChartDeleter" xml:space="preserve">
     <value>Lehetővé teszi, hogy megjelölj pályákat kitörlésre vagy áthelyezésre miután a játékból kilépsz.</value>
@@ -169,7 +169,7 @@
     <value>Engedélyezi hogy 40%-nál alacsonyabbra állítsd a háttér fényerejét</value>
   </data>
   <data name="CustomHitSound" xml:space="preserve">
-    <value>Allows you to set custom hitsounds\nDetailed instructions in the github readme</value>
+    <value>Lehetővé teszi hogy saját hang-effektek adj meg\nRészletes leírás a github oldalon található</value>
   </data>
   <data name="CustomLoadingScreens" xml:space="preserve">
     <value>Lehetővé teszi hogy saját betöltő képernyőket használj (CustomLoadingScreens mappa)\nSaját feliratokat is adhatsz meg (UserData/CustomLoadingScreens.cfg)\nEzeket lehet képpel párosítani, vagy véletlen kiíratni</value>
@@ -196,7 +196,7 @@
     <value>Lerak egy gombot, amely láthatóvá teszi az összes rejtett pályát\nMagyarul, nem kell spam-elned vagy rajzolgatnod hogy megjelenjenek</value>
   </data>
   <data name="IntroSkip" xml:space="preserve">
-    <value>Skips past opening scene by speeding the game up.\nYou can configure the speed and whether to skip past the animated illustration.\nSpiritual successor of RobotLucca's one-liner</value>
+    <value>Skips past opening scene by speeding the game up.\nYou can configure the speed and whether to skip past the animated illustration.\nSpiritual successor of RobotLucca's mod</value>
   </data>
   <data name="KeybindManager" xml:space="preserve">
     <value>Egy könyvtár más modoknak gomb-lenyomások érzékelésére és értelmezésére</value>
