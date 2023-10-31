@@ -196,7 +196,7 @@
     <value>Добавляет кнопку, которая позволяет всегда видеть скрытые сложности.\nК примеру, вам не нужно быстро кликать или делать что-либо ещё, чтобы открыть скрытую сложность</value>
   </data>
   <data name="IntroSkip" xml:space="preserve">
-    <value>Skips past opening scene by speeding the game up.\nYou can configure the speed and whether to skip past the animated illustration.\nSpiritual successor of RobotLucca's one-liner</value>
+    <value>Skips past opening scene by speeding the game up.\nYou can configure the speed and whether to skip past the animated illustration.\nSpiritual successor of RobotLucca's mod</value>
   </data>
   <data name="KeybindManager" xml:space="preserve">
     <value>Библиотека для других модов, позволяющая использовать кейбинды</value>
