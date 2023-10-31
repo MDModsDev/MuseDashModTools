@@ -247,13 +247,13 @@
     <value> Позволяет чартерам(не игрокам) использовать кастомную скорость прокрутки.\nБольшинство чартеров обычно не используют этот мод</value>
   </data>
   <data name="SearchPlusPlus" xml:space="preserve">
-    <value>Показывает название, автора и сложность чарта справа сверху во время игры</value>
+    <value>Any search feature you will ever need (probably).\nOptional dependencies: KeybindManager, CustomAlbums</value>
   </data>
   <data name="Song Desc" xml:space="preserve">
-    <value>Расширение для SearchPlusPlus, позволяющее создавать папки\nи искать чарты в них</value>
+    <value>Displays the title, artist, and difficulty of the song in the top-right corner during play.</value>
   </data>
   <data name="Search++ Folder Tag" xml:space="preserve">
-    <value>Добавляет множество тегов для поиска.\nЗагляните на главную страницу или форум для большей информации</value>
+    <value>An extension to SearchPlusPlus, allowing you to create folders\nand search for songs in said folders.</value>
   </data>
   <data name="StricterJudge" xml:space="preserve">
     <value>Усложняет игру, меняет экран оценки\nМожно вручную настроить диапазон оценки в StricterJudge.cfg</value>
