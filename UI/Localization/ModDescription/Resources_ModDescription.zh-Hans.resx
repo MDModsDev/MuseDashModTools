@@ -247,13 +247,13 @@
     <value>谱师可设置自定义流速</value>
   </data>
   <data name="SearchPlusPlus" xml:space="preserve">
-    <value>在游戏界面右上角显示标题，曲师和难度</value>
+    <value>Any search feature you will ever need (probably).\nOptional dependencies: KeybindManager, CustomAlbums</value>
   </data>
   <data name="Song Desc" xml:space="preserve">
-    <value>SearchPlusPlus的扩展\n可以创建文件夹并在其中搜索歌曲</value>
+    <value>Displays the title, artist, and difficulty of the song in the top-right corner during play.</value>
   </data>
   <data name="Search++ Folder Tag" xml:space="preserve">
-    <value>包含你可能需要的所有搜索功能\n查看项目主页获取详细信息</value>
+    <value>An extension to SearchPlusPlus, allowing you to create folders\nand search for songs in said folders.</value>
   </data>
   <data name="StricterJudge" xml:space="preserve">
     <value>严判 Mod，改变游戏判定区间\n可以在 Stricter Judge.cfg 的配置文件里修改判定区间</value>
