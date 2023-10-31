@@ -247,13 +247,13 @@
     <value>Lehetővé teszi pálya készítőknek hogy saját sebességet állítsanak.\nÁltalában nem használják.</value>
   </data>
   <data name="SearchPlusPlus" xml:space="preserve">
-    <value>Megjeleníti a zene címét, művészét és nehézségét a jobb felső sarokban a játék alatt.</value>
+    <value>Any search feature you will ever need (probably).\nOptional dependencies: KeybindManager, CustomAlbums</value>
   </data>
   <data name="Song Desc" xml:space="preserve">
-    <value>Egy SearchPlusPlus bővítmény, amely lehetővé teszi mappák létrehozását\nés azon mappákban lévő zenék keresését.</value>
+    <value>Displays the title, artist, and difficulty of the song in the top-right corner during play.</value>
   </data>
   <data name="Search++ Folder Tag" xml:space="preserve">
-    <value>Minden keresési funkció amire valaha szükséged lehet (talán).\nNézd meg a főoldalát további infóért.</value>
+    <value>An extension to SearchPlusPlus, allowing you to create folders\nand search for songs in said folders.</value>
   </data>
   <data name="StricterJudge" xml:space="preserve">
     <value>Egy mod amely szigorúbbá teszi az időzítéseket.\nManuálisan megváltoztathatod a szigorítás mértékét a StricterJudge.cfg fájlban</value>
