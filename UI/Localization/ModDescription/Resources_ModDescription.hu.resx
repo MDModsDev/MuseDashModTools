@@ -196,7 +196,7 @@
     <value>Lerak egy gombot, amely láthatóvá teszi az összes rejtett pályát\nMagyarul, nem kell spam-elned vagy rajzolgatnod hogy megjelenjenek</value>
   </data>
   <data name="IntroSkip" xml:space="preserve">
-    <value>Skips past opening scene by speeding the game up.\nYou can configure the speed and whether to skip past the animated illustration.\nSpiritual successor of RobotLucca's mod</value>
+    <value>Átugorja a nyitó animációkat a játék felgyorsításával.\nÁllítható a sebesség és hogy átugorja-e az animált illusztrációt.\nSzellemi útodja RobotLucca egy soros mod-jának</value>
   </data>
   <data name="KeybindManager" xml:space="preserve">
     <value>Egy könyvtár más modoknak gomb-lenyomások érzékelésére és értelmezésére</value>
@@ -247,13 +247,13 @@
     <value>Lehetővé teszi pálya készítőknek hogy saját sebességet állítsanak.\nÁltalában nem használják.</value>
   </data>
   <data name="SearchPlusPlus" xml:space="preserve">
-    <value>Any search feature you will ever need (probably).\nOptional dependencies: KeybindManager, CustomAlbums</value>
+    <value>Minden keresési funkció amire valaha szükséged lesz (talán).\nOpcionális függőségek: KeybindManager, CustomAlbums</value>
   </data>
   <data name="Song Desc" xml:space="preserve">
-    <value>Displays the title, artist, and difficulty of the song in the top-right corner during play.</value>
+    <value>Megjeleníti a zene címét, művészét és nehézségét a jobb felső sarokban a játék alatt.</value>
   </data>
   <data name="Search++ Folder Tag" xml:space="preserve">
-    <value>An extension to SearchPlusPlus, allowing you to create folders\nand search for songs in said folders.</value>
+    <value>Egy SearchPlusPlus bővítmény, amely lehetővé teszi mappák létrehozását\nés azon mappákban lévő zenék keresését.</value>
   </data>
   <data name="StricterJudge" xml:space="preserve">
     <value>Egy mod amely szigorúbbá teszi az időzítéseket.\nManuálisan megváltoztathatod a szigorítás mértékét a StricterJudge.cfg fájlban</value>
