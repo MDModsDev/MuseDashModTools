@@ -127,13 +127,13 @@
     <value>Заглушает игру, когда окно свёрнуто.</value>
   </data>
   <data name="AlwaysAprilFool" xml:space="preserve">
-    <value>Boss always shoots pigeons, tutorial is always april fool's version, and activates good tek hidden</value>
+    <value>Босс всегда стреляет птицами, туториал теперь всегда, как на первое апреля, включает Goodtek hidden</value>
   </data>
   <data name="AlwaysBadApple" xml:space="preserve">
     <value>Мод, который делает все чёрно-белым со сценой Touhou</value>
   </data>
   <data name="AlwaysPigeons" xml:space="preserve">
-    <value>Boss always shoots pigeons, do not use AlwaysAprilFool at the same time</value>
+    <value>Босс всегда стреляет птицами, не используйте с модом AlwaysAprilFools</value>
   </data>
   <data name="BestCombinationSuggest" xml:space="preserve">
     <value>Показывает лучшую комбинацию для уровня в меню паузы\nПоказанное комбо чаще всего правильное, но не рассчитывайте на него всегда\nЕсли не знаете, что взять, то используйте CharacterScroreboard</value>
@@ -145,7 +145,7 @@
     <value>Выбирает случайную комбинацию каждый раз, когда вы заходите в уровень</value>
   </data>
   <data name="CharacterScoreboard" xml:space="preserve">
-    <value>Displays which character a specific score was achieved with on the leaderboard (OCS)\nIt can also display your own local scores (LCS)\nLCS and OCS have inconsistent behavior on custom songs.</value>
+    <value>Показывает сколько какие-либо персонажи получили опыта в таблице лидеров (OCS)\nТакже можно посмотреть личные рекорды (LCS)</value>
   </data>
   <data name="ChartDeleter" xml:space="preserve">
     <value>Позволяет ставить чарты в очередь для удаления или перемещения когда вы выходите из игры.</value>
@@ -169,7 +169,7 @@
     <value>Позволяет делать яркость заднего плана ниже, чем 40%</value>
   </data>
   <data name="CustomHitSound" xml:space="preserve">
-    <value>Allows you to set custom hitsounds\nDetailed instructions in the github readme</value>
+    <value>Позволяет делать кастомные звуки ударов\nБолее подробная инструкция есть в файле readme на гитхабе</value>
   </data>
   <data name="CustomLoadingScreens" xml:space="preserve">
     <value>Позволяет добавлять кастомные экраны загрузки (папка CustomLoadingScreens)\nТакже позволяет добавлять кастомные сообщения загрузки (UserData/CustomLoadingScreens.cfg)\nСообщения можно совмещать с иллюстрациями, или оставить случайными</value>
@@ -196,7 +196,7 @@
     <value>Добавляет кнопку, которая позволяет всегда видеть скрытые сложности.\nК примеру, вам не нужно быстро кликать или делать что-либо ещё, чтобы открыть скрытую сложность</value>
   </data>
   <data name="IntroSkip" xml:space="preserve">
-    <value>Skips past opening scene by speeding the game up.\nYou can configure the speed and whether to skip past the animated illustration.\nSpiritual successor of RobotLucca's mod</value>
+    <value>Пропускает катсцену запуска, ускоряя игру.\nВ конфиг файле можно настроить скорость, а также будет ли пропускать экран с анимированной иллюстрацией.\nМод является наследником оригинального мода RobotLucca'и</value>
   </data>
   <data name="KeybindManager" xml:space="preserve">
     <value>Библиотека для других модов, позволяющая использовать кейбинды</value>
@@ -247,13 +247,13 @@
     <value> Позволяет чартерам(не игрокам) использовать кастомную скорость прокрутки.\nБольшинство чартеров обычно не используют этот мод</value>
   </data>
   <data name="SearchPlusPlus" xml:space="preserve">
-    <value>Any search feature you will ever need (probably).\nOptional dependencies: KeybindManager, CustomAlbums</value>
+    <value>Включает почти все функции поиска, которые только могут понадобиться(наверное).\nБиблиотеки, которые можно добавить: KeybindManager, CustomAlbums</value>
   </data>
   <data name="Song Desc" xml:space="preserve">
-    <value>Displays the title, artist, and difficulty of the song in the top-right corner during play.</value>
+    <value>Показывает название, автора и сложность чарта справа сверху во время игры</value>
   </data>
   <data name="Search++ Folder Tag" xml:space="preserve">
-    <value>An extension to SearchPlusPlus, allowing you to create folders\nand search for songs in said folders.</value>
+    <value>Расширение для SearchPlusPlus, позволяющее создавать папки\nи искать чарты в них</value>
   </data>
   <data name="StricterJudge" xml:space="preserve">
     <value>Усложняет игру, меняет экран оценки\nМожно вручную настроить диапазон оценки в StricterJudge.cfg</value>
