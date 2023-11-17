@@ -302,6 +302,6 @@
         <value>DJMAX</value>
     </data>
   <data name="XAML_ConfigFile" xml:space="preserve">
-        <value>Config File</value>
+        <value>Конфиг файл</value>
     </data>
 </root>
