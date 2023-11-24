@@ -20,34 +20,34 @@
         </value>
   </resheader>
   <data name="XAML_UserDataFolder" xml:space="preserve">
-        <value>UserData</value>
+        <value>KullanıcıVerileri</value>
     </data>
   <data name="XAML_ReportBug" xml:space="preserve">
-        <value>Report Bug</value>
+        <value>Bug Raporla</value>
     </data>
   <data name="XAML_Check_Update" xml:space="preserve">
-        <value>Check Update</value>
+        <value>Güncelleme için kontrol et</value>
     </data>
   <data name="XAML_DownloadSource_GithubMirror" xml:space="preserve">
         <value>Github Mirror</value>
     </data>
   <data name="XAML_Analyze" xml:space="preserve">
-        <value>Analyze Log</value>
+        <value>Kayıtları analiz et</value>
     </data>
   <data name="XAML_Apply" xml:space="preserve">
-        <value>Apply</value>
+        <value>Uygula</value>
     </data>
   <data name="XAML_AskType_Always" xml:space="preserve">
-        <value>Always Ask</value>
+        <value>Her zaman sor</value>
     </data>
   <data name="XAML_AskType_No" xml:space="preserve">
-        <value>No</value>
+        <value>Hayır</value>
     </data>
   <data name="XAML_AskType_Yes" xml:space="preserve">
-        <value>Yes</value>
+        <value>Evet</value>
     </data>
   <data name="XAML_ChangePath" xml:space="preserve">
-        <value>Change Path</value>
+        <value>Path'i Değiştir</value>
     </data>
   <data name="XAML_DownloadPrerelease" xml:space="preserve">
         <value>Download Prerelease: </value>
@@ -59,43 +59,43 @@
         <value>Github</value>
     </data>
   <data name="XAML_DownloadSource" xml:space="preserve">
-        <value>Download Source: </value>
+        <value>Kaynağı Yükle: </value>
     </data>
   <data name="XAML_All" xml:space="preserve">
-        <value>All</value>
+        <value>Tümü</value>
     </data>
   <data name="XAML_Enabled" xml:space="preserve">
-        <value>Enabled</value>
+        <value>Etkin</value>
     </data>
   <data name="XAML_Font" xml:space="preserve">
-        <value>Font:</value>
+        <value>Yazı tipi:</value>
     </data>
   <data name="XAML_HelpTranslate" xml:space="preserve">
-        <value>Help Translate</value>
+        <value>Çevirmemize yardım et</value>
     </data>
   <data name="XAML_HomePage" xml:space="preserve">
-        <value>HomePage</value>
+        <value>AnaSayfa</value>
     </data>
   <data name="XAML_Installed" xml:space="preserve">
-        <value>Installed</value>
+        <value>Yüklendi</value>
     </data>
   <data name="XAML_Incompatible" xml:space="preserve">
-        <value>Incompatible</value>
+        <value>Uyumsuz</value>
     </data>
   <data name="XAML_Install_MelonLoader" xml:space="preserve">
-        <value>Install\nMelonLoader</value>
+        <value>MelonLoader'ı\nYükle</value>
     </data>
   <data name="XAML_Install_Mod" xml:space="preserve">
-        <value>Install</value>
+        <value>Yükle</value>
     </data>
   <data name="XAML_Language" xml:space="preserve">
-        <value>Language: </value>
+        <value>Dil: </value>
     </data>
   <data name="XAML_LogFolder" xml:space="preserve">
-        <value>Open Log Folder</value>
+        <value>Sistem Günlüğünü Aç</value>
     </data>
   <data name="XAML_ModsFolder" xml:space="preserve">
-        <value>Mods</value>
+        <value>Modlar</value>
     </data>
   <data name="XAML_Mod_CompatibleGameVersion" xml:space="preserve">
         <value>All</value>
@@ -119,22 +119,22 @@
         <value>Local Version: {0} (WOW MOD DEV)</value>
     </data>
   <data name="XAML_Mod_Normal" xml:space="preserve">
-        <value>Local Version: {0}</value>
+        <value>Yerel Sürüm: {0}</value>
     </data>
   <data name="XAML_Tab_About" xml:space="preserve">
-        <value>About</value>
+        <value>Hakkında</value>
     </data>
   <data name="XAML_Mod_Outdated" xml:space="preserve">
-        <value>Local Version: {0} (Has a newer version: {1})</value>
+        <value>Yerel Sürüm: {0} (Yeni bir sürüm var: {1})</value>
     </data>
   <data name="XAML_Outdated" xml:space="preserve">
-        <value>Outdated</value>
+        <value>Güncel değil</value>
     </data>
   <data name="XAML_Path" xml:space="preserve">
-        <value>Muse Dash Folder Path</value>
+        <value>Muse Dash Dosya Path'i</value>
     </data>
   <data name="XAML_Reinstall_Mod" xml:space="preserve">
-        <value>Reinstall</value>
+        <value>Geri yükle</value>
     </data>
   <data name="XAML_Mod_SearchBar" xml:space="preserve">
         <value>Search Mods    (Name, Author, Descriptions)</value>
@@ -152,22 +152,22 @@
         <value>Enable dependencies when installing Mod</value>
     </data>
   <data name="XAML_Tab_LogAnalysis" xml:space="preserve">
-        <value>Analysis</value>
+        <value>Analiz</value>
     </data>
   <data name="XAML_Tab_ModManage" xml:space="preserve">
-        <value>Mods</value>
+        <value>Modlar</value>
     </data>
   <data name="XAML_Tab_Setting" xml:space="preserve">
-        <value>Setting</value>
+        <value>Ayar</value>
     </data>
   <data name="XAML_TroubleShoot" xml:space="preserve">
-        <value>Troubleshoot</value>
+        <value>Sorun gider</value>
     </data>
   <data name="XAML_Uninstall_MelonLoader" xml:space="preserve">
-        <value>Uninstall\nMelonLoader</value>
+        <value>MelonLoader'ı\nKaldır</value>
     </data>
   <data name="XAML_Uninstall_Mod" xml:space="preserve">
-        <value>Uninstall</value>
+        <value>Kaldır</value>
     </data>
   <data name="XAML_Update_Mod" xml:space="preserve">
         <value>Update</value>
