@@ -124,7 +124,7 @@
     <value>A live accuracy display for your viewing pleasure.</value>
   </data>
   <data name="Alt Tab Mute" xml:space="preserve">
-    <value>Mutes the game when it's not focused.</value>
+    <value>Oyun arka plandayken oyun seslerini susturur.</value>
   </data>
   <data name="AlwaysAprilFool" xml:space="preserve">
     <value>Boss always shoots pigeons, tutorial is always april fool's version, and activates good tek hidden</value>
@@ -178,7 +178,7 @@
     <value>Adds a Custom option in resolution settings, which can be changed in the config</value>
   </data>
   <data name="EffectDisable" xml:space="preserve">
-    <value>Disables some in-game effects</value>
+    <value>Bazı oyun içi efektleri devre dışı bırakır</value>
   </data>
   <data name="FavGirl" xml:space="preserve">
     <value>Allows you to favorite characters and elfins\nThis will make you look like that character even if another character is selected.\nYou will have the abilities of the selected character &amp; your plays will be submitted as such</value>
@@ -187,7 +187,7 @@
     <value>Tells you whether you're on All Perfect/Full Combo pace, and displays the number of misses/greats</value>
   </data>
   <data name="FeverEffectDisable" xml:space="preserve">
-    <value>Disables the fever background effect</value>
+    <value>''Fever'' arka plan efektini devre dışı bırakır</value>
   </data>
   <data name="Headquarters" xml:space="preserve">
     <value>Allows you to submit scores on custom charts obtained from the MDMC website</value>
