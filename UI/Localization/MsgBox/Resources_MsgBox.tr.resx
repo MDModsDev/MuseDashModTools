@@ -86,22 +86,22 @@
         <value>You have an incorrect MelonLoader version installed: {0}\nPlease use the button in the ModManage window to install MelonLoader 0.5.7</value>
     </data>
   <data name="MsgBox_Content_IncorrectVersion" xml:space="preserve">
-        <value>MuseDash.exe is not the correct version \nAre you using a pirated or modified version?</value>
+        <value>MusaDash.exe doğru sürümde deği l\nKorsan veya modifiye edilmiş bir sürüm mü kullanıyorsun?</value>
     </data>
   <data name="MsgBox_Content_InstallDependencyFailed" xml:space="preserve">
         <value>Dependency {0} failed to install\n{1}</value>
     </data>
   <data name="MsgBox_Content_InstallMelonLoader" xml:space="preserve">
-        <value>You did not install MelonLoader\nThis is needed to run all the mods\nInstall Now?</value>
+        <value>MelonLoader'ı yüklemedin\nBu, bütün modları çalıştırmak için gereklidir\nŞimdi yükler misin?</value>
     </data>
   <data name="MsgBox_Content_InstallMelonLoaderFailed" xml:space="preserve">
         <value>MelonLoader yüklemesi başarısız oldu\n{0}</value>
     </data>
   <data name="MsgBox_Content_InstallMelonLoaderFailed_Internet" xml:space="preserve">
-        <value>MelonLoader download failed due to internet\nAre you online?\n{0}</value>
+        <value>MelonLoader yüklemesi internet yüzünden başarısız oldu\nÇevrim içi misin?\n{0}</value>
     </data>
   <data name="MsgBox_Content_InstallMelonLoaderSuccess" xml:space="preserve">
-        <value>MelonLoader has been successfully installed\n</value>
+        <value>MelonLoader başarıyla yüklendi\n</value>
     </data>
   <data name="MsgBox_Content_InstallModFailed" xml:space="preserve">
         <value>Mod indirmesi başarısız oldu\n{0}</value>
@@ -140,19 +140,19 @@
         <value>Cannot find purchase record for Muse Dash's DLC\nYou have to buy it in order to play custom charts</value>
     </data>
   <data name="MsgBox_Content_NoDownloadLink" xml:space="preserve">
-        <value>This mod does not have an available resource for download\n</value>
+        <value>Bu mod yüklenemek için mevcut bir kaynağa sahip değil\n</value>
     </data>
   <data name="MsgBox_Content_NoExeFound" xml:space="preserve">
         <value>Couldn't find MuseDash.exe and/or GameAssembly.dll\nPlease choose the right folder</value>
     </data>
   <data name="MsgBox_Content_NoInstallRecord" xml:space="preserve">
-        <value>Cannot verify that you have bought the game on Steam\nAre you using a pirated version?</value>
+        <value>Steam üzerinden bu oyunu satın aldığını doğrulayamıyoruz\nKorsan bir sürüm mü kullanıyorsun?</value>
     </data>
   <data name="MsgBox_Content_NoLogFile" xml:space="preserve">
         <value>No Log File Found\nYou have to launch the game once after installing MelonLoader to generate log</value>
     </data>
   <data name="MsgBox_Content_NoMelonLoaderFolder" xml:space="preserve">
-        <value>Cannot find MelonLoader Folder\nHave you installed MelonLoader?</value>
+        <value>MelonLoader dosyası bulunamıyor\nMelonLoader'ı yükledin mi?</value>
     </data>
   <data name="MsgBox_Content_NoMelonLoaderVersion" xml:space="preserve">
         <value>Kayıtlardan MelonLoader sürümü bulunamadı</value>
