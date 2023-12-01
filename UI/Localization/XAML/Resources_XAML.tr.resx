@@ -29,7 +29,7 @@
         <value>Güncelleme için kontrol et</value>
     </data>
   <data name="XAML_DownloadSource_GithubMirror" xml:space="preserve">
-        <value>Github Mirror</value>
+        <value>Github Aynası</value>
     </data>
   <data name="XAML_Analyze" xml:space="preserve">
         <value>Kayıtları analiz et</value>
@@ -50,7 +50,7 @@
         <value>Path'i Değiştir</value>
     </data>
   <data name="XAML_DownloadPrerelease" xml:space="preserve">
-        <value>Download Prerelease: </value>
+        <value>Önsürümü indir: </value>
     </data>
   <data name="XAML_DownloadSource_Gitee" xml:space="preserve">
         <value>Gitee</value>
@@ -98,7 +98,7 @@
         <value>Modlar</value>
     </data>
   <data name="XAML_Mod_CompatibleGameVersion" xml:space="preserve">
-        <value>All</value>
+        <value>Tümü</value>
     </data>
   <data name="XAML_Mod_Dependencies" xml:space="preserve">
         <value>Dependencies: </value>
@@ -137,7 +137,7 @@
         <value>Geri yükle</value>
     </data>
   <data name="XAML_Mod_SearchBar" xml:space="preserve">
-        <value>Search Mods    (Name, Author, Descriptions)</value>
+        <value>Modları Ara (İsim, Yayımlayan, Tanımlar)</value>
     </data>
   <data name="XAML_Setting_DisableDependency_Delete" xml:space="preserve">
         <value>Disable dependents when deleting Mod</value>
