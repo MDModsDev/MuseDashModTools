@@ -74,7 +74,7 @@
         <value>Çevirmemize yardım et</value>
     </data>
   <data name="XAML_HomePage" xml:space="preserve">
-        <value>AnaSayfa</value>
+        <value>Ana Sayfa</value>
     </data>
   <data name="XAML_Installed" xml:space="preserve">
         <value>Yüklendi</value>
