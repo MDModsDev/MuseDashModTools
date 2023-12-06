@@ -74,7 +74,7 @@
         <value>Çevirmemize yardım et</value>
     </data>
   <data name="XAML_HomePage" xml:space="preserve">
-        <value>Ana Sayfa</value>
+        <value>AnaSayfa</value>
     </data>
   <data name="XAML_Installed" xml:space="preserve">
         <value>Yüklendi</value>
@@ -101,19 +101,19 @@
         <value>Tümü</value>
     </data>
   <data name="XAML_Mod_Dependencies" xml:space="preserve">
-        <value>Dependencies: </value>
+        <value>Bağlılıklar: </value>
     </data>
   <data name="XAML_Mod_Description" xml:space="preserve">
-        <value>{0} \n\nAuthor: {1} \nOnline Version: {2}\nCompatible Game Version: {3}</value>
+        <value>{0}\n\nYayımlayan: {1}\nÇevrim içi Sürüm: {2}\n Uyumlu Oyun Sürümü: {3}</value>
     </data>
   <data name="XAML_Mod_Duplicate" xml:space="preserve">
-        <value>Duplicated by: </value>
+        <value>Tarafından çoğaltılmış: </value>
     </data>
   <data name="XAML_Mod_Incompatible" xml:space="preserve">
-        <value>{0}'s {1} version is incompatible with your game version</value>
+        <value>{0}'nun{1}'i oyunun sürümüyle uyumlu değil</value>
     </data>
   <data name="XAML_Mod_Modified" xml:space="preserve">
-        <value>Local Version: {0} (Modified)</value>
+        <value>Yerel Sürüm: {0} (Modifiye edilmiş)</value>
     </data>
   <data name="XAML_Mod_Newer" xml:space="preserve">
         <value>Local Version: {0} (WOW MOD DEV)</value>
