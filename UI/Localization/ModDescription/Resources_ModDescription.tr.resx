@@ -169,13 +169,13 @@
     <value>Arka plan parlaklığını yüzde 40'ın altında ayarlayabilmene olanak sağlar</value>
   </data>
   <data name="CustomHitSound" xml:space="preserve">
-    <value>Allows you to set custom hitsounds\nDetailed instructions in the github readme</value>
+    <value>Kendi vuruş seslerini eklemeni sağlar\ndetaylı yönerge github readme'de var</value>
   </data>
   <data name="CustomLoadingScreens" xml:space="preserve">
     <value>Allows you to add custom loading screens (CustomLoadingScreens folder)\nAlso allows you to add custom loading screen messages (UserData/CustomLoadingScreens.cfg)\nMessages can be paired with an image, or be left as random</value>
   </data>
   <data name="CustomResolution" xml:space="preserve">
-    <value>Adds a Custom option in resolution settings, which can be changed in the config</value>
+    <value>Çözünürlük ayarları ekler, config dosyasından değiştirebilirsin</value>
   </data>
   <data name="EffectDisable" xml:space="preserve">
     <value>Bazı oyun içi efektleri devre dışı bırakır</value>
@@ -235,7 +235,7 @@
     <value>Allows you to use Delete to instantly leave a chart &amp; Allows you to use Backspace to instantly restart a chart\nUpdate now allows you to set custom keybinds.</value>
   </data>
   <data name="QuickSwitchCombination" xml:space="preserve">
-    <value>Allows you to set keybinds to quickly change your characters.\nNow has an in-game menu to add keybinds</value>
+    <value>Karakterlerini hızlıca değiştirebilmeyi bir tuşa atayarak yapmanı sağlar\noyun için menuden yeni tuş atamaları ekleyebilirsin</value>
   </data>
   <data name="SceneEggs" xml:space="preserve">
     <value>Makes it possible for customs to use certain background decorations that the default charts use.</value>
@@ -262,7 +262,7 @@
     <value>+999 yerine şarkılarda 1000 ile 2000 arasındaki gerçek sıralamanı gösterir</value>
   </data>
   <data name="UI Disable" xml:space="preserve">
-    <value>Allows you to disable certain visual aspects of the game (example: hit circles)</value>
+    <value>Oyunun bazı görsel kısımlarını devre dışı bırakmanı sağlar (örnek: vuruş çemberi)</value>
   </data>
   <data name="UltraInstinctSleepwalking" xml:space="preserve">
     <value>Sleepwalker Rin masherları normal bir hız yerine maksimum hızda yapar.</value>
