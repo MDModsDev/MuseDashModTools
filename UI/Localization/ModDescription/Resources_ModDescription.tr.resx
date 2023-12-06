@@ -190,7 +190,7 @@
     <value>''Fever'' arka plan efektini devre dışı bırakır</value>
   </data>
   <data name="Headquarters" xml:space="preserve">
-    <value>Allows you to submit scores on custom charts obtained from the MDMC website</value>
+    <value>Topluluk tarafından yapılan haritadaki skorlarını MDMC websitesine göndermeni sağlar</value>
   </data>
   <data name="HiddenQoL" xml:space="preserve">
     <value>Adds a button to always show hidden difficulties.\nE.g. you don't need to spam click and such to unlock them before playing</value>
@@ -205,7 +205,7 @@
     <value>A library for other mods to localize text</value>
   </data>
   <data name="MDRPC" xml:space="preserve">
-    <value>Muse Dash Rich Presence, which is exactly what it says it is.</value>
+    <value>Muse Dash Rich Presence, açıklamaya gerek yok.</value>
   </data>
   <data name="ModManager" xml:space="preserve">
     <value>Oyundayken modları devre dışı bırakıp silmeni sağlar.</value>
@@ -223,13 +223,13 @@
     <value>Seviye atlama animasyonları çok uzun sürüyor.\nHadi onları atlayalım.</value>
   </data>
   <data name="PerfectDisable" xml:space="preserve">
-    <value>Allows you to disable the judgements in-game.\n(example: show early/late perfects but not pure perfects)\nInspired by ADOFAI Tweaks</value>
+    <value>Oyun içi yargıları devre dışı bırakmanı sağlar\n(örnek: erken/geç mükemmelleri gösterir ama gerçek mükemmeleri göstermez)\n ADOFAI tweaksden ilham alınmıştır</value>
   </data>
   <data name="PopupLib" xml:space="preserve">
     <value>A library for other mods to manage popups and windows</value>
   </data>
   <data name="PreventLowAcc" xml:space="preserve">
-    <value>A mod that that allows let's you prevent a score from uploading,\nand still be able to take a screenshot.</value>
+    <value>Skorları sıralamaya göndermeni engeller\n ama ekran görüntüsü alabilirsin.</value>
   </data>
   <data name="QuickRestart" xml:space="preserve">
     <value>Allows you to use Delete to instantly leave a chart &amp; Allows you to use Backspace to instantly restart a chart\nUpdate now allows you to set custom keybinds.</value>
