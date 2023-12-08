@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Accuracy Indicator" xml:space="preserve">
-    <value>Adds a more exact accuracy indicator on the bottom of the screen.\nAlso displays average accuracy in milliseconds at the end of the level.</value>
+    <value>Ekranının aşağısına daha ayrıntılı bir doğruluk indikatörü ekler.\nAyrıca oyun sonu ekranında ortalama doğruluğu milisaniye olarak gösterir.</value>
   </data>
   <data name="AccuracyDisplay" xml:space="preserve">
     <value>Canlı olarak doğruluk yüzdesini gösterir.</value>
@@ -148,7 +148,7 @@
     <value>Displays which character a specific score was achieved with on the leaderboard (OCS)\nIt can also display your own local scores (LCS)\nLCS and OCS have inconsistent behavior on custom songs.</value>
   </data>
   <data name="ChartDeleter" xml:space="preserve">
-    <value>Allows you to queue custom charts to be deleted or moved when you exit the game.</value>
+    <value>Oyundan çıktığında topluluk şarkılarnın silmeni veya yerini değiştirmene olanak sağlar.</value>
   </data>
   <data name="ChartReview" xml:space="preserve">
     <value>Otomatik olarak Sleepwalker Rin'i seçer, ofsetti 0 yapar, fever modunu manuel yapar ve bazı kullanıcı arayüzü elementlerini devre dışı bırakır\n Oyun içinde açıp kapatılabilir</value>
@@ -199,10 +199,10 @@
     <value>Skips past opening scene by speeding the game up.\nYou can configure the speed and whether to skip past the animated illustration.\nSpiritual successor of RobotLucca's mod</value>
   </data>
   <data name="KeybindManager" xml:space="preserve">
-    <value>A library for other mods to parse and listen to keybinds</value>
+    <value>Başka modları ayrıştırmak ve tuş atamalarını değiştirmek için bir kütüphane</value>
   </data>
   <data name="LocalizeLib" xml:space="preserve">
-    <value>A library for other mods to localize text</value>
+    <value>Başka modların paragrafları lokalize etmesi için bir kütüphane</value>
   </data>
   <data name="MDRPC" xml:space="preserve">
     <value>Muse Dash Rich Presence, açıklamaya gerek yok.</value>
@@ -241,10 +241,10 @@
     <value>Makes it possible for customs to use certain background decorations that the default charts use.</value>
   </data>
   <data name="Scoreboard characters and elfins" xml:space="preserve">
-    <value>Similar to CharacterScoreboard, however, it instead adds icon clickable icon representations,\nwhich automatically switches to the character combo when clicked.</value>
+    <value>KarakterSkorborduna benzer lakin onun yerine tıklanabilen ikon temcileri ekler,\n tıklandığında o karakter kombinasyonuna geçiş yapar.</value>
   </data>
   <data name="ScrollSpeed" xml:space="preserve">
-    <value>Allows charters (not players) to set custom scroll speeds.\nIt's completely up to you whether you wanna use this, most charters don't use it though.</value>
+    <value>Şarkı seviyeleri yapanların (oyuncuların değil) özel taslak hızı yapmalarını sağlar.\nKullanıp kullanmamak tamamen sana kalmış, lakin çoğu şarkı seviyesi üreticisi bunu kullanmıyor.</value>
   </data>
   <data name="SearchPlusPlus" xml:space="preserve">
     <value>Any search feature you will ever need (probably).\nOptional dependencies: KeybindManager, CustomAlbums</value>
@@ -253,7 +253,7 @@
     <value>Şarkının başlığını, sanatçıyı ve zorluğu oynarken sağ üst köşede gösterir.</value>
   </data>
   <data name="Search++ Folder Tag" xml:space="preserve">
-    <value>An extension to SearchPlusPlus, allowing you to create folders\nand search for songs in said folders.</value>
+    <value>Search++ için bir uzantı, dosya yaratmana olanak sağlar\nve o dosyalarda şarkıları arayabilirsin.</value>
   </data>
   <data name="StricterJudge" xml:space="preserve">
     <value>Oyunu daha zorlaştıran ve mükemmel harika kısmını daha kısaltan bir mod\n yargılama kısmını manuel olarak StricterJudge.cfg'den değiştirebilirsin</value>
