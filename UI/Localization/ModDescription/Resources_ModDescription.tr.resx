@@ -157,7 +157,7 @@
     <value>Oyunun bazı kısımları sanmsürler (Karakterler, ilüstrasyonlar vesaire)</value>
   </data>
   <data name="Cinema" xml:space="preserve">
-    <value>The mod that allows you to see video backgrounds in custom charts</value>
+    <value>Topluluk şarkı haritalarında video arka planı görmeni sağlar</value>
   </data>
   <data name="CustomAlbums" xml:space="preserve">
     <value>Topluluk tarafından yapılmış şarkı haritalarını indirmeni sağlar</value>
@@ -193,7 +193,7 @@
     <value>Topluluk tarafından yapılan haritadaki skorlarını MDMC websitesine göndermeni sağlar</value>
   </data>
   <data name="HiddenQoL" xml:space="preserve">
-    <value>Adds a button to always show hidden difficulties.\nE.g. you don't need to spam click and such to unlock them before playing</value>
+    <value>Gizli zorlukları gösteren bir buton ekler.\n\ Artık onları açmak için spam tıklamana gerek kalmaz</value>
   </data>
   <data name="IntroSkip" xml:space="preserve">
     <value>Skips past opening scene by speeding the game up.\nYou can configure the speed and whether to skip past the animated illustration.\nSpiritual successor of RobotLucca's mod</value>
