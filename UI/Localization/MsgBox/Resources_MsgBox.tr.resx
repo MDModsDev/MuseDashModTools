@@ -107,7 +107,7 @@
         <value>Mod indirmesi başarısız oldu\n{0}</value>
     </data>
   <data name="MsgBox_Content_InstallModFailed_Game" xml:space="preserve">
-        <value>Mod installation failed. Is the game running?\n{0}</value>
+        <value>Mod yüklemesi başarısız oldu. Oyun şuan çalışıyor mu?\n{0}</value>
     </data>
   <data name="MsgBox_Content_InstallModFailed_Internet" xml:space="preserve">
         <value>Mod yükleme başarısız oldu. Çevrim içi misin?\n{0}</value>
@@ -131,13 +131,13 @@
         <value>Log analysis completed, no obvious errors are found in your log file\nIf you still have issues please go to troubleshoot channel</value>
     </data>
   <data name="MsgBox_Content_NewerVersion" xml:space="preserve">
-        <value>A newer version of Muse Dash Mod Tools ({0}) is released\n\nDo you want to install it now?\n\nRelease Title:\n{1}\n\nRelease Info:\n{2}</value>
+        <value>Muse Dash Mod Aletleri'nin yeni bir sürümü {0} yayımlandı\n\nŞimdi yüklemek ister misin?\n\nYayımlanma Başlığı:\n{1}\n\nYayımlanma Bilgisi:\n{2}</value>
     </data>
   <data name="MsgBox_Content_NoApplicationPath" xml:space="preserve">
         <value>You don't have application path in the log</value>
     </data>
   <data name="MsgBox_Content_NoDlcPurchased" xml:space="preserve">
-        <value>Cannot find purchase record for Muse Dash's DLC\nYou have to buy it in order to play custom charts</value>
+        <value>Muse Dash DLC'si için ödeme geçmişi bulunamıyor\nTopluluk şarkılarını oynayabilmek için bunu satın alman lazım</value>
     </data>
   <data name="MsgBox_Content_NoDownloadLink" xml:space="preserve">
         <value>Bu mod yüklenemek için mevcut bir kaynağa sahip değil\n</value>
@@ -158,10 +158,10 @@
         <value>Kayıtlardan MelonLoader sürümü bulunamadı</value>
     </data>
   <data name="MsgBox_Content_NullPath" xml:space="preserve">
-        <value>Your stored Muse Dash Folder path is null\nPlease choose the correct folder</value>
+        <value>Muse Dash Dosya path'i bilinmiyor\nLütfen doğru dosyayı seçin</value>
     </data>
   <data name="MsgBox_Content_OutdatedMod" xml:space="preserve">
-        <value>{0} is outdated, please update using "ModManage"page</value>
+        <value>{0} 'nın sürümü eski, lütfen ''ModlarıYönet'' sayfasından güncelleştirin</value>
     </data>
   <data name="MsgBox_Content_ReadGameVersionFailed" xml:space="preserve">
         <value>Cannot read current game version\nIs your Muse Dash installation complete?\nPlease check your globalgamemanagers file in\n{0}</value>
