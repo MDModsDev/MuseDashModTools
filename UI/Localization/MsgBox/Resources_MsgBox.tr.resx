@@ -170,28 +170,28 @@
         <value>You have not registered for Headquarters\nPlease register in #bot-commands channel in MDMC discord or mdmc.moe website</value>
     </data>
   <data name="MsgBox_Content_ReinstallMod" xml:space="preserve">
-        <value>You are asking to reinstall {0}\nPlease confirm your operation</value>
+        <value>Tekrar yüklemeye çalışıyorsunuz {0}\nLütfen operasyonunuzu doğrulayın</value>
     </data>
   <data name="MsgBox_Content_UninstallMelonLoader" xml:space="preserve">
-        <value>You are asking to uninstall MelonLoader\nPlease confirm your operation</value>
+        <value>MelonLoader'ı silmek istiyorsunuz\nLütfen operasyonunuzu doğrulayın</value>
     </data>
   <data name="MsgBox_Content_UninstallMelonLoaderFailed" xml:space="preserve">
-        <value>Cannot uninstall MelonLoader\nPlease make sure your game is not running!</value>
+        <value>MelonLoader silinmesi başarısız oldu\nLütfen oyunun arka planda çalışmadığından emin olun!</value>
     </data>
   <data name="MsgBox_Content_UninstallMelonLoaderSuccess" xml:space="preserve">
-        <value>MelonLoader has been successfully uninstalled\n</value>
+        <value>MelonLoader başarıyla silindi\n</value>
     </data>
   <data name="MsgBox_Content_UninstallModFailed" xml:space="preserve">
-        <value>Mod uninstall failed. Is the game running?\n{0}</value>
+        <value>Mod silmesi başarısız oldu. Oyunun çalışıyor mu?\n{0}</value>
     </data>
   <data name="MsgBox_Content_UninstallModFailed_Game" xml:space="preserve">
-        <value>Mod uninstall failed\n{0}</value>
+        <value>Mod silinmesi başarısız oldu\n{0}</value>
     </data>
   <data name="MsgBox_Content_UninstallModFailed_Null" xml:space="preserve">
-        <value>Cannot delete file that doesn't exist</value>
+        <value>Var olmayan bir dosyayı silemezsin</value>
     </data>
   <data name="MsgBox_Content_UninstallModSuccess" xml:space="preserve">
-        <value>{0} has been successfully deleted\n</value>
+        <value>{0} başarıyla silindi\n</value>
     </data>
   <data name="MsgBox_Content_UnzipMelonLoaderFailed" xml:space="preserve">
         <value>Cannot unzip MelonLoader.zip in\n{0}\nError:{1}\nTry to manually unzip?</value>
@@ -200,10 +200,10 @@
         <value>Cannot find Updater\nPlease make sure you have downloaded full software,\nand check your antivirus</value>
     </data>
   <data name="MsgBox_Title_AnalyzeSuccess" xml:space="preserve">
-        <value>Analysis successful</value>
+        <value>Analiz başarılı</value>
     </data>
   <data name="MsgBox_Title_Failure" xml:space="preserve">
-        <value>Failure</value>
+        <value>Başarısız</value>
     </data>
   <data name="MsgBox_Title_Notice" xml:space="preserve">
         <value>Notice</value>
@@ -221,7 +221,7 @@
         <value>{0} haritası başarıyla yüklendi\n</value>
     </data>
   <data name="MsgBox_Content_OverrideChart" xml:space="preserve">
-        <value>You have already downloaded the chart {0}\nContinue downloading and overriding the existing file?</value>
+        <value>Bu haritayı çoktan yükledin {0}\nYüklemeye devam et ve var olan dosyanın üstüne yazdır?</value>
     </data>
   <data name="MsgBox_Content_NoBmsFile" xml:space="preserve">
         <value>Bu dosyada hiç harita bulunamadı</value>
