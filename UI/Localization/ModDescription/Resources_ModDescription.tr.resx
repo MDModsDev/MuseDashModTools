@@ -145,7 +145,7 @@
     <value>Her şarkı oynadağında rastgele bir karakter kombinasyonu seçilecek</value>
   </data>
   <data name="CharacterScoreboard" xml:space="preserve">
-    <value>Displays which character a specific score was achieved with on the leaderboard (OCS)\nIt can also display your own local scores (LCS)\nLCS and OCS have inconsistent behavior on custom songs.</value>
+    <value>Sıralamada hangi karakter ile skorun yapıldığını gösterir (OCS)\n Ayrıca kendi yerel skorlarını da gösterir (LCS)\n LCS ve OCS topluluk şarkılarında tutarlı olmayabilir.</value>
   </data>
   <data name="ChartDeleter" xml:space="preserve">
     <value>Oyundan çıktığında topluluk şarkılarnın silmeni veya yerini değiştirmene olanak sağlar.</value>
