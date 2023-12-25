@@ -209,21 +209,21 @@
         <value>Notice</value>
     </data>
   <data name="MsgBox_Title_Success" xml:space="preserve">
-        <value>Success</value>
+        <value>Başarılı</value>
     </data>
   <data name="MsgBox_Title_Warning" xml:space="preserve">
-        <value>Warning</value>
+        <value>Uyarı</value>
     </data>
   <data name="MsgBox_Content_DownloadChartFailed" xml:space="preserve">
-        <value>Chart download failed\n{0}</value>
+        <value>Harita yüklemesi başarısız oldu\n{0}</value>
     </data>
   <data name="MsgBox_Content_DownloadChartSuccess" xml:space="preserve">
-        <value>Chart {0} has been successfully downloaded\n</value>
+        <value>{0} haritası başarıyla yüklendi\n</value>
     </data>
   <data name="MsgBox_Content_OverrideChart" xml:space="preserve">
         <value>You have already downloaded the chart {0}\nContinue downloading and overriding the existing file?</value>
     </data>
   <data name="MsgBox_Content_NoBmsFile" xml:space="preserve">
-        <value>No charts found in the folder</value>
+        <value>Bu dosyada hiç harita bulunamadı</value>
     </data>
 </root>
