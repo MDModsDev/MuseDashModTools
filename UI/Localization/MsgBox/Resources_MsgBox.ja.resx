@@ -53,13 +53,13 @@
         <value>MuseDashのインストール先が指定されていません！\nインストール先のフォルダを選択してください。</value>
     </data>
   <data name="MsgBox_Content_CopyUpdaterFailed" xml:space="preserve">
-        <value>Cannot copy Updater to target path\n{0}</value>
+        <value>アップデータをターゲットパスにコピーできません\n{0}</value>
     </data>
   <data name="MsgBox_Content_DeleteMelonLoaderZipFailed" xml:space="preserve">
-        <value>Failed to delete MelonLoader.zip in\n{0}\nError:{1}\nTry to manually delete</value>
+        <value>MelonLoader.zip を削除できませんでした\n{0}\nエラー: {1}\n手動で削除してください</value>
     </data>
   <data name="MsgBox_Content_DeleteModConfirm" xml:space="preserve">
-        <value>{0} is used by {1} as dependency\nAre you sure you want to delete this mod?</value>
+        <value>MelonLoader. zip を削除できませんでした\n{0}\nエラー: {1}\n手動で削除してください</value>
     </data>
   <data name="MsgBox_Content_DisableReverseDependency" xml:space="preserve">
         <value>Do you want to disable the mods dependent on {0}?</value>
