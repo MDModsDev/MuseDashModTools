@@ -22,9 +22,9 @@
         </value>
   </resheader>
   <data name="FolderDialog_Title_ChooseMuseDashFolder" xml:space="preserve">
-        <value>뮤즈대쉬 폴더를 선택해주세요</value>
+        <value>뮤즈대쉬 폴더 선택</value>
     </data>
   <data name="FolderDialog_Title_ChooseChartFolder" xml:space="preserve">
-        <value>Choose Chart Folder</value>
+        <value>채보 폴더 선택</value>
     </data>
 </root>
