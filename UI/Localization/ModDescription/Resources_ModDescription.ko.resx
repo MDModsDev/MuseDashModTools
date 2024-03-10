@@ -121,7 +121,7 @@
     <value>화면 하단에 더욱 정밀한 정확도 표시기를 추가합니다.\n또한 레벨 종료 후 평균 정확도를 밀리초 단위로 표시합니다.</value>
   </data>
   <data name="AccuracyDisplay" xml:space="preserve">
-    <value>시각적으로 즐거운 실시간 정확도 표시기.</value>
+    <value>시각적으로 즐거운 실시간 정확도 표시기입니다.</value>
   </data>
   <data name="Alt Tab Mute" xml:space="preserve">
     <value>게임창이 활성화 상태가 아닐 때 게임 소리를 음소거합니다.</value>
@@ -196,81 +196,81 @@
     <value>히든 채보 난이도를 항상 표시하는 버튼을 추가합니다.\n즉, 히든 채보를 플레이하기 위해 난이도 버튼을 광클해서 해금하는 식의 단계를 거칠 필요가 없어집니다.</value>
   </data>
   <data name="IntroSkip" xml:space="preserve">
-    <value>Skips past opening scene by speeding the game up.\nYou can configure the speed and whether to skip past the animated illustration.\nSpiritual successor of RobotLucca's mod</value>
+    <value>게임 부팅 속도를 올려 시작 화면을 빠르게 스킵할 수 있습니다.\n속도를 설정할 수 있으며, 움직이는 배경화면을 스킵할지도 설정할 수 있습니다.\nRobotLucca님 모드의 정신적 후속모드.</value>
   </data>
   <data name="KeybindManager" xml:space="preserve">
-    <value>A library for other mods to parse and listen to keybinds</value>
+    <value>키 입력의 감시 및 분석 목적으로 사용되는 타 모드용 라이브러리.</value>
   </data>
   <data name="LocalizeLib" xml:space="preserve">
-    <value>A library for other mods to localize text</value>
+    <value>텍스트 현지화 목적으로 사용되는 타 모드용 라이브러리.</value>
   </data>
   <data name="MDRPC" xml:space="preserve">
-    <value>Muse Dash Rich Presence, which is exactly what it says it is.</value>
+    <value>Muse Dash Rich Presence. 디스코드에서 뮤즈대쉬 플레이 상태를 자세히 표시해줍니다.</value>
   </data>
   <data name="ModManager" xml:space="preserve">
-    <value>Allows you to disable &amp; delete mods while in-game.</value>
+    <value>게임 내에서 모드를 비활성화하거나 삭제할 수 있게 해줍니다.</value>
   </data>
   <data name="Muse Dash Mirror" xml:space="preserve">
-    <value>A library that makes it easier to access PlayerData, BattleComponents info and create UI elements.\nThis mod does nothing by itself.</value>
+    <value>PlayerData, BattleComponents 정보 및 및 UI 요소 생성 등에 쉽게 접근할 수 있게 해주는 타 모드용 라이브러리.\n이 모드 자체로는 게임 내에 아무런 효력이 없습니다.</value>
   </data>
   <data name="MuseDashModTools" xml:space="preserve">
-    <value>Automatically detects and logs available mod updates.</value>
+    <value>업데이트 가능한 모드가 있으면 자동으로 감지하고 로그에 출력해줍니다.</value>
   </data>
   <data name="NoAutoPause" xml:space="preserve">
-    <value>Prevents the game from automatically pausing when the game loses focus.</value>
+    <value>게임창이 비활성화 상태가 되었을 때 자동으로 일시정지 화면이 표시되는 것을 방지합니다.</value>
   </data>
   <data name="NoLevelUpAnimations" xml:space="preserve">
-    <value>Level up animations take ages;\nLet's skip them.</value>
+    <value>레벨 업 애니메이션 보는데만 한세월임;;\n스킵해버립시다.</value>
   </data>
   <data name="PerfectDisable" xml:space="preserve">
-    <value>Allows you to disable the judgements in-game.\n(example: show early/late perfects but not pure perfects)\nInspired by ADOFAI Tweaks</value>
+    <value>게임 내의 판정을 비활성화할 수 있게 합니다.\n(예시: 순수한 퍼펙트가 아닌 early/late 퍼펙트 표시)\nADOFAI 트윗에서 영감을 얻어 제작됨</value>
   </data>
   <data name="PopupLib" xml:space="preserve">
-    <value>A library for other mods to manage popups and windows</value>
+    <value>팝업 및 윈도우 관리 목적으로 사용되는 타 모드용 라이브러리.</value>
   </data>
   <data name="PreventLowAcc" xml:space="preserve">
-    <value>A mod that that allows let's you prevent a score from uploading,\nand still be able to take a screenshot.</value>
+    <value>플레이 점수가 서버에 업로드되는 걸 막는 모드입니다.\n여전히, 점수 스크린샷은 찍을 수 있습니다.</value>
   </data>
   <data name="QuickRestart" xml:space="preserve">
-    <value>Allows you to use Delete to instantly leave a chart &amp; Allows you to use Backspace to instantly restart a chart\nUpdate now allows you to set custom keybinds.</value>
+    <value>Delete 키로 채보 즉시 나가기 &amp; Backspace 키로 즉시 채보 재시작\n이번 업데이트 이후로 두 단축키를 다른 키로 재설정할 수 있게 되었습니다.</value>
   </data>
   <data name="QuickSwitchCombination" xml:space="preserve">
-    <value>Allows you to set keybinds to quickly change your characters.\nNow has an in-game menu to add keybinds</value>
+    <value>단축키를 설정하여 캐릭터 조합을 빠르게 변경할 수 있습니다.\n이번 업데이트 이후로 게임 내에서 단축키 설정 메뉴를 열 수 있습니다.</value>
   </data>
   <data name="SceneEggs" xml:space="preserve">
-    <value>Makes it possible for customs to use certain background decorations that the default charts use.</value>
+    <value>기본 채보들에서 사용되는 특정 배경 데코레이션을 커스텀 채보에서도 사용 가능하도록 해줍니다.</value>
   </data>
   <data name="Scoreboard characters and elfins" xml:space="preserve">
-    <value>Similar to CharacterScoreboard, however, it instead adds icon clickable icon representations,\nwhich automatically switches to the character combo when clicked.</value>
+    <value>CharacterScoreboard 모드와 유사하지만, 캐릭터 조합을 아이콘 형태로 대체하여 표시하며,\n아이콘을 클릭하면 자동으로 해당 캐릭터 조합으로 변경됩니다.</value>
   </data>
   <data name="ScrollSpeed" xml:space="preserve">
-    <value>Allows charters (not players) to set custom scroll speeds.\nIt's completely up to you whether you wanna use this, most charters don't use it though.</value>
+    <value>채보 제작자들에게(유저x) 스크롤 속도의 자유로운 조정을 가능하게 합니다.\n대부분의 채보 제작자들은 사용하지 않으나, 이 기능을 쓸지 말지는 전적으로 당신에게 달려있습니다.</value>
   </data>
   <data name="SearchPlusPlus" xml:space="preserve">
-    <value>Any search feature you will ever need (probably).\nOptional dependencies: KeybindManager, CustomAlbums</value>
+    <value>당신이 항상 바라던 모든 검색 기능(아마도).\n선택적 의존성: KeybindManager, CustomAlbums</value>
   </data>
   <data name="Song Desc" xml:space="preserve">
-    <value>Displays the title, artist, and difficulty of the song in the top-right corner during play.</value>
+    <value>플레이 중에 상단 우측에 곡명, 아티스트, 난이도 정보를 표시합니다.</value>
   </data>
   <data name="Search++ Folder Tag" xml:space="preserve">
-    <value>An extension to SearchPlusPlus, allowing you to create folders\nand search for songs in said folders.</value>
+    <value>SearchPlusPlus 모드의 확장으로, 폴더들을 생성할 수 있으며\n각 폴더 내에서 곡들을 검색할 수 있습니다.</value>
   </data>
   <data name="StricterJudge" xml:space="preserve">
-    <value>A mod which changes the judgement window and make the game harder\nYou can manually change the judgement range in Stricter Judge.cfg</value>
+    <value>판정 범위를 변화시켜 게임을 어렵게 만드는 모드입니다.\nStricter Judge.cfg 파일에서 판정 범위를 직접 조정할 수 있습니다.</value>
   </data>
   <data name="True rank for 999+" xml:space="preserve">
-    <value>Displays actual ranking instead of "999+" for ranks 1000 to 2000</value>
+    <value>1000위부터 2000위까지의 랭크에 대해 "999+" 대신 실제 순위를 표시합니다.</value>
   </data>
   <data name="UI Disable" xml:space="preserve">
-    <value>Allows you to disable certain visual aspects of the game (example: hit circles)</value>
+    <value>게임 내의 특정 시각적 요소를 비활성화할 수 있게 합니다. (예시: 원형 히트 가이드)</value>
   </data>
   <data name="UltraInstinctSleepwalking" xml:space="preserve">
-    <value>Makes Sleepwalker Rin do mashers at max speed instead of the normal slow speed.</value>
+    <value>몽유소녀 린이 기존의 느린 속도 대신 최고 속도로 샌드백을 난타합니다.</value>
   </data>
   <data name="UnlockAll2" xml:space="preserve">
-    <value>An alternative to UnlockAll.\nMaster's stay unlocked only for as long as the mod is installed.</value>
+    <value>UnlockAll 모드의 대체 모드입니다.\n해당 모드는 설치된 동안만 마스터 난이도를 해금된 상태로 유지합니다.</value>
   </data>
   <data name="VictoryScreenSwitcher" xml:space="preserve">
-    <value>Allows you to switch victory screen in the settings menu either to DJMAX or Arknights. Swaps original screen with arknights/djmax and vise versa.</value>
+    <value>설정에서 승리 화면을 DJMAX 또는 명일방주 테마로 바꿀 수 있게 해줍니다.</value>
   </data>
 </root>
