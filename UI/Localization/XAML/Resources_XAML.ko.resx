@@ -263,13 +263,13 @@
         <value>태그 검색</value>
     </data>
   <data name="XAML_InfoJson_HideBmsMode" xml:space="preserve">
-        <value>BMS 모드 숨기기</value>
+        <value>숨겨진 BMS의 모드</value>
     </data>
   <data name="XAML_InfoJson_HideBmsDifficulty" xml:space="preserve">
-        <value>BMS 난이도 숨기기</value>
+        <value>숨겨진 BMS의 난이도</value>
     </data>
   <data name="XAML_InfoJson_HideBmsMessage" xml:space="preserve">
-        <value>BMS 메시지 숨기기</value>
+        <value>숨겨진 BMS의 메시지</value>
     </data>
   <data name="XAML_ChooseChartPath" xml:space="preserve">
         <value>채보 폴더 선택</value>
