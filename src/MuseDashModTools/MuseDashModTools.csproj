@@ -43,6 +43,7 @@
     <ItemGroup>
         <PackageReference Include="Antelcat.I18N.Avalonia"/>
         <PackageReference Include="Autofac"/>
+        <PackageReference Include="Autofac.Extensions.DependencyInjection"/>
         <PackageReference Include="Avalonia"/>
         <PackageReference Include="Avalonia.AvaloniaEdit"/>
         <PackageReference Include="Avalonia.Controls.ItemsRepeater"/>

@@ -17,7 +17,7 @@ public sealed partial class GitHubDownloadService : IGitHubDownloadService
         IProgress<double> downloadProgress,
         CancellationToken cancellationToken = default)
     {
-        Logger.Information("Downloading MelonLoader and Dependencies from GitHub...");
+        Logger.LogInformation("Downloading MelonLoader and Dependencies from GitHub...");
 
         Downloader.DownloadStarted += onDownloadStarted;
         Downloader.DownloadProgressChanged += (_, e) => downloadProgress.Report(e.ProgressPercentage);
@@ -27,23 +27,23 @@ public sealed partial class GitHubDownloadService : IGitHubDownloadService
             await Downloader.DownloadFileTaskAsync(MelonLoaderUrl, Setting.MelonLoaderZipPath, cancellationToken).ConfigureAwait(false);
             await Downloader.DownloadFileTaskAsync(UnityDependencyUrl, Setting.UnityDependencyZipPath, cancellationToken).ConfigureAwait(false);
             await Downloader.DownloadFileTaskAsync(Cpp2ILUrl, Setting.Cpp2ILZipPath, cancellationToken).ConfigureAwait(false);
-            Logger.Information("MelonLoader and Dependencies downloaded from GitHub successfully");
+            Logger.LogInformation("MelonLoader and Dependencies downloaded from GitHub successfully");
             return true;
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Failed to download MelonLoader from GitHub");
+            Logger.LogError(ex, "Failed to download MelonLoader from GitHub");
             return false;
         }
     }
 
     public async Task<bool> DownloadModAsync(ModDto mod, CancellationToken cancellationToken = default)
     {
-        Logger.Information("Downloading mod {ModName} from GitHub...", mod.Name);
+        Logger.LogInformation("Downloading mod {ModName} from GitHub...", mod.Name);
 
         if (mod.DownloadLink.IsNullOrEmpty())
         {
-            Logger.Error("Mod {ModName} download link is empty", mod.Name);
+            Logger.LogError("Mod {ModName} download link is empty", mod.Name);
             return false;
         }
 
@@ -58,14 +58,14 @@ public sealed partial class GitHubDownloadService : IGitHubDownloadService
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Failed to download mod {ModName} from GitHub", mod.Name);
+            Logger.LogError(ex, "Failed to download mod {ModName} from GitHub", mod.Name);
             return false;
         }
     }
 
     public async Task<bool> DownloadLibAsync(string libName, CancellationToken cancellationToken = default)
     {
-        Logger.Information("Downloading lib {LibName} from GitHub...", libName);
+        Logger.LogInformation("Downloading lib {LibName} from GitHub...", libName);
 
         var libFileName = libName + ".dll";
         var downloadLink = LibsFolderUrl + libFileName;
@@ -79,7 +79,7 @@ public sealed partial class GitHubDownloadService : IGitHubDownloadService
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Failed to download lib {LibName} from GitHub", libName);
+            Logger.LogError(ex, "Failed to download lib {LibName} from GitHub", libName);
             return false;
         }
     }
@@ -96,23 +96,23 @@ public sealed partial class GitHubDownloadService : IGitHubDownloadService
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Failed to download new version from GitHub");
+            Logger.LogError(ex, "Failed to download new version from GitHub");
         }
     }
 
     public IAsyncEnumerable<Mod?> GetModListAsync(CancellationToken cancellationToken = default)
     {
-        Logger.Information("Fetching mods from GitHub {Url}...", ModLinksUrl);
+        Logger.LogInformation("Fetching mods from GitHub {Url}...", ModLinksUrl);
 
         try
         {
             var mods = Client.GetFromJsonAsAsyncEnumerable<Mod>(ModLinksUrl, cancellationToken);
-            Logger.Information("Mods fetched from GitHub successfully");
+            Logger.LogInformation("Mods fetched from GitHub successfully");
             return mods;
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Failed to fetch mods from GitHub");
+            Logger.LogError(ex, "Failed to fetch mods from GitHub");
             return AsyncEnumerable.Empty<Mod?>();
         }
     }
@@ -121,11 +121,11 @@ public sealed partial class GitHubDownloadService : IGitHubDownloadService
     {
         if (ReadmeCache.TryGetValue(repoId, out var readme))
         {
-            Logger.Information("Using cached Readme for {Repo}", repoId);
+            Logger.LogInformation("Using cached Readme for {Repo}", repoId);
             return readme;
         }
 
-        Logger.Information("Attempting to fetch Readme for {Repo}", repoId);
+        Logger.LogInformation("Attempting to fetch Readme for {Repo}", repoId);
         readme = await FetchReadmeFromBranchesAsync(repoId, cancellationToken).ConfigureAwait(false);
         if (!string.IsNullOrEmpty(readme))
         {
@@ -133,7 +133,7 @@ public sealed partial class GitHubDownloadService : IGitHubDownloadService
             return readme;
         }
 
-        Logger.Information("Branch readme fetch failed");
+        Logger.LogInformation("Branch readme fetch failed");
         return null;
     }
 
