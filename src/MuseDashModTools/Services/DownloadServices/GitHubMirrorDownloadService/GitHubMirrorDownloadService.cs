@@ -19,7 +19,7 @@ public sealed partial class GitHubMirrorDownloadService : IGitHubMirrorDownloadS
         IProgress<double> downloadProgress,
         CancellationToken cancellationToken = default)
     {
-        Logger.LogInformation("Downloading MelonLoader and Dependencies from GitHubMirror...");
+        Logger.ZLogInformation($"Downloading MelonLoader and Dependencies from GitHubMirror...");
 
         Downloader.DownloadStarted += onDownloadStarted;
         Downloader.DownloadProgressChanged += (_, e) => downloadProgress.Report(e.ProgressPercentage);
@@ -29,23 +29,23 @@ public sealed partial class GitHubMirrorDownloadService : IGitHubMirrorDownloadS
             await Downloader.DownloadFileTaskAsync(PrimaryMelonLoaderUrl, Setting.MelonLoaderZipPath, cancellationToken).ConfigureAwait(false);
             await Downloader.DownloadFileTaskAsync(PrimaryUnityDependencyUrl, Setting.UnityDependencyZipPath, cancellationToken).ConfigureAwait(false);
             await Downloader.DownloadFileTaskAsync(PrimaryCpp2ILUrl, Setting.Cpp2ILZipPath, cancellationToken).ConfigureAwait(false);
-            Logger.LogInformation("MelonLoader and Dependencies downloaded from GitHubMirror successfully");
+            Logger.ZLogInformation($"MelonLoader and Dependencies downloaded from GitHubMirror successfully");
             return true;
         }
         catch (Exception ex)
         {
-            Logger.LogError(ex, "Failed to download MelonLoader from GitHubMirror");
+            Logger.ZLogError(ex, $"Failed to download MelonLoader from GitHubMirror");
             return false;
         }
     }
 
     public async Task<bool> DownloadModAsync(ModDto mod, CancellationToken cancellationToken = default)
     {
-        Logger.LogInformation("Downloading mod {ModName} from GitHubMirror...", mod.Name);
+        Logger.ZLogInformation($"Downloading mod {mod.Name} from GitHubMirror...");
 
         if (mod.DownloadLink.IsNullOrEmpty())
         {
-            Logger.LogError("Mod {ModName} download link is empty", mod.Name);
+            Logger.ZLogError($"Mod {mod.Name} download link is empty");
             return false;
         }
 
@@ -60,14 +60,14 @@ public sealed partial class GitHubMirrorDownloadService : IGitHubMirrorDownloadS
         }
         catch (Exception ex)
         {
-            Logger.LogError(ex, "Failed to download mod {ModName} from GitHubMirror", mod.Name);
+            Logger.ZLogError(ex, $"Failed to download mod {mod.Name} from GitHubMirror");
             return false;
         }
     }
 
     public async Task<bool> DownloadLibAsync(string libName, CancellationToken cancellationToken = default)
     {
-        Logger.LogInformation("Downloading lib {LibName} from GitHubMirror...", libName);
+        Logger.ZLogInformation($"Downloading lib {libName} from GitHubMirror...");
 
         var libFileName = libName + ".dll";
         var downloadLink = PrimaryLibsFolderUrl + libFileName;
@@ -81,7 +81,7 @@ public sealed partial class GitHubMirrorDownloadService : IGitHubMirrorDownloadS
         }
         catch (Exception ex)
         {
-            Logger.LogError(ex, "Failed to download lib {LibName} from GitHubMirror", libName);
+            Logger.ZLogError(ex, $"Failed to download lib {libName} from GitHubMirror");
             return false;
         }
     }
@@ -99,7 +99,7 @@ public sealed partial class GitHubMirrorDownloadService : IGitHubMirrorDownloadS
         }
         catch (Exception ex)
         {
-            Logger.LogError(ex, "Failed to download new version from GitHubMirror");
+            Logger.ZLogError(ex, $"Failed to download new version from GitHubMirror");
         }
     }
 
@@ -119,7 +119,7 @@ public sealed partial class GitHubMirrorDownloadService : IGitHubMirrorDownloadS
             return readme;
         }
 
-        Logger.LogInformation("Branch readme fetch failed");
+        Logger.ZLogInformation($"Branch readme fetch failed");
         return null;
     }
 
@@ -130,12 +130,12 @@ public sealed partial class GitHubMirrorDownloadService : IGitHubMirrorDownloadS
         try
         {
             var mods = Client.GetFromJsonAsAsyncEnumerable<Mod>(PrimaryModLinksUrl, cancellationToken);
-            Logger.LogInformation("Mods fetched from GitHubMirror successfully");
+            Logger.ZLogInformation($"Mods fetched from GitHubMirror successfully");
             return mods;
         }
         catch (Exception ex)
         {
-            Logger.LogError(ex, "Failed to fetch mods from GitHubMirror");
+            Logger.ZLogError(ex, $"Failed to fetch mods from GitHubMirror");
             return AsyncEnumerable.Empty<Mod?>();
         }
     }

@@ -14,7 +14,7 @@ internal sealed partial class SavingService : ISavingService
             var savedSetting = await JsonSerializationService.DeserializeIndentedAsync<Setting>(stream).ConfigureAwait(true);
             if (savedSetting is null)
             {
-                Logger.LogError("Saved setting is null");
+                Logger.ZLogError($"Saved setting is null");
                 await MessageBoxService.ErrorMessageBoxAsync("Failed to load setting, please delete the setting file and restart the application")
                     .ConfigureAwait(true);
                 PlatformService.RevealFile(SettingPath);
@@ -27,7 +27,7 @@ internal sealed partial class SavingService : ISavingService
         }
         else
         {
-            Logger.LogInformation("Setting file not found, using default settings");
+            Logger.ZLogInformation($"Setting file not found, using default settings");
             await CheckValidSettingAsync().ConfigureAwait(true);
         }
     }

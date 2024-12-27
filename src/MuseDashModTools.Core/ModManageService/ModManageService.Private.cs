@@ -39,6 +39,6 @@ internal sealed partial class ModManageService
             localMod.DuplicatedModPaths = string.Join(Environment.NewLine, duplicatedModGroup.Select(mod => mod.FileName));
         }
 
-        Logger.LogInformation("Checking duplicated mods finished");
+        Logger.ZLogInformation($"Checking duplicated mods finished");
     }
 }

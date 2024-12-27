@@ -18,7 +18,7 @@ internal sealed partial class ModManageService : IModManageService
             .ToArray()!;
 
         _sourceCache.AddOrUpdate(localMods);
-        Logger.LogInformation("Local mods added to source cache");
+        Logger.ZLogInformation($"Local mods added to source cache");
 
         CheckDuplicatedMods(localMods);
 
@@ -41,7 +41,7 @@ internal sealed partial class ModManageService : IModManageService
             }
         }
 
-        Logger.LogInformation("Updated mod info from web completed");
+        Logger.ZLogInformation($"Updated mod info from web completed");
     }
 
     #region Injections

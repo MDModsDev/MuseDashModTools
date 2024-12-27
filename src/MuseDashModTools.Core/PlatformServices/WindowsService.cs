@@ -34,7 +34,7 @@ internal sealed class WindowsService : IPlatformService
         {
             if (!GetPathFromRegistry(out folderPath))
             {
-                Logger.LogWarning("Failed to auto detect game path on Windows");
+                Logger.ZLogWarning($"Failed to auto detect game path on Windows");
                 return false;
             }
 
@@ -67,7 +67,7 @@ internal sealed class WindowsService : IPlatformService
         }
         catch (Exception ex)
         {
-            Logger.LogError(ex, "Failed to set MD_DIRECTORY environment variable");
+            Logger.ZLogError(ex, $"Failed to set MD_DIRECTORY environment variable");
             return false;
         }
     }

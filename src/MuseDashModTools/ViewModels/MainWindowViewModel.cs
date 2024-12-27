@@ -51,7 +51,7 @@ public sealed partial class MainWindowViewModel : ViewModelBase, IRecipient<stri
         await UpdateService.CheckForUpdatesAsync().ConfigureAwait(true);
 #endif
         GetCurrentDesktop().Exit += async (_, _) => await OnExitAsync().ConfigureAwait(false);
-        Logger.LogInformation("MainWindow Initialized");
+        Logger.ZLogInformation($"MainWindow Initialized");
     }
 
     private Task OnExitAsync()

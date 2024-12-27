@@ -19,7 +19,7 @@ internal sealed partial class LocalService : ILocalService
 
         if (!outputStringBuilder.ToString().Contains("Microsoft.WindowsDesktop.App 6."))
         {
-            Logger.LogInformation("DotNet Runtime not found, showing error message box...");
+            Logger.ZLogInformation($"DotNet Runtime not found, showing error message box...");
             await MessageBoxService.ErrorMessageBoxAsync(MsgBox_Content_DotNetRuntimeNotFound).ConfigureAwait(true);
         }
     }
@@ -49,7 +49,7 @@ internal sealed partial class LocalService : ILocalService
             return false;
         }
 
-        Logger.LogInformation("MelonLoader installed successfully");
+        Logger.ZLogInformation($"MelonLoader installed successfully");
         await MessageBoxService.SuccessMessageBoxAsync("MelonLoader installed successfully").ConfigureAwait(true);
         return true;
     }
@@ -77,7 +77,7 @@ internal sealed partial class LocalService : ILocalService
             return false;
         }
 
-        Logger.LogInformation("MelonLoader uninstalled successfully");
+        Logger.ZLogInformation($"MelonLoader uninstalled successfully");
         await MessageBoxService.SuccessMessageBoxAsync("MelonLoader uninstalled successfully").ConfigureAwait(true);
         return true;
     }
@@ -89,7 +89,7 @@ internal sealed partial class LocalService : ILocalService
         while (path.IsNullOrEmpty() || !await CheckValidPathAsync(path).ConfigureAwait(true))
         {
             path = await FileSystemPickerService.GetSingleFolderPathAsync(FolderDialog_Title_ChooseMuseDashFolder).ConfigureAwait(true);
-            Logger.LogInformation("Selected MuseDash folder: {MuseDashFolder}", path);
+            Logger.ZLogInformation($"Selected MuseDash folder: {path}");
         }
 
         return path;
@@ -143,7 +143,7 @@ internal sealed partial class LocalService : ILocalService
             UseShellExecute = true
         });
 
-        Logger.LogInformation("Launching game with launch arguments: {LaunchArguments}", launchArguments);
+        Logger.ZLogInformation($"Launching game with launch arguments: {launchArguments}");
     }
 
     public async ValueTask<string> ReadGameVersionAsync()

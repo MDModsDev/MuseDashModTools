@@ -23,7 +23,7 @@ internal sealed class LinuxService : IPlatformService
         folderPath = LinuxPaths.FirstOrDefault(Directory.Exists);
         if (folderPath is null)
         {
-            Logger.LogWarning("Failed to auto detect game path on Linux");
+            Logger.ZLogWarning($"Failed to auto detect game path on Linux");
             return false;
         }
 

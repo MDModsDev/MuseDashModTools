@@ -12,7 +12,7 @@ internal sealed partial class UpdateService
     private async Task CheckGitHubRSSForUpdatesAsync(CancellationToken cancellationToken = default)
     {
         Logger.ZLogInformation($"Get Current version: {_currentVersion}");
-        Logger.LogInformation("Checking for updates from GitHub RSS...");
+        Logger.ZLogInformation($"Checking for updates from GitHub RSS...");
 
         GitHubRSS? release;
         if (!Setting.DownloadPrerelease)
@@ -37,7 +37,7 @@ internal sealed partial class UpdateService
         }
         catch (Exception ex)
         {
-            Logger.LogError(ex, "Failed to fetch release from GitHub RSS");
+            Logger.ZLogError(ex, $"Failed to fetch release from GitHub RSS");
             return null;
         }
     }
@@ -83,7 +83,7 @@ internal sealed partial class UpdateService
     {
         if (release is null)
         {
-            Logger.LogWarning("Fetched release from GitHub RSS is null");
+            Logger.ZLogWarning($"Fetched release from GitHub RSS is null");
             return;
         }
 
@@ -92,7 +92,7 @@ internal sealed partial class UpdateService
 
         if (Setting.SkipVersion == releaseVersion || releaseVersion.ComparePrecedenceTo(_currentVersion) <= 0)
         {
-            Logger.LogInformation("No new version available");
+            Logger.ZLogInformation($"No new version available");
             return;
         }
 
@@ -116,7 +116,7 @@ internal sealed partial class UpdateService
     private async Task CheckGitHubAPIForUpdatesAsync(CancellationToken cancellationToken = default)
     {
         Logger.ZLogInformation($"Get Current version: {_currentVersion}");
-        Logger.LogInformation("Checking for updates from GitHub API...");
+        Logger.ZLogInformation($"Checking for updates from GitHub API...");
 
         Client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(AppName, AppVersion));
         Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -146,7 +146,7 @@ internal sealed partial class UpdateService
         }
         catch (Exception ex)
         {
-            Logger.LogError(ex, "Failed to fetch latest release from GitHub API");
+            Logger.ZLogError(ex, $"Failed to fetch latest release from GitHub API");
             return null;
         }
     }
@@ -161,12 +161,12 @@ internal sealed partial class UpdateService
                 return releases[0];
             }
 
-            Logger.LogWarning("Fetched releases from GitHub API is null");
+            Logger.ZLogWarning($"Fetched releases from GitHub API is null");
             return null;
         }
         catch (Exception ex)
         {
-            Logger.LogError(ex, "Failed to fetch prerelease from GitHub API");
+            Logger.ZLogError(ex, $"Failed to fetch prerelease from GitHub API");
             return null;
         }
     }
@@ -175,7 +175,7 @@ internal sealed partial class UpdateService
     {
         if (release is null)
         {
-            Logger.LogWarning("Fetched release from GitHub API is null");
+            Logger.ZLogWarning($"Fetched release from GitHub API is null");
             return;
         }
 
@@ -184,7 +184,7 @@ internal sealed partial class UpdateService
 
         if (Setting.SkipVersion == releaseVersion || releaseVersion.ComparePrecedenceTo(_currentVersion) <= 0)
         {
-            Logger.LogInformation("No new version available");
+            Logger.ZLogInformation($"No new version available");
             return;
         }
 

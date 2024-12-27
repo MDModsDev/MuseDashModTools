@@ -32,9 +32,9 @@ public sealed partial class ModManagePageViewModel : ViewModelBase
     [RelayCommand]
     private async Task InitializeAsync()
     {
-        Logger.LogInformation("Initializing ModManagePageViewModel");
+        Logger.ZLogInformation($"Initializing ModManagePageViewModel");
         await ModManageService.InitializeModsAsync(_sourceCache).ConfigureAwait(false);
-        Logger.LogInformation("ModManagePageViewModel Initialized");
+        Logger.ZLogInformation($"ModManagePageViewModel Initialized");
     }
 
     [RelayCommand]
