@@ -75,8 +75,8 @@
     <ItemGroup>
         <PackageReference Include="AssetsTools.NET" Version="3.0.0"/>
         <PackageReference Include="Autofac" Version="8.0.0"/>
-        <PackageReference Include="Avalonia" Version="11.1.0"/>
-        <PackageReference Include="Avalonia.Controls.ItemsRepeater" Version="11.1.0"/>
+        <PackageReference Include="Avalonia" Version="11.1.5"/>
+        <PackageReference Include="Avalonia.Controls.ItemsRepeater" Version="11.1.5"/>
         <PackageReference Include="Avalonia.Desktop" Version="11.1.0"/>
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
         <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.1.0"/>
