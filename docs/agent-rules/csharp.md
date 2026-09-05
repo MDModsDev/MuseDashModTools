@@ -1,10 +1,5 @@
 # C# Rules
 
-## Design
-
-- Design the change, don't just complete the feature: a working implementation that leaves tech debt is not acceptable. If every viable approach leaves debt, the module itself is due for a redesign — surface that instead of bolting on.
-- Build along the known extension axes; this app already paid for assuming a single game (the game-scope rework when multi-game support arrived). Ask "what varies when the next game/variant arrives" before hardcoding, and keep game-specific state and services game-scoped — view models are game-scoped by default, so reach for `[AppSingleton]` only when an instance is genuinely app-wide.
-
 ## Language & APIs
 
 - Use the newest C# syntax and BCL APIs the repo's `LangVersion`/TFM allows (`field` keyword, `extension` members, collection expressions, span/`IFormatProvider` overloads) — never an older equivalent out of habit; the newer API is usually the better-optimized one.

@@ -29,7 +29,7 @@ public sealed partial class ChartFilterViewModel : ObservableObject
     [ObservableProperty] public partial bool HasVideoOnly { get; set; }
 
     public Observable<Unit> Changed => field ??= this.ObservePropertyChanges()
-        .Where(this, static (name, vm) => !vm._resetting && name != nameof(IsOnlineSource))
+        .Where(this, static (name, vm) => !vm._resetting && name is not (nameof(Source) or nameof(IsOnlineSource)))
         .DebounceSearch(nameof(SearchText));
 
     public bool IsOnlineSource => Source is ChartSource.Online;
@@ -50,16 +50,12 @@ public sealed partial class ChartFilterViewModel : ObservableObject
     }
 
     public bool Matches(ChartDto chart) =>
-        MatchesSource(chart)
-        && MatchesSearch(chart)
+        MatchesSearch(chart)
         && MatchesDifficulty(chart)
         && MatchesRating(chart)
         && MatchesBpm(chart)
         && MatchesStreamerSafe(chart)
         && MatchesVideo(chart);
-
-    private bool MatchesSource(ChartDto chart) =>
-        chart.Source == Source;
 
     private bool MatchesSearch(ChartDto chart)
     {

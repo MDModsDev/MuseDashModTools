@@ -25,8 +25,9 @@ Tests under `tests/` (TUnit):
 
 ## Required rule loading
 
-Before changing code, read the applicable rule files:
+Before changing code or reviewing architecture, read the applicable rule files:
 
+- Any code change or architecture/design review: `docs/agent-rules/design.md`
 - Any C# change: `docs/agent-rules/csharp.md`
 - Anything under `tests/`: both `docs/agent-rules/csharp.md` and `docs/agent-rules/tests.md`
 - Any XAML/Avalonia UI change: `docs/agent-rules/xaml.md`

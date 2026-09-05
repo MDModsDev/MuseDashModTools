@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using System.Reactive.Linq;
 using Euterpe.Core.Proxies;
 
 namespace Euterpe.Features.Charting;
@@ -6,7 +7,6 @@ namespace Euterpe.Features.Charting;
 [Route("/charting/manage", DisplayName = Panel_Charting_ChartManage, Order = 0)]
 public sealed partial class ChartManagePanelViewModel : ViewModelBase
 {
-    private readonly ReadOnlyObservableCollection<ChartManageItemViewModel> _charts;
     private readonly SourceCache<ChartManageItemViewModel, string> _sourceCache = new(x => x.Chart.FolderPath);
 
     public static IReadOnlyList<EnumOption<ChartSource>> ChartSources { get; } =
@@ -19,27 +19,13 @@ public sealed partial class ChartManagePanelViewModel : ViewModelBase
     public partial bool AllChartsLoaded { get; set; }
 
     public ChartFilterViewModel Filter { get; } = new();
-    public ReadOnlyObservableCollection<ChartManageItemViewModel> Charts => _charts;
+    public ReadOnlyObservableCollection<ChartManageItemViewModel> Charts { get; }
 
     public ChartManagePanelViewModel()
     {
-        var comparer = new[]
-            {
-                this.ObservePropertyChanged(static x => x.SortField).AsUnitObservable(),
-                this.ObservePropertyChanged(static x => x.SortDescending).AsUnitObservable()
-            }
-            .Merge()
-            .Select(this, static (_, vm) => vm.BuildComparer());
-
-        _sourceCache.Connect()
-            .Filter(item => Filter.Matches(item.Chart))
-            .SortAndBindOnUI(out _charts, comparer.AsSystemObservable())
-            .Subscribe();
-
-        Filter.Changed.Subscribe(this, static (_, vm) => vm._sourceCache.Refresh());
+        Charts = CreateChartView();
         ObserveSelection();
     }
-
 
     protected override async Task OnInitializeAsync()
     {
@@ -48,8 +34,10 @@ public sealed partial class ChartManagePanelViewModel : ViewModelBase
         await ChartManageService.InitializeChartsAsync().ConfigureAwait(true);
 
         ChartManageService.Connect()
-            .Transform(static chart => new ChartManageItemViewModel(chart))
+            .ObserveOn(AvaloniaScheduler.Instance)
+            .TransformWithInlineUpdate(static chart => new ChartManageItemViewModel(chart), static (item, chart) => item.Chart = chart)
             .PopulateInto(_sourceCache);
+
         AllChartsLoaded = true;
 
         Logger.LogInformation("{ViewModel} Initialized", nameof(ChartManagePanelViewModel));
@@ -111,6 +99,30 @@ public sealed partial class ChartManagePanelViewModel : ViewModelBase
         {
             NotificationService.NoticeLight(Notification_Content_Chart_UpdateAll_UpToDate);
         }
+    }
+
+    private ReadOnlyObservableCollection<ChartManageItemViewModel> CreateChartView()
+    {
+        var sortChanges = this.ObservePropertyChanged(static vm => vm.SortComparer)
+            .AsSystemObservable();
+
+        var sourceChanges = Filter.ObservePropertyChanged(static vm => vm.Source)
+            .AsSystemObservable()
+            .ObserveOn(AvaloniaScheduler.Instance);
+
+        var filterChanges = Filter.Changed
+            .Prepend(Unit.Default)
+            .Select(Filter, static (_, criteria) => criteria)
+            .AsSystemObservable()
+            .ObserveOn(AvaloniaScheduler.Instance);
+
+        _sourceCache.Connect()
+            .Filter(sourceChanges, static (source, item) => item.Chart.Source == source)
+            .Filter(filterChanges, static (criteria, item) => criteria.Matches(item.Chart))
+            .SortAndBindOnUI(out var charts, sortChanges)
+            .Subscribe();
+
+        return charts;
     }
 
     #region Injections

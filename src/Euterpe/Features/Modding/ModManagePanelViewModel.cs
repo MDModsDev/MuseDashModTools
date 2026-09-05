@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using System.Reactive.Linq;
 using Avalonia.Platform.Storage;
 using DynamicData.Binding;
 
@@ -7,7 +8,6 @@ namespace Euterpe.Features.Modding;
 [Route("/modding/manage", DisplayName = Panel_Modding_ModManage, Order = 0)]
 public sealed partial class ModManagePanelViewModel : ViewModelBase
 {
-    private readonly ReadOnlyObservableCollection<ModDto> _mods;
     private readonly SourceCache<ModDto, string> _sourceCache = new(x => x.Name);
 
     public static IReadOnlyList<EnumOption<ModFilterType>> ModFilters { get; } =
@@ -23,28 +23,9 @@ public sealed partial class ModManagePanelViewModel : ViewModelBase
     public partial bool AllModsLoaded { get; set; }
 
     public ModFilterViewModel Filter { get; } = new();
-    public ReadOnlyObservableCollection<ModDto> Mods => _mods;
+    public ReadOnlyObservableCollection<ModDto> Mods { get; }
 
-    public ModManagePanelViewModel()
-    {
-        var comparer = SortExpressionComparer<ModDto>
-            .Descending(x => x.State is ModState.Duplicated)
-            .ThenByDescending(x => x is { State: ModState.Incompatible, IsLocal: true })
-            .ThenByDescending(x => x.State is ModState.Modified)
-            .ThenByDescending(x => x is { IsLocal: true, IsDisabled: false })
-            .ThenByDescending(x => x.IsLocal)
-            .ThenByDescending(x => x is { State: ModState.Outdated, IsLocal: true })
-            .ThenByDescending(x => x.IsInstallable)
-            .ThenByDescending(x => x.DownloadCount)
-            .ThenByAscending(x => x.Name);
-
-        _sourceCache.Connect()
-            .Filter(mod => Filter.Matches(mod))
-            .SortAndBindOnUI(out _mods, comparer)
-            .Subscribe();
-
-        Filter.Changed.Subscribe(this, static (_, vm) => vm._sourceCache.Refresh());
-    }
+    public ModManagePanelViewModel() => Mods = CreateModView();
 
     protected override async Task OnInitializeAsync()
     {
@@ -52,7 +33,9 @@ public sealed partial class ModManagePanelViewModel : ViewModelBase
 
         await ModManageService.InitializeModsAsync().ConfigureAwait(true);
 
-        ModManageService.Connect().PopulateInto(_sourceCache);
+        ModManageService.Connect()
+            .ObserveOn(AvaloniaScheduler.Instance)
+            .PopulateInto(_sourceCache);
 
         AllModsLoaded = true;
         Logger.LogInformation("{ViewModel} Initialized", nameof(ModManagePanelViewModel));
@@ -90,6 +73,33 @@ public sealed partial class ModManagePanelViewModel : ViewModelBase
         }
 
         await ModManageService.ImportModsAsync(paths).ConfigureAwait(false);
+    }
+
+    private ReadOnlyObservableCollection<ModDto> CreateModView()
+    {
+        var comparer = SortExpressionComparer<ModDto>
+            .Descending(x => x.State is ModState.Duplicated)
+            .ThenByDescending(x => x is { State: ModState.Incompatible, IsLocal: true })
+            .ThenByDescending(x => x.State is ModState.Modified)
+            .ThenByDescending(x => x is { IsLocal: true, IsDisabled: false })
+            .ThenByDescending(x => x.IsLocal)
+            .ThenByDescending(x => x is { State: ModState.Outdated, IsLocal: true })
+            .ThenByDescending(x => x.IsInstallable)
+            .ThenByDescending(x => x.DownloadCount)
+            .ThenByAscending(x => x.Name);
+
+        var filterChanges = Filter.Changed
+            .Prepend(Unit.Default)
+            .Select(Filter, static (_, criteria) => criteria)
+            .AsSystemObservable()
+            .ObserveOn(AvaloniaScheduler.Instance);
+
+        _sourceCache.Connect()
+            .Filter(filterChanges, static (criteria, mod) => criteria.Matches(mod))
+            .SortAndBindOnUI(out var mods, comparer)
+            .Subscribe();
+
+        return mods;
     }
 
     #region Injections

@@ -9,10 +9,14 @@ public sealed partial class ChartManagePanelViewModel
     ];
 
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(SortComparer))]
     public partial ChartSortField SortField { get; set; }
 
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(SortComparer))]
     public partial bool SortDescending { get; set; }
+
+    public Comparer<ChartManageItemViewModel> SortComparer => BuildComparer();
 
     private Comparer<ChartManageItemViewModel> BuildComparer()
     {
