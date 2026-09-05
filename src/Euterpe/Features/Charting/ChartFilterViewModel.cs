@@ -1,5 +1,3 @@
-using System.ComponentModel;
-
 namespace Euterpe.Features.Charting;
 
 public sealed partial class ChartFilterViewModel : ObservableObject
@@ -7,7 +5,7 @@ public sealed partial class ChartFilterViewModel : ObservableObject
     private const int RatingLowerBound = 1;
     private const int RatingUpperBound = 12;
 
-    private readonly Subject<string?> _propertyChanged = new();
+    private bool _resetting;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(IsOnlineSource))]
@@ -30,20 +28,15 @@ public sealed partial class ChartFilterViewModel : ObservableObject
     [ObservableProperty] public partial bool StreamerSafeOnly { get; set; }
     [ObservableProperty] public partial bool HasVideoOnly { get; set; }
 
-    public Observable<Unit> Changed { get; }
-    public bool IsOnlineSource => Source is ChartSource.Online;
+    public Observable<Unit> Changed => field ??= this.ObservePropertyChanges()
+        .Where(this, static (name, vm) => !vm._resetting && name != nameof(IsOnlineSource))
+        .DebounceSearch(nameof(SearchText));
 
-    public ChartFilterViewModel() =>
-        Changed = new[]
-            {
-                _propertyChanged.Where(static name => name != nameof(SearchText)),
-                _propertyChanged.Where(static name => name == nameof(SearchText)).Debounce(AppConstants.SearchDebounce)
-            }
-            .Merge()
-            .Select(static _ => Unit.Default);
+    public bool IsOnlineSource => Source is ChartSource.Online;
 
     public void Reset()
     {
+        _resetting = true;
         SearchText = null;
         ShowEasy = ShowHard = ShowMaster = ShowHidden = true;
         RatingMin = RatingLowerBound;
@@ -52,6 +45,8 @@ public sealed partial class ChartFilterViewModel : ObservableObject
         BpmMax = null;
         StreamerSafeOnly = false;
         HasVideoOnly = false;
+        _resetting = false;
+        OnPropertyChanged(string.Empty);
     }
 
     public bool Matches(ChartDto chart) =>
@@ -123,10 +118,4 @@ public sealed partial class ChartFilterViewModel : ObservableObject
 
     private bool MatchesVideo(ChartDto chart) =>
         !HasVideoOnly || chart.HasVideo;
-
-    protected override void OnPropertyChanged(PropertyChangedEventArgs e)
-    {
-        base.OnPropertyChanged(e);
-        _propertyChanged.OnNext(e.PropertyName);
-    }
 }
