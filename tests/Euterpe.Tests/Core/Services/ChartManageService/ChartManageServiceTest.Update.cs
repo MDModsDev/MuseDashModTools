@@ -43,14 +43,14 @@ public sealed partial class ChartManageServiceTest
         {
             ["manifest.epk"] = 1,
             ["music.ogg"] = 2,
-            ["cover.png"] = 3
+            ["cover.webp"] = 3
         });
 
         var download = IGameDownloadManager.Mock();
         download.CheckChartUpdatesAsync(Any<CheckChartUpdatesRequest>(), Any<CancellationToken>())
             .Returns(new CheckChartUpdatesResponse
             {
-                Charts = { ["13"] = new ChartUpdateDelta { Changed = ["music.ogg"], Deleted = ["cover.png"] } }
+                Charts = { ["13"] = new ChartUpdateDelta { Changed = ["music.ogg"], Deleted = ["cover.webp"] } }
             });
         download.UpdateChartAsync("13", Any<IReadOnlyCollection<string>>(), Any<IReadOnlyCollection<string>>(), Any<CancellationToken>())
             .Returns("/online/13");

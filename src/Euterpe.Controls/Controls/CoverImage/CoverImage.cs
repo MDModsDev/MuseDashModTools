@@ -1,30 +1,22 @@
 using Avalonia.Controls.Metadata;
-using Avalonia.Labs.Gif;
+using Avalonia.Labs.AnimatedImage;
+using Avalonia.Rendering.Composition;
 using Avalonia.Threading;
 
 namespace Euterpe.Controls;
 
-[TemplatePart("PART_Static", typeof(AsyncImage))]
-[TemplatePart("PART_Gif", typeof(GifImage))]
+[TemplatePart("PART_Animated", typeof(AnimatedImage))]
 public sealed class CoverImage : TemplatedControl
 {
-    private const string AnimatedExtension = ".gif";
-
     public static readonly StyledProperty<string?> SourceProperty =
         AvaloniaProperty.Register<CoverImage, string?>(nameof(Source));
 
     public static readonly StyledProperty<Stretch> StretchProperty =
         AvaloniaProperty.Register<CoverImage, Stretch>(nameof(Stretch), Stretch.Uniform);
 
-    public static readonly StyledProperty<double> DecodeWidthProperty =
-        AvaloniaProperty.Register<CoverImage, double>(nameof(DecodeWidth), double.NaN);
-
-    private GifImage? _gifPart;
-    private GifStreamSource? _gifSource;
+    private AnimatedImage? _animatedPart;
     private CancellationTokenSource? _loadCts;
     private bool _reloadOnAttach;
-
-    private AsyncImage? _staticPart;
 
     public string? Source
     {
@@ -38,110 +30,67 @@ public sealed class CoverImage : TemplatedControl
         set => SetValue(StretchProperty, value);
     }
 
-    public double DecodeWidth
-    {
-        get => GetValue(DecodeWidthProperty);
-        set => SetValue(DecodeWidthProperty, value);
-    }
-
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
     {
         base.OnApplyTemplate(e);
-        _staticPart = e.NameScope.Get<AsyncImage>("PART_Static");
-        _gifPart = e.NameScope.Get<GifImage>("PART_Gif");
-        ApplySource();
+        _animatedPart = e.NameScope.Get<AnimatedImage>("PART_Animated");
+        _ = LoadAsync(Source);
     }
 
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
     {
         base.OnPropertyChanged(change);
-        if (change.Property == SourceProperty && _gifPart is not null)
+        if (change.Property == SourceProperty && _animatedPart is not null)
         {
-            ApplySource();
+            _ = LoadAsync(Source);
         }
     }
 
     protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
     {
         base.OnAttachedToVisualTree(e);
-        if (_reloadOnAttach && _gifPart is not null)
+        if (!_reloadOnAttach || _animatedPart is null)
         {
-            _reloadOnAttach = false;
-            ApplySource();
+            return;
         }
+
+        _reloadOnAttach = false;
+        _ = LoadAsync(Source);
     }
 
     protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)
     {
         base.OnDetachedFromVisualTree(e);
-        _loadCts?.Cancel();
-        if (_gifPart is not null)
-        {
-            _gifPart.Source = null;
-        }
-
-        DisposeGifSource();
+        CancelLoad();
+        _ = SetSourceAsync(null);
         _reloadOnAttach = true;
     }
 
-    private void ApplySource()
+    private async Task LoadAsync(string? source)
     {
-        _loadCts?.Cancel();
-        if (_staticPart is null || _gifPart is null)
-        {
-            return;
-        }
-
-        if (IsAnimated(Source))
-        {
-            _staticPart.IsVisible = false;
-            _gifPart.IsVisible = true;
-            _loadCts = new CancellationTokenSource();
-            _ = LoadGifAsync(Source!, _loadCts.Token);
-            return;
-        }
-
-        ShowStatic();
-    }
-
-    private void ShowStatic()
-    {
-        if (_staticPart is null || _gifPart is null)
-        {
-            return;
-        }
-
-        _gifPart.Source = null;
-        _gifPart.IsVisible = false;
-        DisposeGifSource();
-        _staticPart.IsVisible = true;
-    }
-
-    private async Task LoadGifAsync(string source, CancellationToken token)
-    {
-        var built = await BuildGifSourceAsync(source, token).ConfigureAwait(false);
+        CancelLoad();
+        _loadCts = new CancellationTokenSource();
+        var token = _loadCts.Token;
+        var bytes = await ReadSourceAsync(source, token).ConfigureAwait(false);
         await Dispatcher.UIThread.InvokeAsync(() =>
         {
-            if (token.IsCancellationRequested || _gifPart is null)
+            if (token.IsCancellationRequested || _animatedPart is null)
             {
-                built?.Dispose();
                 return;
             }
 
-            if (built is null)
-            {
-                ShowStatic();
-                return;
-            }
-
-            var previous = _gifSource;
-            _gifSource = built;
-            _gifPart.Source = built;
-            previous?.Dispose();
+            _ = SetSourceAsync(bytes is null ? null : IAnimatedBitmap.Load(new MemoryStream(bytes, false), true));
         });
     }
 
-    private async Task<GifStreamSource?> BuildGifSourceAsync(string source, CancellationToken token)
+    private void CancelLoad()
+    {
+        _loadCts?.Cancel();
+        _loadCts?.Dispose();
+        _loadCts = null;
+    }
+
+    private static async Task<byte[]?> ReadSourceAsync(string? source, CancellationToken token)
     {
         if (!Uri.TryCreate(source, UriKind.Absolute, out var uri))
         {
@@ -152,12 +101,7 @@ public sealed class CoverImage : TemplatedControl
         {
             if (uri.IsFile)
             {
-                return await Task.Run(() =>
-                {
-                    var bytes = File.ReadAllBytes(uri.LocalPath);
-                    token.ThrowIfCancellationRequested();
-                    return GifStreamSource.FromStream(new MemoryStream(bytes, false));
-                }, token).ConfigureAwait(false);
+                return await File.ReadAllBytesAsync(uri.LocalPath, token).ConfigureAwait(false);
             }
 
             var loader = AsyncImage.DefaultRemoteLoader;
@@ -176,10 +120,7 @@ public sealed class CoverImage : TemplatedControl
             {
                 using var buffer = new MemoryStream();
                 await stream.CopyToAsync(buffer, token).ConfigureAwait(false);
-                var bytes = buffer.ToArray();
-                return await Task.Run(
-                    () => GifStreamSource.FromStream(new MemoryStream(bytes, false)),
-                    token).ConfigureAwait(false);
+                return buffer.ToArray();
             }
         }
         catch
@@ -188,12 +129,28 @@ public sealed class CoverImage : TemplatedControl
         }
     }
 
-    private void DisposeGifSource()
+    private async Task SetSourceAsync(IAnimatedBitmap? source)
     {
-        _gifSource?.Dispose();
-        _gifSource = null;
-    }
+        if (_animatedPart is null)
+        {
+            return;
+        }
 
-    private static bool IsAnimated(string? source) =>
-        source is { } value && value.EndsWith(AnimatedExtension, StringComparison.OrdinalIgnoreCase);
+        var previous = _animatedPart.Source;
+        _animatedPart.Source = source;
+        if (previous is not { IsInitialized: true })
+        {
+            return;
+        }
+
+        if (ElementComposition.GetElementVisual(_animatedPart)?.Compositor is { } compositor)
+        {
+            await compositor.RequestCommitAsync().ConfigureAwait(false);
+        }
+
+        foreach (var frame in previous.Frames)
+        {
+            frame.Dispose();
+        }
+    }
 }

@@ -1,8 +1,8 @@
 <UserControl
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:animated="using:Avalonia.Labs.AnimatedImage"
     xmlns:e="https://github.com/Euterpe-org/Euterpe"
-    xmlns:gif="clr-namespace:Avalonia.Labs.Gif;assembly=Avalonia.Labs.Gif"
     xmlns:loc="https://github.com/Euterpe-org/Euterpe/Localization"
     xmlns:m="using:Euterpe.Markup"
     xmlns:u="https://irihi.tech/ursa"
@@ -54,9 +54,9 @@
                 IsVisible="False"
                 Margin="0,0,5,0"
                 PointerPressed="MadelineOverlay_PointerPressed">
-                <gif:GifImage
+                <animated:AnimatedImage
                     Height="200"
-                    Source="{m:GifSource /Assets/madeline.gif}"
+                    Source="{m:AnimatedImageSource /Assets/madeline.webp}"
                     Stretch="Uniform" />
             </Border>
 

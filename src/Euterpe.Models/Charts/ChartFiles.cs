@@ -8,8 +8,7 @@ public static class ChartFiles
     public const string MusicFileName = $"{MusicName}{MusicExtension}";
     public const string DemoFileName = $"{DemoName}{MusicExtension}";
     public const string VideoFileName = "video.mp4";
-
-    public const string CoverName = "cover";
+    public const string CoverFileName = "cover.webp";
 
     public const string MusicName = "music";
     public const string DemoName = "demo";
@@ -19,17 +18,10 @@ public static class ChartFiles
     public const string BmsExtension = ".bms";
     public const string TalkExtension = ".talk";
 
-    public static readonly IReadOnlyList<string> CoverExtensions = [".webp", ".png", ".gif"];
-
     public static bool IsLargeMedia(string fileName) => fileName == VideoFileName;
 
-    public static bool IsCoverFile(string fileName) =>
-        Path.GetFileNameWithoutExtension(fileName.AsSpan()).Equals(CoverName, StringComparison.OrdinalIgnoreCase);
-
-    // Recognizes retired names too (e.g. legacy cover.png) so the server's reverse diff can prune orphans.
     public static bool IsChartFile(string fileName) =>
-        fileName is ManifestFileName or MusicFileName or DemoFileName or VideoFileName
-        || IsCoverFile(fileName)
+        fileName is ManifestFileName or MusicFileName or DemoFileName or VideoFileName or CoverFileName
         || IsMapFile(fileName);
 
     public static string MapName(ChartDifficulty difficulty) => $"{MapPrefix}{(int)difficulty}";
@@ -40,11 +32,7 @@ public static class ChartFiles
         [.. ChartDifficultyExtensions.GetValues().Where(difficulty => files.ContainsKey(MapFileName(difficulty)))];
 
     public static string? FindCoverPath(this IReadOnlyDictionary<string, ManifestFileEntry> files, string folderPath) =>
-        CoverExtensions
-            .Select(extension => CoverName + extension)
-            .Where(files.ContainsKey)
-            .Select(fileName => Path.Combine(folderPath, fileName))
-            .FirstOrDefault();
+        files.ContainsKey(CoverFileName) ? Path.Combine(folderPath, CoverFileName) : null;
 
     private static bool IsMapFile(string fileName)
     {

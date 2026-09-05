@@ -1,11 +1,12 @@
-using Avalonia.Labs.Gif;
+using Avalonia.Labs.AnimatedImage;
 using Avalonia.Markup.Xaml;
+using Avalonia.Platform;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Euterpe.Markup;
 
 [UsedImplicitly]
-public sealed class GifSourceExtension(string uri) : MarkupExtension
+public sealed class AnimatedImageSourceExtension(string uri) : MarkupExtension
 {
     public string? Uri { get; } = uri;
 
@@ -13,16 +14,16 @@ public sealed class GifSourceExtension(string uri) : MarkupExtension
     {
         if (string.IsNullOrEmpty(Uri))
         {
-            throw new InvalidOperationException($"{nameof(GifSourceExtension)}.{nameof(Uri)} must be set.");
+            throw new InvalidOperationException($"{nameof(AnimatedImageSourceExtension)}.{nameof(Uri)} must be set.");
         }
 
         var parsedUri = new Uri(Uri, UriKind.RelativeOrAbsolute);
         if (parsedUri.IsAbsoluteUri)
         {
-            return GifStreamSource.FromUri(parsedUri);
+            return IAnimatedBitmap.Load(AssetLoader.Open(parsedUri), disposeStream: true);
         }
 
         var baseUri = serviceProvider.GetRequiredService<IUriContext>().BaseUri;
-        return GifStreamSource.FromUri(parsedUri, baseUri);
+        return IAnimatedBitmap.Load(AssetLoader.Open(parsedUri, baseUri), disposeStream: true);
     }
 }

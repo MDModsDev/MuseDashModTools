@@ -1,16 +1,15 @@
 <Styles
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:e="https://github.com/Euterpe-org/Euterpe"
-    xmlns:gif="clr-namespace:Avalonia.Labs.Gif;assembly=Avalonia.Labs.Gif">
+    xmlns:animated="clr-namespace:Avalonia.Labs.AnimatedImage;assembly=Avalonia.Labs.AnimatedImage"
+    xmlns:e="https://github.com/Euterpe-org/Euterpe">
 
     <Design.PreviewWith>
         <Border
             Background="Gray"
             Height="120"
             Width="120">
-            <e:CoverImage
-                Source="https://avatars.githubusercontent.com/u/0" />
+            <e:CoverImage />
         </Border>
     </Design.PreviewWith>
 
@@ -26,17 +25,9 @@
                     BorderThickness="{TemplateBinding BorderThickness}"
                     ClipToBounds="True"
                     CornerRadius="{TemplateBinding CornerRadius}">
-                    <Panel>
-                        <e:AsyncImage
-                            DecodeWidth="{TemplateBinding DecodeWidth}"
-                            Name="PART_Static"
-                            Source="{TemplateBinding Source}"
-                            Stretch="{TemplateBinding Stretch}" />
-                        <gif:GifImage
-                            IsVisible="False"
-                            Name="PART_Gif"
-                            Stretch="{TemplateBinding Stretch}" />
-                    </Panel>
+                    <animated:AnimatedImage
+                        Name="PART_Animated"
+                        Stretch="{TemplateBinding Stretch}" />
                 </Border>
             </ControlTemplate>
         </Setter>

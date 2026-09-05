@@ -1,4 +1,4 @@
-﻿<UserControl
+<UserControl
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:converters="using:Euterpe.Converters"
@@ -450,7 +450,6 @@
                                                 CornerRadius="8">
                                                 <e:CoverImage
                                                     Background="{Binding Chart.Manifest.Meta.CoverDominantColor, Converter={x:Static converters:FuncValueConverters.HexColorToBrushConverter}}"
-                                                    DecodeWidth="164"
                                                     Source="{Binding Chart.CoverPath}"
                                                     Stretch="UniformToFill" />
                                             </Border>

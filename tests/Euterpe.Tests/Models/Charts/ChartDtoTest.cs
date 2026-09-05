@@ -152,38 +152,14 @@ public sealed class ChartDtoTest
     }
 
     [Test]
-    public async Task CoverPath_WebpAndPng_PrefersWebp()
+    public async Task CoverPath_CoverWebp_ResolvesPath()
     {
         var chart = CreateChart(files: new Dictionary<string, ManifestFileEntry>
         {
-            ["cover.png"] = new(),
             ["cover.webp"] = new()
         });
 
         await Assert.That(chart.CoverPath).IsEqualTo(Path.Combine("/charts/folder", "cover.webp"));
-    }
-
-    [Test]
-    public async Task CoverPath_PngAndGif_PrefersPng()
-    {
-        var chart = CreateChart(files: new Dictionary<string, ManifestFileEntry>
-        {
-            ["cover.gif"] = new(),
-            ["cover.png"] = new()
-        });
-
-        await Assert.That(chart.CoverPath).IsEqualTo(Path.Combine("/charts/folder", "cover.png"));
-    }
-
-    [Test]
-    public async Task CoverPath_OnlyGif_ResolvesGif()
-    {
-        var chart = CreateChart(files: new Dictionary<string, ManifestFileEntry>
-        {
-            ["cover.gif"] = new()
-        });
-
-        await Assert.That(chart.CoverPath).IsEqualTo(Path.Combine("/charts/folder", "cover.gif"));
     }
 
     [Test]

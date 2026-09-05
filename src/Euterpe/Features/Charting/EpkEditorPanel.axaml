@@ -100,7 +100,6 @@
                             Opacity="0.4"
                             Width="18" />
                         <e:CoverImage
-                            DecodeWidth="48"
                             Source="{Binding CoverPath}"
                             Stretch="UniformToFill" />
                     </Panel>

@@ -1,3 +1,4 @@
+using Avalonia.Labs.AnimatedImage;
 using Euterpe.Features.Charting;
 using Euterpe.Features.Home;
 using Euterpe.Features.Logging;
@@ -16,7 +17,20 @@ public sealed class ViewSmokeTest : HeadlessTest
     public Task ChartingPage_LoadsIntoVisualTree() => Smoke(() => new ChartingPage());
 
     [Test]
-    public Task HomePage_LoadsIntoVisualTree() => Smoke(() => new HomePage());
+    public Task HomePage_LoadsIntoVisualTree() => RunOnUI(async () =>
+    {
+        var view = new HomePage();
+        var window = new Window { Content = view, Width = 800, Height = 600 };
+        window.Show();
+        Dispatcher.UIThread.RunJobs();
+
+        var source = view.GetVisualDescendants().OfType<AnimatedImage>().Single().Source;
+        using var _ = Assert.Multiple();
+        await Assert.That(view.IsLoaded).IsTrue();
+        await Assert.That(source).IsNotNull();
+        await Assert.That(source!.IsInitialized).IsTrue();
+        await Assert.That(source.FrameCount).IsGreaterThan(1);
+    });
 
     [Test]
     public Task LoggingPage_LoadsIntoVisualTree() => Smoke(() => new LoggingPage());
